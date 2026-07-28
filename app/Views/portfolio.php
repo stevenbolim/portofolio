@@ -349,7 +349,7 @@
         <p>Riwayat studi formal dan aktivitas organisasi kemahasiswaan serta kepemudaan.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2.5rem;">
+      <div class="education-org-grid">
         <!-- Formal Education -->
         <div>
           <h3 style="font-size:1.4rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem;">

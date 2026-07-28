@@ -548,6 +548,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
 }
 
+.education-org-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
 .highlight-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1276,10 +1282,13 @@ h1, h2, h3, h4, h5, h6 {
   .projects-grid,
   .skills-grid,
   .achievements-grid,
-  .experience-grid {
+  .experience-grid,
+  .about-highlights,
+  .education-org-grid,
+  .quick-stats-grid {
     grid-template-columns: 1fr !important;
-    gap: 1.25rem;
-    width: 100%;
+    gap: 1.25rem !important;
+    width: 100% !important;
   }
 
   .section-title {
