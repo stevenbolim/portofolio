@@ -54,6 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinksContainer.style.display = '';
       }
     });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinksContainer.classList.contains('active')) {
+          navLinksContainer.classList.remove('active');
+          navLinksContainer.style.display = '';
+        }
+      });
+    });
   }
 
   // 3. Skills Filter Tabs
