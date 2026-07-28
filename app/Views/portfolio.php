@@ -8,6 +8,7 @@
   <meta name="keywords" content="Steven Aditya Pratama, Jointer Fiber Optik, FTTH, Pergudangan, S1 Teknik Informatika, Universitas Dian Nusantara, Web Developer, Front-End Developer, Telkom Akses, Icon Plus">
   <meta name="author" content="Steven Aditya Pratama">
   <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="GlxguRp9I8EeqQmzXzQJVbSpkmrz-NuKqUoJbPhcy0k" />
   <link rel="canonical" href="https://stevenadityapratama.vercel.app/">
 
   <!-- Open Graph / Social Media Meta Tags -->
