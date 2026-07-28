@@ -57,7 +57,7 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="logo">
-        <span class="dot"></span> STEVEN ADITYA PRATAMA
+        <span class="dot"></span> <span class="logo-full">STEVEN ADITYA PRATAMA</span><span class="logo-short">STEVEN A. PRATAMA</span>
       </a>
 
       <ul class="nav-links">
@@ -69,15 +69,18 @@
         <li><a href="#education" class="nav-link">Pendidikan</a></li>
         <li><a href="#achievements" class="nav-link">Prestasi</a></li>
         <li><a href="#contact" class="nav-link">Kontak</a></li>
+        <li class="mobile-cv-item"><a href="javascript:void(0)" onclick="openCvModal()" class="nav-link" style="color:var(--primary-cyan); font-weight:700;"><i class="fas fa-file-image"></i> Lihat CV (JPG)</a></li>
       </ul>
 
-      <button onclick="openCvModal()" class="nav-btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;">
-        <i class="fas fa-file-image"></i> CV JPG
-      </button>
+      <div class="nav-actions">
+        <button onclick="openCvModal()" class="nav-btn">
+          <i class="fas fa-file-image"></i> CV JPG
+        </button>
 
-      <button class="mobile-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
+        <button class="mobile-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
