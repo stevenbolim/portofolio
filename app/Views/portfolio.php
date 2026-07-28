@@ -3,9 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= esc($profile['name']) ?> - Web & Telecom Portfolio</title>
-  <meta name="description" content="Portofolio Steven Aditya Pratama - Informatics Engineering, Network & Fiber Optic Specialist, Web Developer CodeIgniter 4, UI/UX Designer.">
+  <title>Steven Aditya Pratama - S1 Teknik Informatika, Jointer Fiber Optik / FTTH, Pergudangan & Front-End Web Developer</title>
+  <meta name="description" content="Portofolio Resmi Steven Aditya Pratama - Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Keahlian: Jointer Fiber Optik / FTTH, Manajemen Pergudangan, Network Engineer, & Front-End Web Developer (PHP CodeIgniter 4 / UI/UX).">
+  <meta name="keywords" content="Steven Aditya Pratama, Jointer Fiber Optik, FTTH, Pergudangan, S1 Teknik Informatika, Universitas Dian Nusantara, Web Developer, Front-End Developer, Telkom Akses, Icon Plus">
   <meta name="author" content="Steven Aditya Pratama">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stevenadityapratama.vercel.app/">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stevenadityapratama.vercel.app/">
+  <meta property="og:title" content="Steven Aditya Pratama - Portofolio Profesional & Keahlian">
+  <meta property="og:description" content="S1 Teknik Informatika | Jointer Fiber Optik / FTTH | Pergudangan | Front-End Web Developer.">
+  <meta property="og:image" content="<?= base_url('assets/img/steven_profile.jpg') ?>">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Indexing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Steven Aditya Pratama",
+    "jobTitle": "Front-End Web Developer, Jointer Fiber Optik / FTTH, Warehouse Specialist",
+    "alumniOf": "Universitas Dian Nusantara",
+    "url": "https://stevenadityapratama.vercel.app/",
+    "sameAs": [
+      "https://www.linkedin.com/in/steven-aditya",
+      "https://github.com/stevenbollm"
+    ],
+    "knowsAbout": [
+      "Fiber Optic FTTH",
+      "Telecommunications Cable Jointer",
+      "Warehouse Material Management",
+      "Front-End Web Development",
+      "CodeIgniter 4",
+      "UI/UX Design"
+    ]
+  }
+  </script>
 
   <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
