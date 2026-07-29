@@ -212,13 +212,19 @@
             <span class="cloud-tag tag-fo" data-target="#skills" title="Klik untuk menuju Keahlian Fiber Optic">Fiber Optic</span>
             <span class="cloud-tag tag-cramping" data-target="#achievements" title="Klik untuk menuju Publikasi Cramping Kabel">Cramping kabel</span>
             <span class="cloud-tag tag-rj45" data-target="#achievements" title="Klik untuk menuju Publikasi RJ-45">RJ-45</span>
-            <span class="cloud-tag tag-spk" data-target="#experiences" title="Klik untuk menuju Pengalaman Telkom Akses Warehouse">Warehouse Refurbish</span>
+            <span class="cloud-tag tag-spk" data-target="#achievements" title="Klik untuk menuju Publikasi Teknisi Komunitas">Teknisi Komunitas</span>
             <span class="cloud-tag tag-website" data-target="#projects" title="Klik untuk menuju Proyek Telegram Bot API">Telegram Bot API</span>
             <span class="cloud-tag tag-ai" data-target="#projects" title="Klik untuk menuju Proyek UI/UX Mobile PASS">UI/UX Mobile</span>
-            <span class="cloud-tag tag-classif" data-target="#experiences" title="Klik untuk menuju Pengalaman PLN Icon Plus ODC">ODC & ODP</span>
-            <span class="cloud-tag tag-android" data-target="#experiences" title="Klik untuk menuju Pengalaman Cisco Router & GPON">Cisco & GPON</span>
+            <span class="cloud-tag tag-classif" data-target="#experience" title="Klik untuk menuju Pengalaman ODC & ODP PLN Icon Plus">ODC & ODP</span>
+            <span class="cloud-tag tag-android" data-target="#experience" title="Klik untuk menuju Pengalaman Cisco Router & GPON">Cisco & GPON</span>
             <span class="cloud-tag tag-bigdata" data-target="#skills" title="Klik untuk menuju Skill Python">Python</span>
             <span class="cloud-tag tag-id" data-target="#achievements" title="Klik untuk menuju Sertifikasi BNSP">BNSP Sertifikasi</span>
+            <span class="cloud-tag tag-telkom" data-target="#experience" title="Klik untuk menuju Pengalaman PT Telkom Akses">Telkom Akses</span>
+            <span class="cloud-tag tag-pln" data-target="#experience" title="Klik untuk menuju Pengalaman PT PLN Icon Plus">PLN Icon Plus</span>
+            <span class="cloud-tag tag-s1" data-target="#education" title="Klik untuk menuju Pendidikan S1 Undira">S1 Teknik Informatika</span>
+            <span class="cloud-tag tag-smk" data-target="#education" title="Klik untuk menuju Pendidikan SMK Telkom Jakarta">SMK Telkom Jakarta</span>
+            <span class="cloud-tag tag-himti" data-target="#education" title="Klik untuk menuju Pengalaman Wakil Ketua HIMTI">Wakil Ketua HIMTI</span>
+            <span class="cloud-tag tag-abdimas" data-target="#achievements" title="Klik untuk menuju Jurnal Pengabdian Masyarakat">Pengabdian Masyarakat</span>
           </div>
         </div>
       </div>
