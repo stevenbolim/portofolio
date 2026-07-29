@@ -285,13 +285,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       console.warn('CounterAPI fallback:', err);
+    }
+  }
+
   initVisitorCounter();
 
   // 8. Back to Top Floating Arrow Button
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (backToTopBtn) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 150) {
         backToTopBtn.classList.add('show');
       } else {
         backToTopBtn.classList.remove('show');
