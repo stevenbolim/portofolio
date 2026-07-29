@@ -445,7 +445,17 @@
 
               <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); padding:1rem; border-radius:8px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
                 <p style="margin:0 0 0.5rem 0; color:#e2e8f0;"><strong>Penulis:</strong> <?= esc($pub['authors']) ?> (<?= esc($pub['institution']) ?>)</p>
-                <p style="margin:0;"><strong style="color:#e2e8f0;">Abstrak:</strong> <?= esc($pub['abstract']) ?></p>
+                <p style="margin:0 0 0.75rem 0;"><strong style="color:#e2e8f0;">Abstrak:</strong> <?= esc($pub['abstract']) ?></p>
+                <?php if (!empty($pub['keywords'])): ?>
+                  <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; border-top:1px dashed rgba(255,255,255,0.1); padding-top:0.65rem; margin-top:0.5rem;">
+                    <strong style="color:#e2e8f0; font-size:0.82rem;"><i class="fas fa-tags" style="color:var(--primary-cyan);"></i> Kata Kunci (Keywords):</strong>
+                    <?php foreach ($pub['keywords'] as $kw): ?>
+                      <span style="font-size:0.75rem; color:var(--primary-cyan); background:rgba(52, 211, 153, 0.1); border:1px solid rgba(52, 211, 153, 0.25); padding:0.15rem 0.55rem; border-radius:50px; font-weight:600;">
+                        <?= esc($kw) ?>
+                      </span>
+                    <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
               </div>
 
               <div style="display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; margin-top:0.25rem;">
