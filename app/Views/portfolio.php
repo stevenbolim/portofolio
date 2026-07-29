@@ -402,7 +402,24 @@
                   </div>
                   <ul class="timeline-tasks">
                     <?php foreach ($edu['details'] as $det): ?>
-                      <li><?= esc($det) ?></li>
+                      <li style="margin-bottom:0.75rem;">
+                        <span><?= esc($det) ?></span>
+                        <?php if (strpos($det, 'Pengabdian Masyarakat') !== false && !empty($edu['youtube_embed_id'])): ?>
+                          <div class="youtube-embed-wrapper" style="margin-top:0.75rem; border-radius:12px; overflow:hidden; border:1px solid rgba(239,68,68,0.4); background:rgba(7,15,11,0.95); box-shadow:0 8px 30px rgba(0,0,0,0.6);">
+                            <div style="padding:0.5rem 0.85rem; background:rgba(239,68,68,0.12); border-bottom:1px solid rgba(239,68,68,0.25); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+                              <span style="font-size:0.82rem; color:#fca5a5; font-weight:700; display:flex; align-items:center; gap:0.4rem;">
+                                <i class="fab fa-youtube" style="color:#ef4444; font-size:1.1rem;"></i> Dokumentasi PKM-PM Karang Taruna Unit 04
+                              </span>
+                              <a href="<?= esc($edu['youtube_url']) ?>" target="_blank" style="font-size:0.75rem; color:var(--primary-cyan); text-decoration:none; font-weight:600;">
+                                <i class="fas fa-external-link-alt"></i> Buka YouTube
+                              </a>
+                            </div>
+                            <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+                              <iframe src="https://www.youtube.com/embed/<?= esc($edu['youtube_embed_id']) ?>" title="Video Dokumentasi PKM-PM Karang Taruna Unit 04" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"></iframe>
+                            </div>
+                          </div>
+                        <?php endif; ?>
+                      </li>
                     <?php endforeach; ?>
                   </ul>
                 </div>
@@ -426,12 +443,7 @@
                     <span class="timeline-period"><?= esc($org['period']) ?></span>
                   </div>
                   <h4 style="color:#fff; font-size:1rem; margin-bottom:0.5rem;"><?= esc($org['role']) ?></h4>
-                  <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:0.6rem;"><?= esc($org['details']) ?></p>
-                  <?php if (!empty($org['youtube_url'])): ?>
-                    <a href="<?= esc($org['youtube_url']) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.85rem; font-size:0.8rem; border-color:rgba(239,68,68,0.4); color:#fca5a5; background:rgba(239,68,68,0.12);">
-                      <i class="fab fa-youtube" style="color:#ef4444; font-size:0.95rem;"></i> Tonton Video PKM-PM Karang Taruna Unit 04
-                    </a>
-                  <?php endif; ?>
+                  <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;"><?= esc($org['details']) ?></p>
                 </div>
               </div>
             <?php endforeach; ?>
@@ -497,11 +509,6 @@
                 <a href="<?= esc($pub['pdf_url']) ?>" target="_blank" class="btn-secondary" style="padding:0.45rem 1rem; font-size:0.84rem;">
                   <i class="fas fa-file-pdf" style="color:#ef4444;"></i> Download PDF Jurnal
                 </a>
-                <?php if (!empty($pub['youtube_url'])): ?>
-                  <a href="<?= esc($pub['youtube_url']) ?>" target="_blank" class="btn-secondary" style="padding:0.45rem 1rem; font-size:0.84rem; border-color:rgba(239,68,68,0.4); color:#fca5a5; background:rgba(239,68,68,0.12);">
-                    <i class="fab fa-youtube" style="color:#ef4444; font-size:1rem;"></i> Tonton Video PKM-PM (YouTube)
-                  </a>
-                <?php endif; ?>
               </div>
             </div>
           <?php endforeach; ?>
