@@ -1618,25 +1618,16 @@ h1, h2, h3, h4, h5, h6 {
   filter: brightness(1.35);
 }
 
-/* Custom Tag Sizes, Colors & Orientations */
-.tag-ml { font-size: 2.1rem; color: #a3e635; transform: rotate(-12deg); }
-.tag-spk { font-size: 1.2rem; color: #f87171; transform: rotate(0deg); }
-.tag-ai { font-size: 1.6rem; color: #d97706; transform: rotate(0deg); }
-.tag-website { font-size: 1.5rem; color: #fb923c; transform: rotate(75deg); }
-.tag-ci { font-size: 1.3rem; color: #2dd4bf; transform: rotate(-18deg); }
-.tag-classif { font-size: 1.05rem; color: #38bdf8; transform: rotate(-85deg); }
-.tag-rf { font-size: 1.15rem; color: #60a5fa; transform: rotate(40deg); }
-.tag-xgb { font-size: 1.1rem; color: #c084fc; transform: rotate(-25deg); }
-.tag-android { font-size: 1.05rem; color: #f472b6; transform: rotate(65deg); }
-.tag-web { font-size: 0.95rem; color: #a855f7; transform: rotate(0deg); }
-.tag-id { font-size: 1.1rem; color: #ec4899; transform: rotate(0deg); }
-.tag-sistem { font-size: 1.15rem; color: #22d3ee; transform: rotate(0deg); }
-.tag-bigdata { font-size: 1.1rem; color: #3b82f6; transform: rotate(30deg); }
-.tag-waterfall { font-size: 1.15rem; color: #f472b6; transform: rotate(-15deg); }
-.tag-klasifikasi { font-size: 1.05rem; color: #94a3b8; transform: rotate(-10deg); }
-.tag-uml { font-size: 1.1rem; color: #fb923c; transform: rotate(-65deg); }
-.tag-webbased { font-size: 1.05rem; color: #cbd5e1; transform: rotate(0deg); }
-.tag-agile { font-size: 1.05rem; color: #64748b; transform: rotate(45deg); }
-.tag-fo { font-size: 1.4rem; color: #34d399; transform: rotate(0deg); }
-.tag-cramping { font-size: 1.25rem; color: #fbbf24; transform: rotate(-8deg); }
-.tag-rj45 { font-size: 1.1rem; color: #10b981; transform: rotate(20deg); }
+/* Custom Tag Sizes, Colors & Orientations (Highlight Edition) */
+.tag-ml { font-size: 1.95rem; color: #a3e635; transform: rotate(-5deg); }
+.tag-ci { font-size: 1.45rem; color: #2dd4bf; transform: rotate(4deg); }
+.tag-fo { font-size: 1.55rem; color: #34d399; transform: rotate(0deg); }
+.tag-cramping { font-size: 1.35rem; color: #fbbf24; transform: rotate(-4deg); }
+.tag-rj45 { font-size: 1.25rem; color: #10b981; transform: rotate(0deg); }
+.tag-spk { font-size: 1.25rem; color: #f87171; transform: rotate(3deg); }
+.tag-website { font-size: 1.35rem; color: #fb923c; transform: rotate(-6deg); }
+.tag-ai { font-size: 1.45rem; color: #f59e0b; transform: rotate(0deg); }
+.tag-classif { font-size: 1.2rem; color: #38bdf8; transform: rotate(5deg); }
+.tag-android { font-size: 1.25rem; color: #f472b6; transform: rotate(-4deg); }
+.tag-bigdata { font-size: 1.2rem; color: #60a5fa; transform: rotate(0deg); }
+.tag-id { font-size: 1.25rem; color: #ec4899; transform: rotate(4deg); }
