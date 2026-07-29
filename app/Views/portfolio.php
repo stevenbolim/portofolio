@@ -413,10 +413,57 @@
   <section id="achievements" class="section">
     <div class="container">
       <div class="section-title">
-        <span class="sub-tag">Penghargaan & Lisensi</span>
-        <h2>Prestasi <span class="gradient-text">& Sertifikasi</span></h2>
-        <p>Sertifikasi kompetensi nasional BNSP, penghargaan kompetisi AI Chatbot, dan pelatihan resmi industri.</p>
+        <span class="sub-tag">Publikasi, Penghargaan & Lisensi</span>
+        <h2>Prestasi <span class="gradient-text">& Publikasi Jurnal</span></h2>
+        <p>Publikasi jurnal ilmiah pengabdian masyarakat, sertifikasi kompetensi BNSP, dan pelatihan resmi industri.</p>
       </div>
+
+      <!-- Featured Scientific Publication Card -->
+      <?php if (!empty($publications)): ?>
+        <div style="margin-bottom: 2.5rem;">
+          <h3 style="font-size:1.3rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:0.6rem; color:#fff;">
+            <i class="fas fa-book-open" style="color:var(--primary-cyan);"></i> Publikasi Jurnal & Karya Ilmiah
+          </h3>
+          <?php foreach ($publications as $pub): ?>
+            <div class="highlight-card" style="background: rgba(13, 27, 19, 0.75); border: 1px solid rgba(52, 211, 153, 0.35); padding: 1.5rem; border-radius: var(--radius-lg); flex-direction: column; gap: 1rem;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; width:100%;">
+                <div>
+                  <span class="achievement-tag" style="background:rgba(52, 211, 153, 0.15); color:var(--primary-cyan); font-weight:700; padding:0.25rem 0.75rem; border-radius:50px; font-size:0.78rem;">
+                    <i class="fas fa-newspaper"></i> <?= esc($pub['type']) ?>
+                  </span>
+                  <h4 style="font-size:1.2rem; color:#fff; margin-top:0.75rem; margin-bottom:0.4rem; line-height:1.4;">
+                    <?= esc($pub['title']) ?>
+                  </h4>
+                  <p style="color:var(--text-muted); font-size:0.88rem; margin:0; line-height:1.5;">
+                    <strong style="color:var(--primary-cyan);"><?= esc($pub['journal']) ?></strong> &bull; <?= esc($pub['volume']) ?>
+                  </p>
+                </div>
+                <span style="font-size:0.82rem; color:var(--primary-cyan); font-weight:700; background:rgba(52, 211, 153, 0.12); padding:0.25rem 0.75rem; border-radius:6px; border:1px solid rgba(52, 211, 153, 0.25); font-family:var(--font-code); flex-shrink:0;">
+                  <?= esc($pub['year']) ?>
+                </span>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); padding:1rem; border-radius:8px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
+                <p style="margin:0 0 0.5rem 0; color:#e2e8f0;"><strong>Penulis:</strong> <?= esc($pub['authors']) ?> (<?= esc($pub['institution']) ?>)</p>
+                <p style="margin:0;"><strong style="color:#e2e8f0;">Abstrak:</strong> <?= esc($pub['abstract']) ?></p>
+              </div>
+
+              <div style="display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; margin-top:0.25rem;">
+                <a href="<?= esc($pub['url']) ?>" target="_blank" class="nav-btn" style="padding:0.5rem 1.1rem; font-size:0.84rem;">
+                  <i class="fas fa-external-link-alt"></i> Lihat Artikel Jurnal (DOI)
+                </a>
+                <a href="<?= esc($pub['pdf_url']) ?>" target="_blank" class="btn-secondary" style="padding:0.45rem 1rem; font-size:0.84rem;">
+                  <i class="fas fa-file-pdf" style="color:#ef4444;"></i> Download PDF Jurnal
+                </a>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+
+      <h3 style="font-size:1.3rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:0.6rem; color:#fff;">
+        <i class="fas fa-certificate" style="color:var(--primary-cyan);"></i> Sertifikasi & Penghargaan Lainnya
+      </h3>
 
       <div class="achievements-grid">
         <?php foreach ($achievements as $ach): ?>

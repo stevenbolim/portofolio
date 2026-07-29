@@ -307,7 +307,30 @@ class Home extends BaseController
                 ]
             ],
 
+            'publications' => [
+                [
+                    'title'       => 'Optimalisasi Jaringan Komputer melalui Pelatihan Cramping Kabel bagi Teknisi Komunitas',
+                    'journal'     => 'Lentera Pengabdian (Jurnal Lentera Nusantara)',
+                    'volume'      => 'Vol. 3 No. 04 (Oktober 2025)',
+                    'year'        => '2025',
+                    'authors'     => 'Bias Yulisa Geni, Anita Ratnasari, Sri Dianing Asri, Steven Aditya Pratama',
+                    'institution' => 'Universitas Dian Nusantara',
+                    'doi'         => 'https://doi.org/10.59422/lp.v3i04.1245',
+                    'url'         => 'https://jurnal.lenteranusa.id/index.php/lp/article/view/1245',
+                    'pdf_url'     => 'https://jurnal.lenteranusa.id/index.php/lp/article/view/1245/857',
+                    'type'        => 'Jurnal Pengabdian Masyarakat (Abdimas)',
+                    'abstract'    => 'Kegiatan pengabdian kepada masyarakat ini bertujuan untuk memberdayakan teknisi komunitas lokal melalui peningkatan keterampilan teknis dalam pemasangan kabel jaringan komputer, khususnya teknik cramping kabel menggunakan konektor RJ-45.'
+                ]
+            ],
+
             'achievements' => [
+                [
+                    'year'    => '2025',
+                    'title'   => 'Optimalisasi Jaringan Komputer melalui Pelatihan Cramping Kabel bagi Teknisi Komunitas',
+                    'issuer'  => 'Lentera Pengabdian (Jurnal Lentera Nusantara) | DOI: 10.59422/lp.v3i04.1245',
+                    'type'    => 'Publikasi Jurnal Ilmiah',
+                    'icon'    => 'fa-book-open'
+                ],
                 [
                     'year'    => '2024',
                     'title'   => 'Juara 3 - Indonesian Chatbot Championship Challenge',
