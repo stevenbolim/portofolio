@@ -207,27 +207,26 @@
             <h4>KEYWORDS</h4>
           </div>
           <div class="word-cloud-container">
-            <span class="cloud-tag tag-id">Indonesia</span>
-            <span class="cloud-tag tag-sistem">sistem</span>
-            <span class="cloud-tag tag-ci">codeigniter</span>
-            <span class="cloud-tag tag-classif">classification</span>
-            <span class="cloud-tag tag-web">web</span>
-            <span class="cloud-tag tag-xgb">xgboost</span>
-            <span class="cloud-tag tag-website">website</span>
-            <span class="cloud-tag tag-rf">random forest</span>
-            <span class="cloud-tag tag-android">android</span>
-            <span class="cloud-tag tag-ml">machine learning</span>
-            <span class="cloud-tag tag-bigdata">big data</span>
-            <span class="cloud-tag tag-waterfall">Waterfall</span>
-            <span class="cloud-tag tag-ai">Kecerdasan buatan</span>
-            <span class="cloud-tag tag-klasifikasi">klasifikasi</span>
-            <span class="cloud-tag tag-spk">sistem pendukung keputusan</span>
-            <span class="cloud-tag tag-uml">UML</span>
-            <span class="cloud-tag tag-webbased">web-based system</span>
-            <span class="cloud-tag tag-agile">agile</span>
-            <span class="cloud-tag tag-fo">Fiber Optic</span>
-            <span class="cloud-tag tag-cramping">Cramping kabel</span>
-            <span class="cloud-tag tag-rj45">RJ-45</span>
+            <span class="cloud-tag tag-ci" data-target="#skills" title="Klik untuk menuju ke Keahlian CodeIgniter 4">CodeIgniter 4</span>
+            <span class="cloud-tag tag-fo" data-target="#skills" title="Klik untuk menuju ke Keahlian Fiber Optic">Fiber Optic</span>
+            <span class="cloud-tag tag-ml" data-target="#skills" title="Klik untuk menuju ke Keahlian Machine Learning">Machine Learning</span>
+            <span class="cloud-tag tag-cramping" data-target="#achievements" title="Klik untuk menuju ke Publikasi Cramping Kabel">Cramping kabel</span>
+            <span class="cloud-tag tag-rj45" data-target="#achievements" title="Klik untuk menuju ke Publikasi Jurnal">RJ-45</span>
+            <span class="cloud-tag tag-spk" data-target="#experiences" title="Klik untuk menuju Pengalaman Telkom Akses Warehouse">Warehouse Refurbish</span>
+            <span class="cloud-tag tag-website" data-target="#projects" title="Klik untuk menuju Proyek Telegram Bot API">Telegram Bot API</span>
+            <span class="cloud-tag tag-ai" data-target="#projects" title="Klik untuk menuju Proyek PASS Mobile UI/UX">UI/UX Mobile</span>
+            <span class="cloud-tag tag-classif" data-target="#experiences" title="Klik untuk menuju Pengalaman PLN Icon Plus">ODC & ODP</span>
+            <span class="cloud-tag tag-rf" data-target="#skills" title="Klik untuk menuju Skill Jointer FTTH">Jointer FTTH</span>
+            <span class="cloud-tag tag-xgb" data-target="#skills" title="Klik untuk menuju Skill Network Troubleshooting">Troubleshooting</span>
+            <span class="cloud-tag tag-android" data-target="#experiences" title="Klik untuk menuju Pengalaman Cisco ASR & GPON OLT">Cisco ASR & GPON</span>
+            <span class="cloud-tag tag-bigdata" data-target="#skills" title="Klik untuk menuju Skill Python Programming">Python</span>
+            <span class="cloud-tag tag-waterfall" data-target="#skills" title="Klik untuk menuju Skill HTML5 & CSS3">HTML5 & CSS3</span>
+            <span class="cloud-tag tag-id" data-target="#achievements" title="Klik untuk menuju Sertifikasi BNSP">BNSP Sertifikasi</span>
+            <span class="cloud-tag tag-sistem" data-target="#about" title="Klik untuk menuju Organisasi HIMTI">Wakil Ketua HIMTI</span>
+            <span class="cloud-tag tag-uml" data-target="#skills" title="Klik untuk menuju Skill Git & GitHub">Git & GitHub</span>
+            <span class="cloud-tag tag-webbased" data-target="#skills" title="Klik untuk menuju Soft Skill Public Speaking">Public Speaking</span>
+            <span class="cloud-tag tag-agile" data-target="#skills" title="Klik untuk menuju Soft Skill Leadership">Leadership</span>
+            <span class="cloud-tag tag-web" data-target="#contact" title="Klik menuju Formulir Kontak Direct">Kontak Direct</span>
           </div>
         </div>
       </div>
@@ -662,14 +661,14 @@
   </div>
 
   <!-- Modal Lightbox for Full-Screen Image Viewer & Zoom -->
-  <div id="imageViewerModal" class="modal-overlay" style="z-index:3000; padding:1rem;">
+  <div id="imageViewerModal" class="modal-overlay" style="z-index:100000; padding:1rem;">
     <div style="position:relative; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-      <button class="modal-close" onclick="closeImageViewer()" aria-label="Close image viewer" style="position:fixed; top:1.5rem; right:1.5rem; z-index:3010; width:44px; height:44px; font-size:1.3rem; background:rgba(7,15,11,0.9); border:1px solid var(--primary-cyan); color:var(--primary-cyan);">
+      <button class="modal-close" onclick="closeImageViewer()" aria-label="Tutup Tampilan Gambar" title="Tutup (ESC)" style="position:fixed; top:1.5rem; right:1.5rem; z-index:100005; width:48px; height:48px; font-size:1.4rem; background:rgba(7,15,11,0.95); border:2px solid var(--primary-cyan); color:var(--primary-cyan); box-shadow:0 0 25px rgba(0,0,0,0.8), 0 0 12px rgba(52,211,153,0.5);">
         <i class="fas fa-times"></i>
       </button>
 
-      <div style="position:fixed; top:1.5rem; left:1.5rem; z-index:3010; display:flex; gap:0.75rem;">
-        <button onclick="toggleZoomImage()" class="btn-primary" style="padding:0.5rem 1.1rem; font-size:0.85rem; border-radius:50px;">
+      <div style="position:fixed; top:1.5rem; left:1.5rem; z-index:100005; display:flex; gap:0.75rem;">
+        <button onclick="toggleZoomImage()" class="btn-primary" style="padding:0.55rem 1.2rem; font-size:0.85rem; border-radius:50px; box-shadow:0 4px 20px rgba(0,0,0,0.6);">
           <i class="fas fa-search-plus" id="zoomIcon"></i> <span id="zoomText">Perbesar (Zoom 1.8x)</span>
         </button>
       </div>

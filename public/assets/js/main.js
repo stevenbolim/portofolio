@@ -308,5 +308,32 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+  // 9. Word Cloud Tag Interactive Smooth Scroll
+  const cloudTags = document.querySelectorAll('.cloud-tag');
+  cloudTags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      const targetSelector = tag.getAttribute('data-target');
+      if (targetSelector) {
+        const targetEl = document.querySelector(targetSelector);
+        if (targetEl) {
+          const navOffset = 90;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Glow highlight effect on targeted section
+          targetEl.style.transition = 'box-shadow 0.4s ease, border-color 0.4s ease';
+          targetEl.style.boxShadow = '0 0 35px rgba(52, 211, 153, 0.4)';
+          setTimeout(() => {
+            targetEl.style.boxShadow = '';
+          }, 1800);
+        }
+      }
+    });
+  });
 
 });
