@@ -250,25 +250,42 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateRealtimeClock, 1000);
   updateRealtimeClock();
 
-  // 7. Dynamic Local Visitor Counter
-  function initVisitorCounter() {
-    let views = parseInt(localStorage.getItem('portofolio_views') || '1284');
-    let visitors = parseInt(localStorage.getItem('portofolio_unique_visitors') || '425');
-    let hasVisited = sessionStorage.getItem('portofolio_session_active');
-
-    views += 1;
-    localStorage.setItem('portofolio_views', views);
-
-    if (!hasVisited) {
-      visitors += 1;
-      localStorage.setItem('portofolio_unique_visitors', visitors);
-      sessionStorage.setItem('portofolio_session_active', 'true');
-    }
-
+  // 7. 100% Murni & Real Global Visitor Counter (CounterAPI REST Server)
+  async function initVisitorCounter() {
     const viewsEl = document.getElementById('totalPageViews');
     const visitorsEl = document.getElementById('uniqueVisitors');
-    if (viewsEl) viewsEl.textContent = views.toLocaleString('id-ID');
-    if (visitorsEl) visitorsEl.textContent = visitors.toLocaleString('id-ID');
+
+    const namespace = 'stevenadityapratama_portfolio';
+
+    try {
+      // 1. Increment total page views on global server
+      const viewsRes = await fetch(`https://api.counterapi.dev/v1/${namespace}/views/up`);
+      if (viewsRes.ok) {
+        const viewsData = await viewsRes.json();
+        if (viewsEl && viewsData.count !== undefined) {
+          viewsEl.textContent = viewsData.count.toLocaleString('id-ID');
+        }
+      }
+
+      // 2. Increment unique visitor count only for new sessions
+      const hasVisited = sessionStorage.getItem('steven_session_active');
+      let visitorEndpoint = `https://api.counterapi.dev/v1/${namespace}/visitors/`;
+
+      if (!hasVisited) {
+        visitorEndpoint += 'up';
+        sessionStorage.setItem('steven_session_active', 'true');
+      }
+
+      const visitorRes = await fetch(visitorEndpoint);
+      if (visitorRes.ok) {
+        const visitorData = await visitorRes.json();
+        if (visitorsEl && visitorData.count !== undefined) {
+          visitorsEl.textContent = visitorData.count.toLocaleString('id-ID');
+        }
+      }
+    } catch (err) {
+      console.warn('CounterAPI fallback:', err);
+    }
   }
 
   initVisitorCounter();

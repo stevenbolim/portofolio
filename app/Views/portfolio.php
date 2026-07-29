@@ -620,11 +620,11 @@
           <div class="visitor-badges">
             <div class="visitor-badge-item">
               <i class="fas fa-eye"></i>
-              <span>Total Dilihat: <strong id="totalPageViews">1,284</strong></span>
+              <span>Total Dilihat: <strong id="totalPageViews">-</strong></span>
             </div>
             <div class="visitor-badge-item">
               <i class="fas fa-user-check"></i>
-              <span>Pengunjung Unik: <strong id="uniqueVisitors">425</strong></span>
+              <span>Pengunjung Unik: <strong id="uniqueVisitors">-</strong></span>
             </div>
             <div class="visitor-badge-item">
               <i class="fas fa-signal"></i>
