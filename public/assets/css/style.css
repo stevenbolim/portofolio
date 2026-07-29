@@ -300,11 +300,142 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-cyan);
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   max-width: 100%;
   white-space: normal;
   word-break: break-word;
   line-height: 1.4;
+}
+
+.live-clock-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1.2rem;
+  background: rgba(13, 27, 19, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 50px;
+  color: #ecfdf5;
+  font-size: 0.86rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.live-clock-card:hover {
+  border-color: var(--primary-cyan);
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.25);
+}
+
+.live-clock-card .clock-icon {
+  color: var(--primary-cyan);
+  font-size: 1rem;
+}
+
+.live-clock-card .clock-time {
+  color: var(--primary-cyan);
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+/* Visitor Flag Counter Styles */
+.visitor-counter-wrapper {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(52, 211, 153, 0.15);
+  display: flex;
+  justify-content: center;
+}
+
+.visitor-card {
+  background: rgba(13, 27, 19, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.visitor-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--primary-cyan);
+}
+
+.visitor-header h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.flag-counter-box {
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  padding: 0.5rem;
+}
+
+.flag-counter-box img {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.flag-counter-box img:hover {
+  transform: scale(1.02);
+}
+
+.visitor-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.visitor-badge-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.visitor-badge-item i {
+  color: var(--primary-cyan);
+}
+
+.visitor-badge-item strong {
+  color: #fff;
+}
+
+.status-online {
+  color: #10b981;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status-online i {
+  font-size: 0.5rem;
+  animation: pulse 1.5s infinite;
 }
 
 .badge-status .pulse-dot {

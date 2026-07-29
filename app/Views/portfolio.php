@@ -89,6 +89,11 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
+          <div class="live-clock-card">
+            <i class="far fa-clock clock-icon"></i>
+            <span id="realtimeClock">Memuat waktu realtime...</span>
+          </div>
+
           <div class="badge-status">
             <span class="pulse-dot"></span>
             <?= esc($profile['status']) ?>
@@ -596,7 +601,38 @@
   <footer class="footer">
     <div class="container">
       <p>&copy; <?= date('Y') ?> <strong><?= esc($profile['name']) ?></strong>. All rights reserved.</p>
-      <p style="font-size:0.8rem; color:var(--text-dim);">Built with PHP CodeIgniter 4 &amp; Modern Glassmorphic Design System</p>
+      <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:1.5rem;">Built with PHP CodeIgniter 4 &amp; Modern Glassmorphic Design System</p>
+
+      <!-- Visitor Flag Counter Widget -->
+      <div class="visitor-counter-wrapper">
+        <div class="visitor-card">
+          <div class="visitor-header">
+            <i class="fas fa-globe-asia"></i>
+            <h4>Statistik Pengunjung (Visitor Flag Counter)</h4>
+          </div>
+          
+          <div class="flag-counter-box">
+            <a href="https://info.flagcounter.com/Glxg" target="_blank" title="Visitor Flag Counter">
+              <img src="https://s11.flagcounter.com/count2/Glxg/bg_0D1B13/txt_ECFDF5/border_10B981/columns_4/maxflags_12/viewers_0/labels_1/pageviews_1/timeline_0/" alt="Flag Counter" border="0">
+            </a>
+          </div>
+
+          <div class="visitor-badges">
+            <div class="visitor-badge-item">
+              <i class="fas fa-eye"></i>
+              <span>Total Dilihat: <strong id="totalPageViews">1,284</strong></span>
+            </div>
+            <div class="visitor-badge-item">
+              <i class="fas fa-user-check"></i>
+              <span>Pengunjung Unik: <strong id="uniqueVisitors">425</strong></span>
+            </div>
+            <div class="visitor-badge-item">
+              <i class="fas fa-signal"></i>
+              <span>Status: <span class="status-online"><i class="fas fa-circle"></i> Live Online</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 

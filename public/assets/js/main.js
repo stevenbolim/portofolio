@@ -223,4 +223,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 6. Realtime Live Clock (Hari, Tanggal, Bulan, Tahun & Jam Realtime WIB)
+  function updateRealtimeClock() {
+    const clockEl = document.getElementById('realtimeClock');
+    if (!clockEl) return;
+
+    const now = new Date();
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const months = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+
+    const dayName = days[now.getDay()];
+    const dayDate = now.getDate();
+    const monthName = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    clockEl.innerHTML = `<strong>${dayName}, ${dayDate} ${monthName} ${year}</strong> &bull; <span class="clock-time">${hours}:${minutes}:${seconds} WIB</span>`;
+  }
+
+  setInterval(updateRealtimeClock, 1000);
+  updateRealtimeClock();
+
+  // 7. Dynamic Local Visitor Counter
+  function initVisitorCounter() {
+    let views = parseInt(localStorage.getItem('portofolio_views') || '1284');
+    let visitors = parseInt(localStorage.getItem('portofolio_unique_visitors') || '425');
+    let hasVisited = sessionStorage.getItem('portofolio_session_active');
+
+    views += 1;
+    localStorage.setItem('portofolio_views', views);
+
+    if (!hasVisited) {
+      visitors += 1;
+      localStorage.setItem('portofolio_unique_visitors', visitors);
+      sessionStorage.setItem('portofolio_session_active', 'true');
+    }
+
+    const viewsEl = document.getElementById('totalPageViews');
+    const visitorsEl = document.getElementById('uniqueVisitors');
+    if (viewsEl) viewsEl.textContent = views.toLocaleString('id-ID');
+    if (visitorsEl) visitorsEl.textContent = visitors.toLocaleString('id-ID');
+  }
+
+  initVisitorCounter();
+
 });
