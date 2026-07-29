@@ -741,6 +741,12 @@
       }
     });
   </script>
+
+  <!-- Back To Top Floating Button -->
+  <button id="backToTopBtn" class="back-to-top-btn" aria-label="Kembali ke Atas" title="Kembali ke Atas">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
   <script src="<?= base_url('assets/js/main.js') ?>"></script>
 </body>
 </html>
