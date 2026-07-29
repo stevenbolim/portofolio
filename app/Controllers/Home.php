@@ -282,10 +282,11 @@ class Home extends BaseController
                     'details'      => 'Memimpin 40+ panitia untuk menyelenggarakan seminar & workshop dengan 500+ peserta. Mengajar praktikum jaringan untuk 100+ mahasiswa (tingkat kelulusan 90%).'
                 ],
                 [
-                    'organization' => 'Karang Taruna Unit 04 & 05',
+                    'organization' => 'Karang Taruna Unit 04 & 05 (PKM-PM)',
                     'role'         => 'Ketua Divisi Humas & IT',
                     'period'       => 'Agu 2016 - Agu 2024',
-                    'details'      => 'Mengembangkan 10+ program kepemudaan & sosial (90% tingkat kepuasan warga). Merancang 50+ pamflet & banner digital meningkatkan engagement 40%.'
+                    'youtube_url'  => 'https://youtu.be/hkcLKYSnAUY?si=M23L8z62VTiO-Lmx',
+                    'details'      => 'Mengembangkan 10+ program kepemudaan, sosial & Pengabdian Kepada Masyarakat (PKM-PM Karang Taruna Unit 04). Merancang 50+ pamflet & dokumentasi video digital.'
                 ],
                 [
                     'organization' => 'Remaja Musholla',
@@ -318,6 +319,7 @@ class Home extends BaseController
                     'doi'         => 'https://doi.org/10.59422/lp.v3i04.1245',
                     'url'         => 'https://jurnal.lenteranusa.id/index.php/lp/article/view/1245',
                     'pdf_url'     => 'https://jurnal.lenteranusa.id/index.php/lp/article/view/1245/857',
+                    'youtube_url' => 'https://youtu.be/hkcLKYSnAUY?si=M23L8z62VTiO-Lmx',
                     'type'        => 'Jurnal Pengabdian Masyarakat (Abdimas)',
                     'keywords'    => ['Cramping kabel', 'RJ-45', 'Jaringan komputer', 'Teknisi komunitas', 'Pengabdian kepada masyarakat'],
                     'abstract'    => 'Kegiatan pengabdian kepada masyarakat ini bertujuan untuk memberdayakan teknisi komunitas lokal melalui peningkatan keterampilan teknis dalam pemasangan kabel jaringan komputer, khususnya teknik cramping kabel menggunakan konektor RJ-45. Permasalahan utama yang dihadapi teknisi adalah masih rendahnya pemahaman dan keterampilan dalam melakukan cramping kabel sesuai standar, sehingga berdampak pada kualitas jaringan yang kurang optimal, seperti koneksi lambat, tidak stabil, dan rentan mengalami gangguan. Kondisi tersebut dapat menghambat pengembangan infrastruktur jaringan yang dibutuhkan oleh sektor pendidikan, UMKM, pemerintahan, dan layanan masyarakat lainnya. Metode pelaksanaan kegiatan dilakukan melalui pelatihan terstruktur yang mencakup penyampaian materi dasar jaringan komputer, pengenalan alat dan bahan, praktik cramping kabel, penerapan standar susunan kabel, serta pengujian koneksi menggunakan alat tester jaringan. Selain itu, kegiatan ini juga dilengkapi dengan pendampingan teknis agar peserta mampu menerapkan keterampilan yang diperoleh dalam pekerjaan sehari-hari. Hasil yang diharapkan dari kegiatan ini adalah meningkatnya kompetensi teknisi dalam melakukan instalasi kabel jaringan secara benar, meningkatnya kualitas jaringan komputer lokal, berkurangnya gangguan konektivitas, serta meningkatnya peluang kerja dan proyek bagi teknisi komunitas. Dengan demikian, kegiatan ini diharapkan dapat memberikan kontribusi nyata terhadap penguatan infrastruktur jaringan komputer yang andal serta mendukung perkembangan pendidikan, pelayanan publik, dan pertumbuhan ekonomi lokal.'

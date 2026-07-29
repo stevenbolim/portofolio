@@ -426,7 +426,12 @@
                     <span class="timeline-period"><?= esc($org['period']) ?></span>
                   </div>
                   <h4 style="color:#fff; font-size:1rem; margin-bottom:0.5rem;"><?= esc($org['role']) ?></h4>
-                  <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;"><?= esc($org['details']) ?></p>
+                  <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:0.6rem;"><?= esc($org['details']) ?></p>
+                  <?php if (!empty($org['youtube_url'])): ?>
+                    <a href="<?= esc($org['youtube_url']) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.85rem; font-size:0.8rem; border-color:rgba(239,68,68,0.4); color:#fca5a5; background:rgba(239,68,68,0.12);">
+                      <i class="fab fa-youtube" style="color:#ef4444; font-size:0.95rem;"></i> Tonton Video PKM-PM Karang Taruna Unit 04
+                    </a>
+                  <?php endif; ?>
                 </div>
               </div>
             <?php endforeach; ?>
@@ -492,6 +497,11 @@
                 <a href="<?= esc($pub['pdf_url']) ?>" target="_blank" class="btn-secondary" style="padding:0.45rem 1rem; font-size:0.84rem;">
                   <i class="fas fa-file-pdf" style="color:#ef4444;"></i> Download PDF Jurnal
                 </a>
+                <?php if (!empty($pub['youtube_url'])): ?>
+                  <a href="<?= esc($pub['youtube_url']) ?>" target="_blank" class="btn-secondary" style="padding:0.45rem 1rem; font-size:0.84rem; border-color:rgba(239,68,68,0.4); color:#fca5a5; background:rgba(239,68,68,0.12);">
+                    <i class="fab fa-youtube" style="color:#ef4444; font-size:1rem;"></i> Tonton Video PKM-PM (YouTube)
+                  </a>
+                <?php endif; ?>
               </div>
             </div>
           <?php endforeach; ?>
