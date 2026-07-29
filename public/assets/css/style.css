@@ -1545,3 +1545,98 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
   }
 }
+
+/* Keywords Tag Cloud Card */
+.word-cloud-card {
+  background: rgba(13, 27, 19, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+}
+
+.word-cloud-header {
+  margin-bottom: 1.5rem;
+}
+
+.word-cloud-header h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem 0;
+  display: inline-block;
+  position: relative;
+}
+
+.word-cloud-header h4::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: #f59e0b;
+  margin-top: 0.4rem;
+  border-radius: 2px;
+}
+
+.word-cloud-container {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem 1.35rem;
+  padding: 1rem 0;
+}
+
+.cloud-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+  line-height: 1.2;
+}
+
+.cloud-tag:hover {
+  transform: scale(1.3) rotate(0deg) !important;
+  z-index: 10;
+  text-shadow: 0 0 18px currentColor;
+  filter: brightness(1.35);
+}
+
+/* Custom Tag Sizes, Colors & Orientations */
+.tag-ml { font-size: 2.1rem; color: #a3e635; transform: rotate(-12deg); }
+.tag-spk { font-size: 1.2rem; color: #f87171; transform: rotate(0deg); }
+.tag-ai { font-size: 1.6rem; color: #d97706; transform: rotate(0deg); }
+.tag-website { font-size: 1.5rem; color: #fb923c; transform: rotate(75deg); }
+.tag-ci { font-size: 1.3rem; color: #2dd4bf; transform: rotate(-18deg); }
+.tag-classif { font-size: 1.05rem; color: #38bdf8; transform: rotate(-85deg); }
+.tag-rf { font-size: 1.15rem; color: #60a5fa; transform: rotate(40deg); }
+.tag-xgb { font-size: 1.1rem; color: #c084fc; transform: rotate(-25deg); }
+.tag-android { font-size: 1.05rem; color: #f472b6; transform: rotate(65deg); }
+.tag-web { font-size: 0.95rem; color: #a855f7; transform: rotate(0deg); }
+.tag-id { font-size: 1.1rem; color: #ec4899; transform: rotate(0deg); }
+.tag-sistem { font-size: 1.15rem; color: #22d3ee; transform: rotate(0deg); }
+.tag-bigdata { font-size: 1.1rem; color: #3b82f6; transform: rotate(30deg); }
+.tag-waterfall { font-size: 1.15rem; color: #f472b6; transform: rotate(-15deg); }
+.tag-klasifikasi { font-size: 1.05rem; color: #94a3b8; transform: rotate(-10deg); }
+.tag-uml { font-size: 1.1rem; color: #fb923c; transform: rotate(-65deg); }
+.tag-webbased { font-size: 1.05rem; color: #cbd5e1; transform: rotate(0deg); }
+.tag-agile { font-size: 1.05rem; color: #64748b; transform: rotate(45deg); }
+.tag-fo { font-size: 1.4rem; color: #34d399; transform: rotate(0deg); }
+.tag-cramping { font-size: 1.25rem; color: #fbbf24; transform: rotate(-8deg); }
+.tag-rj45 { font-size: 1.1rem; color: #10b981; transform: rotate(20deg); }

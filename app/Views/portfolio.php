@@ -159,7 +159,7 @@
         <p>Kombinasi keahlian di bidang Infrastruktur Telekomunikasi Fiber Optic, Manajemen Aset dan Material Gudang, serta Pemrograman Web & UI/UX Design.</p>
       </div>
 
-      <div class="about-grid" style="grid-template-columns: 1fr;">
+      <div class="about-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch;">
         <div class="about-text">
           <h3>Integrasi Keahlian Lapangan & Pengembangan Perangkat Lunak</h3>
           <p>
@@ -198,6 +198,36 @@
                 <p>Wakil Ketua HIMTI Undira, Ketua Divisi Humas dan IT Karang Taruna, Ketua Umum Remaja Musholla, Ketua Divisi Kerohanian OSIS, dan Sekretaris Jendral ROHIS.</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- KEYWORDS Word Cloud Card -->
+        <div class="word-cloud-card">
+          <div class="word-cloud-header">
+            <h4>KEYWORDS</h4>
+          </div>
+          <div class="word-cloud-container">
+            <span class="cloud-tag tag-id">Indonesia</span>
+            <span class="cloud-tag tag-sistem">sistem</span>
+            <span class="cloud-tag tag-ci">codeigniter</span>
+            <span class="cloud-tag tag-classif">classification</span>
+            <span class="cloud-tag tag-web">web</span>
+            <span class="cloud-tag tag-xgb">xgboost</span>
+            <span class="cloud-tag tag-website">website</span>
+            <span class="cloud-tag tag-rf">random forest</span>
+            <span class="cloud-tag tag-android">android</span>
+            <span class="cloud-tag tag-ml">machine learning</span>
+            <span class="cloud-tag tag-bigdata">big data</span>
+            <span class="cloud-tag tag-waterfall">Waterfall</span>
+            <span class="cloud-tag tag-ai">Kecerdasan buatan</span>
+            <span class="cloud-tag tag-klasifikasi">klasifikasi</span>
+            <span class="cloud-tag tag-spk">sistem pendukung keputusan</span>
+            <span class="cloud-tag tag-uml">UML</span>
+            <span class="cloud-tag tag-webbased">web-based system</span>
+            <span class="cloud-tag tag-agile">agile</span>
+            <span class="cloud-tag tag-fo">Fiber Optic</span>
+            <span class="cloud-tag tag-cramping">Cramping kabel</span>
+            <span class="cloud-tag tag-rj45">RJ-45</span>
           </div>
         </div>
       </div>
