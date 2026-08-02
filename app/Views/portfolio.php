@@ -80,8 +80,8 @@
         </button>
 
         <!-- Dark / Light Theme Switcher -->
-        <button id="themeToggleBtn" onclick="toggleTheme()" class="nav-btn" style="padding:0.4rem 0.65rem; font-size:0.9rem;" title="Mode Gelap / Terang (Dark / Light Theme)">
-          <i class="fas fa-moon" id="themeIcon"></i>
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="nav-btn" style="padding:0.4rem 0.85rem; font-size:0.82rem; font-weight:700;" title="Mode Gelap / Terang (Dark / Light Theme)">
+          <i class="fas fa-moon" id="themeIcon" style="color:#34d399;"></i> <span id="themeLabel">Dark</span>
         </button>
 
         <button onclick="openCvModal()" class="nav-btn">
@@ -545,7 +545,7 @@
         <h3 style="font-size:1.3rem; margin:0; display:flex; align-items:center; gap:0.6rem; color:var(--text-main);">
           <i class="fas fa-certificate" style="color:var(--primary-cyan);"></i> Sertifikasi & Penghargaan Lainnya
         </h3>
-        <a href="<?= base_url('certificates/StevenTelekomunikasi.pdf') ?>" target="_blank" class="nav-btn" style="padding:0.4rem 0.9rem; font-size:0.82rem; font-weight:700;">
+        <a href="<?= base_url('assets/certificates/StevenTelekomunikasi.pdf') ?>" target="_blank" class="nav-btn" style="padding:0.4rem 0.9rem; font-size:0.82rem; font-weight:700;">
           <i class="fas fa-folder-open" style="color:var(--primary-cyan);"></i> Galeri 33 PDF Sertifikat
         </a>
       </div>
@@ -564,7 +564,7 @@
               <h4><?= esc($ach['title']) ?></h4>
               <p class="achievement-issuer"><i class="fas fa-building"></i> <?= esc($ach['issuer']) ?></p>
               <?php if (!empty($ach['pdf_file'])): ?>
-                <a href="<?= base_url('certificates/' . esc($ach['pdf_file'])) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.35rem 0.8rem; font-size:0.78rem; border-color:rgba(239,68,68,0.4); color:#fca5a5; background:rgba(239,68,68,0.12);">
+                <a href="<?= base_url('assets/certificates/' . esc($ach['pdf_file'])) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.35rem 0.8rem; font-size:0.78rem; border-color:rgba(239,68,68,0.4); color:#ef4444; background:rgba(239,68,68,0.12);">
                   <i class="fas fa-file-pdf" style="color:#ef4444; font-size:0.9rem;"></i> Buka PDF Sertifikat
                 </a>
               <?php elseif (!empty($ach['url'])): ?>
@@ -613,14 +613,6 @@
             <div class="contact-detail">
               <h5>Domisili</h5>
               <p><?= esc($profile['address']) ?></p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fab fa-google"></i></div>
-            <div class="contact-detail">
-              <h5>Google Site Portfolio</h5>
-              <a href="<?= esc($profile['google_sites']) ?>" target="_blank" style="font-size:0.85rem;">Visit Google Sites Link</a>
             </div>
           </div>
         </div>
@@ -738,40 +730,97 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- Modern Interactive Footer -->
+  <footer class="footer" style="background:var(--bg-dark); border-top:1px solid var(--border-color); padding-top:4rem; padding-bottom:2rem; position:relative; overflow:hidden;">
     <div class="container">
-      <p>&copy; <?= date('Y') ?> <strong><?= esc($profile['name']) ?></strong>. All rights reserved.</p>
-      <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:1.5rem;">Built with PHP CodeIgniter 4 &amp; Modern Glassmorphic Design System</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:2.5rem; margin-bottom:3rem;">
+        
+        <!-- Col 1: About / Brand -->
+        <div>
+          <a href="#hero" class="logo" style="margin-bottom:1rem; display:inline-flex;">
+            <span class="dot"></span> <span>STEVEN ADITYA PRATAMA</span>
+          </a>
+          <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:1.25rem;">
+            Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Specialist Jointer Fiber Optik / FTTH, Manajemen Pergudangan Telkom Akses, &amp; Front-End Web Developer.
+          </p>
+          <div style="display:flex; gap:0.75rem;">
+            <a href="https://www.linkedin.com/in/steven-aditya" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/stevenbollm" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:<?= esc($profile['email']) ?>" class="social-icon" title="Email Direct"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/6285810007432" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
 
-      <!-- Visitor Flag Counter Widget -->
-      <div class="visitor-counter-wrapper">
-        <div class="visitor-card">
-          <div class="visitor-header">
-            <i class="fas fa-globe-asia"></i>
-            <h4>Statistik Pengunjung (Visitor Flag Counter)</h4>
-          </div>
-          
-          <div class="flag-counter-box">
-            <a href="https://info.flagcounter.com/Glxg" target="_blank" title="Visitor Flag Counter">
-              <img src="https://s11.flagcounter.com/count2/Glxg/bg_0D1B13/txt_ECFDF5/border_10B981/columns_4/maxflags_12/viewers_0/labels_1/pageviews_1/timeline_0/" alt="Flag Counter" border="0">
-            </a>
-          </div>
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;">
+            Navigasi Pintar
+            <span style="position:absolute; bottom:0; left:0; width:35px; height:2px; background:var(--primary-cyan); border-radius:2px;"></span>
+          </h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.6rem; font-size:0.88rem;">
+            <li><a href="#hero" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Beranda Utama</a></li>
+            <li><a href="#about" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Tentang Saya</a></li>
+            <li><a href="#skills" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Keahlian &amp; Tools</a></li>
+            <li><a href="#projects" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Proyek Unggulan</a></li>
+            <li><a href="#experience" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Pengalaman Kerja</a></li>
+            <li><a href="#achievements" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> 33 PDF Sertifikat</a></li>
+          </ul>
+        </div>
 
-          <div class="visitor-badges">
-            <div class="visitor-badge-item">
-              <i class="fas fa-eye"></i>
-              <span>Total Dilihat: <strong id="totalPageViews">-</strong></span>
+        <!-- Col 3: Contact Summary -->
+        <div>
+          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;">
+            Hubungi Langsung
+            <span style="position:absolute; bottom:0; left:0; width:35px; height:2px; background:var(--primary-cyan); border-radius:2px;"></span>
+          </h4>
+          <div style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.86rem; color:var(--text-muted);">
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <i class="fas fa-envelope" style="color:var(--primary-cyan); font-size:1rem;"></i>
+              <a href="mailto:<?= esc($profile['email']) ?>" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--primary-cyan)'" onmouseout="this.style.color='var(--text-muted)'"><?= esc($profile['email']) ?></a>
             </div>
-            <div class="visitor-badge-item">
-              <i class="fas fa-user-check"></i>
-              <span>Pengunjung Unik: <strong id="uniqueVisitors">-</strong></span>
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <i class="fas fa-phone-alt" style="color:var(--primary-cyan); font-size:1rem;"></i>
+              <a href="https://wa.me/6285810007432" target="_blank" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--primary-cyan)'" onmouseout="this.style.color='var(--text-muted)'"><?= esc($profile['phone']) ?></a>
             </div>
-            <div class="visitor-badge-item">
-              <i class="fas fa-signal"></i>
-              <span>Status: <span class="status-online"><i class="fas fa-circle"></i> Live Online</span></span>
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+              <i class="fas fa-map-marker-alt" style="color:var(--primary-cyan); font-size:1rem;"></i>
+              <span><?= esc($profile['address']) ?></span>
             </div>
           </div>
+        </div>
+
+        <!-- Col 4: Visitor Analytics -->
+        <div>
+          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;">
+            Statistik Pengunjung
+            <span style="position:absolute; bottom:0; left:0; width:35px; height:2px; background:var(--primary-cyan); border-radius:2px;"></span>
+          </h4>
+          <div class="visitor-card" style="padding:0.85rem; border-radius:12px; margin-top:0;">
+            <div class="flag-counter-box" style="margin-bottom:0.6rem; padding:0;">
+              <a href="https://info.flagcounter.com/Glxg" target="_blank" title="Visitor Flag Counter">
+                <img src="https://s11.flagcounter.com/count2/Glxg/bg_0D1B13/txt_ECFDF5/border_10B981/columns_4/maxflags_12/viewers_0/labels_1/pageviews_1/timeline_0/" alt="Flag Counter" border="0" style="max-width:100%;">
+              </a>
+            </div>
+            <div class="visitor-badges" style="gap:0.4rem; font-size:0.75rem;">
+              <div class="visitor-badge-item" style="padding:0.2rem 0.5rem;">
+                <i class="fas fa-eye"></i> <strong id="totalPageViews">-</strong> Views
+              </div>
+              <div class="visitor-badge-item" style="padding:0.2rem 0.5rem;">
+                <i class="fas fa-user-check"></i> <strong id="uniqueVisitors">-</strong> Unique
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div style="border-top:1px solid var(--border-color); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:0.84rem; color:var(--text-dim);">
+        <p style="margin:0;">&copy; <?= date('Y') ?> <strong><?= esc($profile['name']) ?></strong>. All rights reserved. | CodeIgniter 4 Framework</p>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="display:inline-flex; align-items:center; gap:0.4rem; color:var(--primary-cyan); font-weight:600;">
+            <i class="fas fa-circle" style="font-size:0.5rem;"></i> System Live &amp; Operational
+          </span>
         </div>
       </div>
     </div>

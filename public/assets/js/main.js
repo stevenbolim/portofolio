@@ -358,13 +358,16 @@ window.toggleTheme = function() {
 
 function updateThemeIcon(theme) {
   const themeIcon = document.getElementById('themeIcon');
+  const themeLabel = document.getElementById('themeLabel');
   if (themeIcon) {
     if (theme === 'light') {
       themeIcon.className = 'fas fa-sun';
-      themeIcon.style.color = '#f59e0b';
+      themeIcon.style.color = '#d97706';
+      if (themeLabel) themeLabel.textContent = 'Light';
     } else {
       themeIcon.className = 'fas fa-moon';
       themeIcon.style.color = '#34d399';
+      if (themeLabel) themeLabel.textContent = 'Dark';
     }
   }
 }
