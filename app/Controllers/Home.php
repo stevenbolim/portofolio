@@ -327,88 +327,98 @@ class Home extends BaseController
 
             'achievements' => [
                 [
-                    'year'    => '2025',
-                    'title'   => 'Optimalisasi Jaringan Komputer melalui Pelatihan Cramping Kabel bagi Teknisi Komunitas',
-                    'issuer'  => 'Lentera Pengabdian (Jurnal Lentera Nusantara) | DOI: 10.59422/lp.v3i04.1245',
-                    'type'    => 'Publikasi Jurnal Ilmiah',
-                    'icon'    => 'fa-book-open'
+                    'year'     => '2025',
+                    'title'    => 'Optimalisasi Jaringan Komputer melalui Pelatihan Cramping Kabel bagi Teknisi Komunitas',
+                    'issuer'   => 'Lentera Pengabdian (Jurnal Lentera Nusantara) | DOI: 10.59422/lp.v3i04.1245',
+                    'type'     => 'Publikasi Jurnal Ilmiah',
+                    'icon'     => 'fa-book-open'
                 ],
                 [
-                    'year'    => '2024',
-                    'title'   => 'Juara 3 - Indonesian Chatbot Championship Challenge',
-                    'issuer'  => 'Terra AI',
-                    'type'    => 'Kompetisi Chatbot',
-                    'icon'    => 'fa-trophy'
+                    'year'     => '2024',
+                    'title'    => 'Juara 3 - Indonesian Chatbot Championship Challenge',
+                    'issuer'   => 'Terra AI',
+                    'type'     => 'Kompetisi Chatbot',
+                    'icon'     => 'fa-trophy'
                 ],
                 [
-                    'year'    => '2018',
-                    'title'   => 'Top 10 Finalist - Essay Competition SMA Jabodetabek',
-                    'issuer'  => 'Kementerian Pendidikan dan Kebudayaan (Kemendikbud RI)',
-                    'type'    => 'Kompetisi Esai',
-                    'icon'    => 'fa-award'
+                    'year'     => '2018',
+                    'title'    => 'Top 10 Finalist - Essay Competition SMA Jabodetabek',
+                    'issuer'   => 'Kementerian Pendidikan dan Kebudayaan (Kemendikbud RI)',
+                    'type'     => 'Kompetisi Esai',
+                    'icon'     => 'fa-award',
+                    'pdf_file' => 'StevenEsai.pdf'
                 ],
                 [
-                    'year'    => '2023',
-                    'title'   => 'Sertifikasi Kompetensi Bidang Aktivitas Telekomunikasi Dengan Kabel',
-                    'issuer'  => 'BNSP (Badan Nasional Sertifikasi Profesi)',
-                    'type'    => 'Sertifikasi Profesi Nasional',
-                    'icon'    => 'fa-certificate'
+                    'year'     => '2023',
+                    'title'    => 'Sertifikasi Kompetensi Bidang Aktivitas Telekomunikasi Dengan Kabel',
+                    'issuer'   => 'BNSP (Badan Nasional Sertifikasi Profesi)',
+                    'type'     => 'Sertifikasi Profesi Nasional',
+                    'icon'     => 'fa-certificate',
+                    'pdf_file' => 'StevenTelekomunikasi.pdf'
                 ],
                 [
-                    'year'    => '2022',
-                    'title'   => 'Sertifikasi Kompetensi Bidang Telekomunikasi Jointer',
-                    'issuer'  => 'BNSP (Badan Nasional Sertifikasi Profesi)',
-                    'type'    => 'Sertifikasi Profesi Nasional',
-                    'icon'    => 'fa-certificate'
+                    'year'     => '2022',
+                    'title'    => 'Sertifikasi Kompetensi Bidang Telekomunikasi Jointer',
+                    'issuer'   => 'BNSP (Badan Nasional Sertifikasi Profesi)',
+                    'type'     => 'Sertifikasi Profesi Nasional',
+                    'icon'     => 'fa-certificate',
+                    'pdf_file' => 'StevenJointer.pdf'
                 ],
                 [
-                    'year'    => '2022',
-                    'title'   => 'Diklat 3-in-1 Bidang Telematika',
-                    'issuer'  => 'Kementerian Perindustrian (Kemenperin RI)',
-                    'type'    => 'Sertifikasi Diklat',
-                    'icon'    => 'fa-certificate'
+                    'year'     => '2022',
+                    'title'    => 'Diklat 3-in-1 Bidang Telematika',
+                    'issuer'   => 'Kementerian Perindustrian (Kemenperin RI)',
+                    'type'     => 'Sertifikasi Diklat',
+                    'icon'     => 'fa-certificate',
+                    'pdf_file' => 'StevenKemenperin.pdf'
                 ],
                 [
-                    'year'    => '2025',
-                    'title'   => 'Networking Device and Initial Configuration',
-                    'issuer'  => 'Cisco Networking Academy',
-                    'type'    => 'Kursus Jaringan',
-                    'icon'    => 'fa-graduation-cap'
+                    'year'     => '2025',
+                    'title'    => 'Networking Device and Initial Configuration',
+                    'issuer'   => 'Cisco Networking Academy',
+                    'type'     => 'Kursus Jaringan',
+                    'icon'     => 'fa-graduation-cap',
+                    'pdf_file' => 'StevenBasicConfiguration.pdf'
                 ],
                 [
-                    'year'    => '2023',
-                    'title'   => 'Python Essentials 1 & 2',
-                    'issuer'  => 'Cisco Networking Academy',
-                    'type'    => 'Kursus Pemrograman',
-                    'icon'    => 'fa-laptop-code'
+                    'year'     => '2023',
+                    'title'    => 'Python Essentials 1 & 2',
+                    'issuer'   => 'Cisco Networking Academy',
+                    'type'     => 'Kursus Pemrograman',
+                    'icon'     => 'fa-laptop-code',
+                    'pdf_file' => 'StevenPE1.pdf'
                 ],
                 [
-                    'year'    => '2024',
-                    'title'   => 'Computer Hardware Basics',
-                    'issuer'  => 'Cisco Networking Academy',
-                    'type'    => 'Kursus Hardware Komputer',
-                    'icon'    => 'fa-microchip'
+                    'year'     => '2024',
+                    'title'    => 'Computer Hardware Basics',
+                    'issuer'   => 'Cisco Networking Academy',
+                    'type'     => 'Kursus Hardware Komputer',
+                    'icon'     => 'fa-microchip',
+                    'pdf_file' => 'StevenComputerHardwareBasics.pdf'
                 ],
                 [
-                    'year'    => '2024',
-                    'title'   => 'Networking Basics',
-                    'issuer'  => 'Cisco Networking Academy',
-                    'type'    => 'Kursus Jaringan',
-                    'icon'    => 'fa-network-wired'
+                    'year'     => '2024',
+                    'title'    => 'Networking Basics',
+                    'issuer'   => 'Cisco Networking Academy',
+                    'type'     => 'Kursus Jaringan',
+                    'icon'     => 'fa-network-wired',
+                    'pdf_file' => 'StevenNetworkingBasics.pdf.pdf'
                 ],
                 [
-                    'year'    => '2024',
-                    'title'   => 'Database Programming with SQL',
-                    'issuer'  => 'Oracle Academy',
-                    'type'    => 'Kursus Database',
-                    'icon'    => 'fa-database'
+                    'year'     => '2024',
+                    'title'    => 'Database Programming with SQL',
+                    'issuer'   => 'Oracle Academy',
+                    'type'     => 'Kursus Database',
+                    'icon'     => 'fa-database',
+                    'pdf_file' => 'StevenDBSQL.pdf'
                 ],
                 [
-                    'year'    => '2024',
-                    'title'   => 'Database Design',
-                    'issuer'  => 'Oracle Academy',
-                    'type'    => 'Kursus Database',
-                    'icon'    => 'fa-database'
+                    'year'     => '2024',
+                    'title'    => 'Database Design',
+                    'issuer'   => 'Oracle Academy',
+                    'type'     => 'Kursus Database',
+                    'icon'     => 'fa-database',
+                    'pdf_file' => 'StevenDBDesign.pdf'
                 ]
             ]
         ];

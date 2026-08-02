@@ -541,9 +541,14 @@
         </div>
       <?php endif; ?>
 
-      <h3 style="font-size:1.3rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:0.6rem; color:#fff;">
-        <i class="fas fa-certificate" style="color:var(--primary-cyan);"></i> Sertifikasi & Penghargaan Lainnya
-      </h3>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+        <h3 style="font-size:1.3rem; margin:0; display:flex; align-items:center; gap:0.6rem; color:var(--text-main);">
+          <i class="fas fa-certificate" style="color:var(--primary-cyan);"></i> Sertifikasi & Penghargaan Lainnya
+        </h3>
+        <a href="<?= base_url('certificates/StevenTelekomunikasi.pdf') ?>" target="_blank" class="nav-btn" style="padding:0.4rem 0.9rem; font-size:0.82rem; font-weight:700;">
+          <i class="fas fa-folder-open" style="color:var(--primary-cyan);"></i> Galeri 33 PDF Sertifikat
+        </a>
+      </div>
 
       <div class="achievements-grid">
         <?php foreach ($achievements as $ach): ?>
@@ -558,16 +563,13 @@
               </div>
               <h4><?= esc($ach['title']) ?></h4>
               <p class="achievement-issuer"><i class="fas fa-building"></i> <?= esc($ach['issuer']) ?></p>
-              <?php 
-                $certFiles = glob(FCPATH . 'assets/certificates/*.pdf');
-              ?>
-              <?php if (!empty($ach['url'])): ?>
-                <a href="<?= esc($ach['url']) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.3rem 0.75rem; font-size:0.78rem;">
-                  <i class="fas fa-external-link-alt" style="color:var(--primary-cyan);"></i> Lihat Tautan
+              <?php if (!empty($ach['pdf_file'])): ?>
+                <a href="<?= base_url('certificates/' . esc($ach['pdf_file'])) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.35rem 0.8rem; font-size:0.78rem; border-color:rgba(239,68,68,0.4); color:#fca5a5; background:rgba(239,68,68,0.12);">
+                  <i class="fas fa-file-pdf" style="color:#ef4444; font-size:0.9rem;"></i> Buka PDF Sertifikat
                 </a>
-              <?php elseif (!empty($certFiles)): ?>
-                <a href="<?= base_url('assets/certificates/' . basename($certFiles[0])) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.3rem 0.75rem; font-size:0.78rem;">
-                  <i class="fas fa-file-pdf" style="color:#ef4444;"></i> Buka PDF Sertifikat
+              <?php elseif (!empty($ach['url'])): ?>
+                <a href="<?= esc($ach['url']) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.35rem 0.8rem; font-size:0.78rem;">
+                  <i class="fas fa-external-link-alt" style="color:var(--primary-cyan);"></i> Lihat Tautan
                 </a>
               <?php endif; ?>
             </div>
