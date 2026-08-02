@@ -614,7 +614,10 @@ window.toggleLanguage = function() {
 function applyLanguage(lang) {
   const langLabel = document.getElementById('langLabel');
   if (langLabel) {
-    langLabel.innerHTML = lang === 'id' ? '🇮🇩 ID' : '🇬🇧 EN';
+    const flagSrc = lang === 'id' ? 'https://flagcdn.com/w20/id.png' : 'https://flagcdn.com/w20/gb.png';
+    const flagAlt = lang === 'id' ? 'ID Flag' : 'EN Flag';
+    const labelText = lang === 'id' ? 'ID' : 'EN';
+    langLabel.innerHTML = `<img src="${flagSrc}" alt="${flagAlt}" style="width:18px; height:12px; border-radius:2px; object-fit:cover; display:inline-block;"> ${labelText}`;
   }
 
   const dict = i18n[lang];

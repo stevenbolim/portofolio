@@ -73,15 +73,17 @@
         <li class="mobile-cv-item"><a href="javascript:void(0)" onclick="openCvModal()" class="nav-link" style="color:var(--primary-cyan); font-weight:700;"><i class="fas fa-file-image"></i> Lihat CV (JPG)</a></li>
       </ul>
 
-      <div class="nav-actions" style="display:flex; align-items:center; gap:0.4rem;">
+      <div class="nav-actions" style="display:flex; align-items:center; gap:0.5rem;">
         <!-- Language Switcher -->
-        <button id="langToggleBtn" onclick="toggleLanguage()" class="nav-btn" style="padding:0.4rem 0.85rem; font-size:0.85rem; font-weight:700;" title="Switch Language / Ganti Bahasa">
-          <span id="langLabel">🇮🇩 ID</span>
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="nav-btn-toggle" title="Switch Language / Ganti Bahasa">
+          <span id="langLabel" style="display:inline-flex; align-items:center; gap:0.35rem;">
+            <img src="https://flagcdn.com/w20/id.png" alt="ID Flag" style="width:18px; height:12px; border-radius:2px; object-fit:cover; display:inline-block;"> ID
+          </span>
         </button>
 
         <!-- Dark / Light Theme Switcher -->
-        <button id="themeToggleBtn" onclick="toggleTheme()" class="nav-btn" style="padding:0.4rem 0.85rem; font-size:0.82rem; font-weight:700;" title="Mode Gelap / Terang (Dark / Light Theme)">
-          <i class="fas fa-moon" id="themeIcon" style="color:#38bdf8;"></i> <span id="themeLabel">Dark</span>
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="nav-btn-toggle" title="Mode Gelap / Terang (Dark / Light Theme)">
+          <i class="fas fa-moon" id="themeIcon" style="color:#38bdf8; font-size:0.9rem;"></i> <span id="themeLabel">Dark</span>
         </button>
 
         <button onclick="openCvModal()" class="nav-btn">
@@ -540,13 +542,10 @@
         </div>
       <?php endif; ?>
 
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+      <div style="margin-bottom:1.5rem;">
         <h3 style="font-size:1.3rem; margin:0; display:flex; align-items:center; gap:0.6rem; color:var(--text-main);">
-          <i class="fas fa-certificate" style="color:var(--primary-cyan);"></i> Sertifikasi & Penghargaan Lainnya
+          <i class="fas fa-certificate" style="color:var(--primary-cyan);"></i> <span data-i18n="ach_header">Sertifikasi & Penghargaan Lainnya</span>
         </h3>
-        <a href="<?= base_url('assets/certificates/StevenTelekomunikasi.pdf') ?>" target="_blank" class="nav-btn" style="padding:0.4rem 0.9rem; font-size:0.82rem; font-weight:700;">
-          <i class="fas fa-folder-open" style="color:var(--primary-cyan);"></i> Galeri 33 PDF Sertifikat
-        </a>
       </div>
 
       <div class="achievements-grid">
@@ -772,18 +771,18 @@
             Hubungi Langsung
             <span style="position:absolute; bottom:0; left:0; width:35px; height:2px; background:var(--primary-cyan); border-radius:2px;"></span>
           </h4>
-          <div style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.86rem; color:var(--text-muted);">
-            <div style="display:flex; align-items:center; gap:0.75rem;">
-              <i class="fas fa-envelope" style="color:var(--primary-cyan); font-size:1rem;"></i>
-              <a href="mailto:<?= esc($profile['email']) ?>" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--primary-cyan)'" onmouseout="this.style.color='var(--text-muted)'"><?= esc($profile['email']) ?></a>
+          <div style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.86rem; color:var(--text-muted); text-align:left;">
+            <div style="display:flex; align-items:flex-start; gap:0.75rem; text-align:left;">
+              <i class="fas fa-envelope" style="color:var(--primary-cyan); font-size:1rem; flex-shrink:0; margin-top:0.15rem;"></i>
+              <a href="mailto:<?= esc($profile['email']) ?>" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s; word-break:break-all;" onmouseover="this.style.color='var(--primary-cyan)'" onmouseout="this.style.color='var(--text-muted)'"><?= esc($profile['email']) ?></a>
             </div>
-            <div style="display:flex; align-items:center; gap:0.75rem;">
-              <i class="fas fa-phone-alt" style="color:var(--primary-cyan); font-size:1rem;"></i>
+            <div style="display:flex; align-items:flex-start; gap:0.75rem; text-align:left;">
+              <i class="fas fa-phone-alt" style="color:var(--primary-cyan); font-size:1rem; flex-shrink:0; margin-top:0.15rem;"></i>
               <a href="https://wa.me/6285810007432" target="_blank" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--primary-cyan)'" onmouseout="this.style.color='var(--text-muted)'"><?= esc($profile['phone']) ?></a>
             </div>
-            <div style="display:flex; align-items:center; gap:0.75rem;">
-              <i class="fas fa-map-marker-alt" style="color:var(--primary-cyan); font-size:1rem;"></i>
-              <span><?= esc($profile['address']) ?></span>
+            <div style="display:flex; align-items:flex-start; gap:0.75rem; text-align:left;">
+              <i class="fas fa-map-marker-alt" style="color:var(--primary-cyan); font-size:1rem; flex-shrink:0; margin-top:0.2rem;"></i>
+              <span style="text-align:left; line-height:1.55; display:inline-block; flex:1;"><?= esc($profile['address']) ?></span>
             </div>
           </div>
         </div>

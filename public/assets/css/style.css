@@ -151,16 +151,30 @@
   border-color: rgba(16, 185, 129, 0.3);
 }
 
-[data-theme="light"] .cloud-tag {
-  background: rgba(241, 245, 249, 0.9);
-  color: #334155;
-  border-color: rgba(16, 185, 129, 0.25);
+[data-theme="light"] .cloud-tag:hover {
+  filter: brightness(0.85);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
-[data-theme="light"] .cloud-tag:hover {
-  background: #047857;
-  color: #ffffff;
-}
+/* Light Mode Rich Tag Colors */
+[data-theme="light"] .tag-ml { color: #4d7c0f; }
+[data-theme="light"] .tag-ci { color: #0d9488; }
+[data-theme="light"] .tag-fo { color: #047857; }
+[data-theme="light"] .tag-cramping { color: #d97706; }
+[data-theme="light"] .tag-rj45 { color: #16a34a; }
+[data-theme="light"] .tag-spk { color: #047857; }
+[data-theme="light"] .tag-website { color: #ea580c; }
+[data-theme="light"] .tag-ai { color: #b45309; }
+[data-theme="light"] .tag-classif { color: #0284c7; }
+[data-theme="light"] .tag-android { color: #db2777; }
+[data-theme="light"] .tag-bigdata { color: #2563eb; }
+[data-theme="light"] .tag-id { color: #c026d3; }
+[data-theme="light"] .tag-telkom { color: #dc2626; }
+[data-theme="light"] .tag-pln { color: #0891b2; }
+[data-theme="light"] .tag-s1 { color: #7c3aed; }
+[data-theme="light"] .tag-smk { color: #e11d48; }
+[data-theme="light"] .tag-himti { color: #059669; }
+[data-theme="light"] .tag-abdimas { color: #ca8a04; }
 
 [data-theme="light"] .project-card,
 [data-theme="light"] .timeline-content,
@@ -487,6 +501,45 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.nav-btn-toggle {
+  padding: 0.45rem 0.95rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-btn-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(52, 211, 153, 0.5);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .nav-btn-toggle {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .nav-btn-toggle:hover {
+  background: #f8fafc;
+  border-color: #047857;
+  color: #047857;
 }
 
 .nav-btn:hover {
