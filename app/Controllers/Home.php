@@ -35,54 +35,53 @@ class Home extends BaseController
 
             'skills' => [
                 'web_dev' => [
-                    'category' => 'Pengembangan Web & Perangkat Lunak',
+                    'category' => 'Web Development & UI/UX',
                     'icon'     => 'fa-code',
                     'items'    => [
-                        ['name' => 'PHP'],
-                        ['name' => 'CodeIgniter 4'],
-                        ['name' => 'HTML5'],
-                        ['name' => 'CSS3 / Modern UI'],
-                        ['name' => 'UI/UX Design'],
-                        ['name' => 'JavaScript'],
-                        ['name' => 'Python'],
-                        ['name' => 'Machine Learning (Basics)']
+                        ['name' => 'PHP', 'devicon' => 'devicon-php-plain colored', 'level' => 'Advanced'],
+                        ['name' => 'CodeIgniter 4', 'devicon' => 'devicon-codeigniter-plain colored', 'level' => 'Advanced'],
+                        ['name' => 'HTML5', 'devicon' => 'devicon-html5-plain colored', 'level' => 'Expert'],
+                        ['name' => 'CSS3 & Glassmorphism', 'devicon' => 'devicon-css3-plain colored', 'level' => 'Expert'],
+                        ['name' => 'JavaScript', 'devicon' => 'devicon-javascript-plain colored', 'level' => 'Intermediate'],
+                        ['name' => 'Python', 'devicon' => 'devicon-python-plain colored', 'level' => 'Intermediate'],
+                        ['name' => 'UI/UX Design & Prototyping', 'fa' => 'fa-pen-nib', 'color' => '#ec4899', 'level' => 'Advanced'],
+                        ['name' => 'Machine Learning (Basics)', 'fa' => 'fa-brain', 'color' => '#a3e635', 'level' => 'Intermediate']
                     ]
                 ],
                 'network' => [
-                    'category' => 'Jaringan & Infrastruktur Optic',
+                    'category' => 'Jaringan & Serat Optik (FTTH)',
                     'icon'     => 'fa-network-wired',
                     'items'    => [
-                        ['name' => 'Jointer Fiber Optik / FTTH'],
-                        ['name' => 'Troubleshooting Jaringan'],
-                        ['name' => 'Infrastruktur ODC & ODP'],
-                        ['name' => 'GPON OLT & Cisco ASR 920'],
-                        ['name' => 'Manajemen Cabling Fiber Optic'],
-                        ['name' => 'Integrasi SFP & Sistem Alarm']
+                        ['name' => 'Jointer Fiber Optik / FTTH', 'fa' => 'fa-bolt', 'color' => '#34d399', 'level' => 'Certified Specialist'],
+                        ['name' => 'Splicing & OTDR / OPM Test', 'fa' => 'fa-wave-square', 'color' => '#10b981', 'level' => 'Certified Specialist'],
+                        ['name' => 'Troubleshooting Indihome & Broadband', 'fa' => 'fa-wrench', 'color' => '#f59e0b', 'level' => 'Expert'],
+                        ['name' => 'Infrastruktur ODC & ODP', 'fa' => 'fa-sitemap', 'color' => '#38bdf8', 'level' => 'Advanced'],
+                        ['name' => 'GPON OLT & Cisco ASR 920', 'fa' => 'fa-server', 'color' => '#ef4444', 'level' => 'Advanced'],
+                        ['name' => 'Cabling Management & SFP Integration', 'fa' => 'fa-plug', 'color' => '#a855f7', 'level' => 'Advanced']
                     ]
                 ],
                 'tools' => [
-                    'category' => 'Software & Alat Produktivitas',
+                    'category' => 'Software, Tools & Database',
                     'icon'     => 'fa-toolbox',
                     'items'    => [
-                        ['name' => 'Microsoft Excel (Advanced/Formula/Pivot)'],
-                        ['name' => 'Microsoft Word'],
-                        ['name' => 'Microsoft PowerPoint'],
-                        ['name' => 'Google Workspace'],
-                        ['name' => 'Git & GitHub']
+                        ['name' => 'Git & GitHub', 'devicon' => 'devicon-github-original colored', 'level' => 'Advanced'],
+                        ['name' => 'MySQL Database', 'devicon' => 'devicon-mysql-plain colored', 'level' => 'Advanced'],
+                        ['name' => 'Telegram Bot API', 'fa' => 'fa-robot', 'color' => '#0284c7', 'level' => 'Advanced'],
+                        ['name' => 'VS Code', 'devicon' => 'devicon-vscode-plain colored', 'level' => 'Expert'],
+                        ['name' => 'Microsoft Excel (Advanced/Pivot/QC)', 'fa' => 'fa-file-excel', 'color' => '#16a34a', 'level' => 'Expert'],
+                        ['name' => 'Google Workspace & Cloud Tools', 'fa' => 'fa-cloud', 'color' => '#ea4335', 'level' => 'Advanced']
                     ]
                 ],
                 'management' => [
                     'category' => 'Manajemen Gudang & Soft Skills',
                     'icon'     => 'fa-users-gear',
                     'items'    => [
-                        ['name' => 'Manajemen Project / Capstone Project'],
-                        ['name' => 'Manajemen Aset & Material Gudang'],
-                        ['name' => 'Kepemimpinan (Leadership)'],
-                        ['name' => 'Problem Solving'],
-                        ['name' => 'Kerja Sama Tim (Team Work)'],
-                        ['name' => 'Adaptif'],
-                        ['name' => 'Public Speaking'],
-                        ['name' => 'Negosiasi']
+                        ['name' => 'Manajemen Aset & Material Gudang', 'fa' => 'fa-boxes-stacked', 'color' => '#f97316', 'level' => 'Experienced'],
+                        ['name' => 'Quality Control (QC) & Inventory Stock Opname', 'fa' => 'fa-clipboard-check', 'color' => '#10b981', 'level' => 'Experienced'],
+                        ['name' => 'Kepemimpinan (Leadership)', 'fa' => 'fa-user-shield', 'color' => '#6366f1', 'level' => 'High'],
+                        ['name' => 'Problem Solving & Critical Thinking', 'fa' => 'fa-lightbulb', 'color' => '#eab308', 'level' => 'High'],
+                        ['name' => 'Public Speaking & Presentation', 'fa' => 'fa-bullhorn', 'color' => '#ec4899', 'level' => 'Experienced'],
+                        ['name' => 'Kerja Sama Tim & Negosiasi', 'fa' => 'fa-handshake', 'color' => '#14b8a6', 'level' => 'High']
                     ]
                 ]
             ],

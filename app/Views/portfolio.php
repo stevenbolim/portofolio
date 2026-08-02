@@ -42,11 +42,12 @@
   }
   </script>
 
-  <!-- Google Fonts & FontAwesome -->
+  <!-- Google Fonts, FontAwesome & Devicon Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
   <!-- Custom Glassmorphism Stylesheet -->
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
@@ -61,18 +62,28 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#hero" class="nav-link active">Beranda</a></li>
-        <li><a href="#about" class="nav-link">Tentang Saya</a></li>
-        <li><a href="#skills" class="nav-link">Keahlian & Skills</a></li>
-        <li><a href="#projects" class="nav-link">Proyek Unggulan</a></li>
-        <li><a href="#experience" class="nav-link">Pengalaman</a></li>
-        <li><a href="#education" class="nav-link">Pendidikan</a></li>
-        <li><a href="#achievements" class="nav-link">Prestasi</a></li>
-        <li><a href="#contact" class="nav-link">Kontak</a></li>
+        <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Beranda</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">Tentang Saya</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Keahlian & Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Proyek Unggulan</a></li>
+        <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Pengalaman</a></li>
+        <li><a href="#education" class="nav-link" data-i18n="nav_education">Pendidikan</a></li>
+        <li><a href="#achievements" class="nav-link" data-i18n="nav_achievements">Prestasi</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a></li>
         <li class="mobile-cv-item"><a href="javascript:void(0)" onclick="openCvModal()" class="nav-link" style="color:var(--primary-cyan); font-weight:700;"><i class="fas fa-file-image"></i> Lihat CV (JPG)</a></li>
       </ul>
 
-      <div class="nav-actions">
+      <div class="nav-actions" style="display:flex; align-items:center; gap:0.4rem;">
+        <!-- Language Switcher -->
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="nav-btn" style="padding:0.4rem 0.75rem; font-size:0.8rem; font-weight:700;" title="Switch Language / Ganti Bahasa">
+          <span id="langLabel"><i class="fas fa-globe"></i> ID</span>
+        </button>
+
+        <!-- Dark / Light Theme Switcher -->
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="nav-btn" style="padding:0.4rem 0.65rem; font-size:0.9rem;" title="Mode Gelap / Terang (Dark / Light Theme)">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+
         <button onclick="openCvModal()" class="nav-btn">
           <i class="fas fa-file-image"></i> CV JPG
         </button>
@@ -235,43 +246,58 @@
   <section id="skills" class="section">
     <div class="container">
       <div class="section-title">
-        <span class="sub-tag">Kompetensi & Tools</span>
-        <h2>Keahlian <span class="gradient-text">& Skills</span></h2>
-        <p>Daftar lengkap keterampilan teknis, jaringan, software, dan soft skills yang dikuasai.</p>
+        <span class="sub-tag" data-i18n="sub_competency">Kompetensi & Tools</span>
+        <h2><span data-i18n="skills_title">Keahlian</span> <span class="gradient-text">& Skills</span></h2>
+        <p data-i18n="skills_subtitle">Daftar lengkap keterampilan teknis, jaringan, software, dan soft skills yang dikuasai.</p>
       </div>
 
       <!-- Skill Category Filter Tabs -->
       <div class="skills-filter">
         <button class="filter-btn active" data-filter="all">
-          <i class="fas fa-th"></i> Semua Skill
+          <i class="fas fa-th"></i> <span data-i18n="filter_all">Semua Skill</span>
         </button>
         <button class="filter-btn" data-filter="web_dev">
-          <i class="fas fa-code"></i> Web & Dev
+          <i class="fas fa-code"></i> <span data-i18n="filter_web">Web & Dev</span>
         </button>
         <button class="filter-btn" data-filter="network">
-          <i class="fas fa-network-wired"></i> Jaringan & Fiber Optic
+          <i class="fas fa-network-wired"></i> <span data-i18n="filter_network">Jaringan & Fiber Optic</span>
         </button>
         <button class="filter-btn" data-filter="tools">
-          <i class="fas fa-toolbox"></i> Software & Tools
+          <i class="fas fa-toolbox"></i> <span data-i18n="filter_tools">Software & Tools</span>
         </button>
         <button class="filter-btn" data-filter="management">
-          <i class="fas fa-users-gear"></i> Manajemen & Soft Skills
+          <i class="fas fa-users-gear"></i> <span data-i18n="filter_mgmt">Manajemen & Soft Skills</span>
         </button>
       </div>
 
-      <div class="skills-grid">
+      <div class="skills-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:1.25rem;">
         <?php foreach ($skills as $catKey => $catData): ?>
           <?php foreach ($catData['items'] as $item): ?>
-            <div class="skill-card" data-category="<?= $catKey ?>">
-              <div class="skill-header" style="margin-bottom:0;">
-                <div class="skill-title">
-                  <i class="fas <?= $catData['icon'] ?>"></i>
-                  <h4><?= esc($item['name']) ?></h4>
+            <div class="skill-card" data-category="<?= $catKey ?>" style="position:relative; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; padding:1.2rem; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:space-between; gap:0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.85rem;">
+                <div style="width:44px; height:44px; border-radius:10px; background:rgba(16,185,129,0.1); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                  <?php if (!empty($item['devicon'])): ?>
+                    <i class="<?= esc($item['devicon']) ?>" style="font-size:1.65rem;"></i>
+                  <?php elseif (!empty($item['fa'])): ?>
+                    <i class="fas <?= esc($item['fa']) ?>" style="font-size:1.3rem; color:<?= esc($item['color'] ?? 'var(--primary-cyan)') ?>;"></i>
+                  <?php else: ?>
+                    <i class="fas <?= esc($catData['icon']) ?>" style="font-size:1.3rem; color:var(--primary-cyan);"></i>
+                  <?php endif; ?>
+                </div>
+                <div>
+                  <h4 style="font-size:0.95rem; color:var(--text-main); font-weight:700; margin:0; line-height:1.3;"><?= esc($item['name']) ?></h4>
+                  <span style="font-size:0.75rem; color:var(--text-muted); display:inline-block; margin-top:0.2rem;"><?= esc($catData['category']) ?></span>
                 </div>
               </div>
-              <div style="font-size:0.8rem; color:var(--text-dim); margin-top:0.5rem;">
-                Kategori: <?= esc($catData['category']) ?>
-              </div>
+              
+              <?php if (!empty($item['level'])): ?>
+                <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px dashed var(--border-color); padding-top:0.6rem; margin-top:0.2rem;">
+                  <span style="font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">Level / Mastery</span>
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--primary-cyan); background:rgba(52,211,153,0.12); padding:0.15rem 0.55rem; border-radius:50px; border:1px solid var(--border-color);">
+                    <?= esc($item['level']) ?>
+                  </span>
+                </div>
+              <?php endif; ?>
             </div>
           <?php endforeach; ?>
         <?php endforeach; ?>
@@ -532,6 +558,18 @@
               </div>
               <h4><?= esc($ach['title']) ?></h4>
               <p class="achievement-issuer"><i class="fas fa-building"></i> <?= esc($ach['issuer']) ?></p>
+              <?php 
+                $certFiles = glob(FCPATH . 'assets/certificates/*.pdf');
+              ?>
+              <?php if (!empty($ach['url'])): ?>
+                <a href="<?= esc($ach['url']) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.3rem 0.75rem; font-size:0.78rem;">
+                  <i class="fas fa-external-link-alt" style="color:var(--primary-cyan);"></i> Lihat Tautan
+                </a>
+              <?php elseif (!empty($certFiles)): ?>
+                <a href="<?= base_url('assets/certificates/' . basename($certFiles[0])) ?>" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; padding:0.3rem 0.75rem; font-size:0.78rem;">
+                  <i class="fas fa-file-pdf" style="color:#ef4444;"></i> Buka PDF Sertifikat
+                </a>
+              <?php endif; ?>
             </div>
           </div>
         <?php endforeach; ?>

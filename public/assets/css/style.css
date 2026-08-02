@@ -33,6 +33,60 @@
   --font-code: 'Fira Code', monospace;
 }
 
+/* Light Theme Variables & Overrides */
+[data-theme="light"] {
+  --bg-dark: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.94);
+  --bg-card-hover: rgba(241, 245, 249, 0.98);
+  --border-color: rgba(16, 185, 129, 0.25);
+  --border-glow: rgba(16, 185, 129, 0.45);
+
+  --primary-cyan: #059669;
+  --primary-emerald: #047857;
+  --primary-indigo: #065f46;
+  --primary-telkom: #dc2626;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+[data-theme="light"] .navbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="light"] .section-alt {
+  background: rgba(241, 245, 249, 0.85);
+}
+
+[data-theme="light"] .word-cloud-card {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="light"] .word-cloud-header h4 {
+  color: #0f172a;
+}
+
+[data-theme="light"] .modal-content {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #0f172a;
+}
+
+[data-theme="light"] body::after {
+  background-image: linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+}
+
 /* Reset & Global */
 *, *::before, *::after {
   box-sizing: border-box;

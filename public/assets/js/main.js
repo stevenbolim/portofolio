@@ -336,4 +336,103 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 10. Theme Initialization
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
+
+  // 11. Language Initialization
+  const savedLang = localStorage.getItem('lang') || 'id';
+  applyLanguage(savedLang);
+
 });
+
+// Global Theme Toggle Function
+window.toggleTheme = function() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcon(newTheme);
+};
+
+function updateThemeIcon(theme) {
+  const themeIcon = document.getElementById('themeIcon');
+  if (themeIcon) {
+    if (theme === 'light') {
+      themeIcon.className = 'fas fa-sun';
+      themeIcon.style.color = '#f59e0b';
+    } else {
+      themeIcon.className = 'fas fa-moon';
+      themeIcon.style.color = '#34d399';
+    }
+  }
+}
+
+// Global i18n Language Switcher
+const i18n = {
+  id: {
+    nav_home: "Beranda",
+    nav_about: "Tentang Saya",
+    nav_skills: "Keahlian & Skills",
+    nav_projects: "Proyek Unggulan",
+    nav_experience: "Pengalaman",
+    nav_education: "Pendidikan",
+    nav_achievements: "Prestasi",
+    nav_contact: "Kontak",
+    sub_competency: "Kompetensi & Tools",
+    skills_title: "Keahlian",
+    skills_subtitle: "Daftar lengkap keterampilan teknis, jaringan, software, dan soft skills yang dikuasai.",
+    filter_all: "Semua Skill",
+    filter_web: "Web & Dev",
+    filter_network: "Jaringan & Fiber Optic",
+    filter_tools: "Software & Tools",
+    filter_mgmt: "Manajemen & Soft Skills",
+    contact_title: "Hubungi",
+    contact_subtitle: "Terbuka untuk diskusi proyek web development, konsultasi jaringan fiber optic, maupun peluang karir."
+  },
+  en: {
+    nav_home: "Home",
+    nav_about: "About Me",
+    nav_skills: "Skills & Expertise",
+    nav_projects: "Featured Projects",
+    nav_experience: "Experience",
+    nav_education: "Education",
+    nav_achievements: "Achievements",
+    nav_contact: "Contact",
+    sub_competency: "Competencies & Tools",
+    skills_title: "Skills",
+    skills_subtitle: "Comprehensive technical skills, network engineering, software, and soft skills.",
+    filter_all: "All Skills",
+    filter_web: "Web & Dev",
+    filter_network: "Network & Fiber Optics",
+    filter_tools: "Software & Tools",
+    filter_mgmt: "Management & Soft Skills",
+    contact_title: "Contact",
+    contact_subtitle: "Open for web development discussions, fiber optic network consultation, or career opportunities."
+  }
+};
+
+window.toggleLanguage = function() {
+  const currentLang = localStorage.getItem('lang') || 'id';
+  const newLang = currentLang === 'id' ? 'en' : 'id';
+  localStorage.setItem('lang', newLang);
+  applyLanguage(newLang);
+};
+
+function applyLanguage(lang) {
+  const langLabel = document.getElementById('langLabel');
+  if (langLabel) {
+    langLabel.innerHTML = `<i class="fas fa-globe"></i> ${lang.toUpperCase()}`;
+  }
+
+  const dict = i18n[lang];
+  if (!dict) return;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) {
+      el.textContent = dict[key];
+    }
+  });
+}
