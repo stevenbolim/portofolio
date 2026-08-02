@@ -167,10 +167,38 @@
 [data-theme="light"] .achievement-card,
 [data-theme="light"] .contact-info-card,
 [data-theme="light"] .contact-form-card,
+[data-theme="light"] .publication-card,
 [data-theme="light"] .skill-card {
   background: #ffffff;
   border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .project-process-box {
+  background: #f8fafc;
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #334155;
+}
+
+[data-theme="light"] .project-process-list li,
+[data-theme="light"] .timeline-tasks li {
+  color: #334155;
+}
+
+[data-theme="light"] .project-desc,
+[data-theme="light"] .section-title p {
+  color: #475569;
+}
+
+[data-theme="light"] .nav-btn {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #047857;
+}
+
+[data-theme="light"] .nav-btn:hover {
+  background: #047857;
+  color: #ffffff;
 }
 
 [data-theme="light"] .form-control {
@@ -198,7 +226,7 @@
 }
 
 [data-theme="light"] .visitor-badge-item strong {
-  color: #0f172a;
+  color: #047857;
 }
 
 [data-theme="light"] body::after {

@@ -362,19 +362,26 @@ function updateThemeIcon(theme) {
   if (themeIcon) {
     if (theme === 'light') {
       themeIcon.className = 'fas fa-sun';
-      themeIcon.style.color = '#d97706';
-      if (themeLabel) themeLabel.textContent = 'Light';
+      themeIcon.style.color = '#f59e0b'; // Vibrant gold/yellow sun
+      if (themeLabel) {
+        themeLabel.textContent = 'Light';
+        themeLabel.style.color = '#0f172a';
+      }
     } else {
       themeIcon.className = 'fas fa-moon';
-      themeIcon.style.color = '#34d399';
-      if (themeLabel) themeLabel.textContent = 'Dark';
+      themeIcon.style.color = '#38bdf8'; // Glowing cyan moon
+      if (themeLabel) {
+        themeLabel.textContent = 'Dark';
+        themeLabel.style.color = '#ffffff';
+      }
     }
   }
 }
 
-// Global i18n Language Switcher
+// Global i18n Language Switcher with Flags & Full Page Translations
 const i18n = {
   id: {
+    // Nav
     nav_home: "Beranda",
     nav_about: "Tentang Saya",
     nav_skills: "Keahlian & Skills",
@@ -383,6 +390,43 @@ const i18n = {
     nav_education: "Pendidikan",
     nav_achievements: "Prestasi",
     nav_contact: "Kontak",
+
+    // Hero
+    hero_status: "Terbuka untuk Peluang Kerja & Proyek Jointer Fiber Optic / FTTH, Pergudangan, & Web Development",
+    hero_title_prefix: "Hi, Saya",
+    hero_subtitle_1: "Warehouse Management",
+    hero_subtitle_2: "Network Engineer",
+    hero_subtitle_3: "Fiber Optic Specialist",
+    hero_subtitle_4: "Front-End Web & UI/UX Developer",
+    hero_summary: "Lulusan S1 Teknik Informatika dari Universitas Dian Nusantara dengan rekam jejak teruji dalam infrastruktur telekomunikasi, pemeliharaan jaringan serat optik (fiber optic), manajemen aset dan material pergudangan, serta pengembangan Front-End Web dan UI/UX. Pemimpin yang aktif, bekerja keras, serta berdedikasi dalam bidang rekayasa web dan Machine Learning.",
+    btn_view_projects: "Lihat Proyek Unggulan",
+    btn_contact_me: "Hubungi Saya",
+    btn_view_cv: "Lihat CV (JPG)",
+
+    // Stats
+    stat_label_1: "PENGALAMAN KERJA",
+    stat_label_2: "PROYEK UTAMA",
+    stat_label_3: "PROGRAM STUDI",
+    stat_label_4: "TARGET SLA & FIX RATE",
+
+    // About
+    about_tag: "Profil Professional",
+    about_title_prefix: "Tentang",
+    about_title_suffix: "Saya",
+    about_intro_p: "Kombinasi keahlian di bidang Infrastruktur Telekomunikasi Fiber Optic, Manajemen Aset dan Material Gudang, serta Pemrograman Web & UI/UX Design.",
+    about_h3: "Integrasi Keahlian Lapangan & Pengembangan Perangkat Lunak",
+    about_p1: "Saya adalah lulusan SMK Telkom Jakarta (Teknik Komputer Jaringan) dan lulusan S1 Teknik Informatika di Universitas Dian Nusantara. Memiliki pengalaman kerja profesional di perusahaan telekomunikasi terkemuka seperti PT. Telkom Akses, PT. PLN Icon Plus, dan PT. Nitoza Indonesia Mandiri.",
+    about_p2: "Memiliki rekam jejak yang teruji dalam pembangunan dan pemeliharaan serta manajemen kabel jaringan kabel Fiber Optic (ODC & ODP), konfigurasi GPON OLT dan Router, serta manajemen aset dan material infrastruktur jaringan pada 10 area warehouse. Di samping itu, saya secara aktif mengembangkan aplikasi web berbasis PHP CodeIgniter 4, desain UI/UX, dan Machine Learning.",
+    highlight_title_1: "Infrastruktur Jaringan dan Fiber Optic",
+    highlight_desc_1: "Pengalaman QC & pembangunan 30 titik ODC PLN Icon Plus & pemeliharaan 50+ ODP Telkom Akses.",
+    highlight_title_2: "Web & Software Development",
+    highlight_desc_2: "PHP CodeIgniter 4, HTML5, CSS3, UI/UX Prototyping, dan Python.",
+    highlight_title_3: "Manajemen Gudang",
+    highlight_desc_3: "Pengelolaan 10 area warehouse refurbish material Telkom Akses se-Jakarta Timur.",
+    highlight_title_4: "Kepemimpinan",
+    highlight_desc_4: "Wakil Ketua HIMTI Undira, Ketua Divisi Humas dan IT Karang Taruna, Ketua Umum Remaja Musholla, Ketua Divisi Kerohanian OSIS, dan Sekretaris Jendral ROHIS.",
+
+    // Skills
     sub_competency: "Kompetensi & Tools",
     skills_title: "Keahlian",
     skills_subtitle: "Daftar lengkap keterampilan teknis, jaringan, software, dan soft skills yang dikuasai.",
@@ -391,10 +435,64 @@ const i18n = {
     filter_network: "Jaringan & Fiber Optic",
     filter_tools: "Software & Tools",
     filter_mgmt: "Manajemen & Soft Skills",
-    contact_title: "Hubungi",
-    contact_subtitle: "Terbuka untuk diskusi proyek web development, konsultasi jaringan fiber optic, maupun peluang karir."
+
+    // Projects
+    projects_tag: "Portfolio Showcase",
+    projects_title_prefix: "Proyek",
+    projects_title_suffix: "Unggulan",
+    projects_subtitle: "Kumpulan proyek infrastruktur telekomunikasi, sistem web enterprise, Telegram Bot, hingga desain UI/UX mobile.",
+    filter_all_proj: "Semua Proyek",
+    filter_web_proj: "Web System",
+    filter_network_proj: "Network & FO",
+    filter_ui_proj: "UI/UX Mobile",
+    filter_bot_proj: "Bot & Automation",
+    btn_detail: "Lihat Detail Proyek",
+
+    // Experience
+    exp_tag: "Karir Professional",
+    exp_title_prefix: "Pengalaman",
+    exp_title_suffix: "Kerja",
+    exp_subtitle: "Perjalanan karir teknis dari Teknisi Splicer, QC Fiber Optic, hingga Staff Warehouse Management.",
+
+    // Education
+    edu_tag: "Pendidikan & Organisasi",
+    edu_title_prefix: "Latar Belakang",
+    edu_title_suffix: "& Kepemimpinan",
+    edu_h3_1: "Pendidikan Formal",
+    edu_h3_2: "Pengalaman Organisasi & Kepemimpinan",
+
+    // Achievements & Pubs
+    ach_tag: "Rekam Jejak & Karya",
+    ach_title_prefix: "Prestasi",
+    ach_title_suffix: "& Publikasi Jurnal",
+    ach_subtitle: "Publikasi jurnal ilmiah pengabdian masyarakat, sertifikasi kompetensi BNSP, dan pelatihan resmi industri.",
+    pub_header: "Publikasi Jurnal & Karya Ilmiah",
+    btn_view_doi: "Lihat Artikel Jurnal (DOI)",
+    btn_download_pdf: "Download PDF Jurnal",
+    ach_header: "Sertifikasi & Penghargaan Lainnya",
+
+    // Contact
+    contact_tag: "Mari Berkomunikasi",
+    contact_title_prefix: "Hubungi",
+    contact_title_suffix: "Saya",
+    contact_subtitle: "Terbuka untuk diskusi proyek web development, konsultasi jaringan fiber optic, maupun peluang karir.",
+    contact_info_title: "Informasi Kontak",
+    contact_send_title: "Kirim Pesan",
+    label_name: "Nama Lengkap",
+    label_email: "Alamat Email",
+    label_subject: "Subjek Pesan",
+    label_message: "Pesan Anda",
+    btn_send_message: "Kirim Pesan Sekarang",
+
+    // Footer
+    footer_desc: "Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Specialist Jointer Fiber Optik / FTTH, Manajemen Pergudangan Telkom Akses, & Front-End Web Developer.",
+    footer_nav_title: "Navigasi Pintar",
+    footer_contact_title: "Hubungi Langsung",
+    footer_stats_title: "Statistik Pengunjung",
+    footer_system_live: "System Live & Operational"
   },
   en: {
+    // Nav
     nav_home: "Home",
     nav_about: "About Me",
     nav_skills: "Skills & Expertise",
@@ -403,16 +501,106 @@ const i18n = {
     nav_education: "Education",
     nav_achievements: "Achievements",
     nav_contact: "Contact",
+
+    // Hero
+    hero_status: "Open for Job Opportunities & Fiber Optic / FTTH Jointer Projects, Warehousing, & Web Development",
+    hero_title_prefix: "Hi, I am",
+    hero_subtitle_1: "Warehouse Management",
+    hero_subtitle_2: "Network Engineer",
+    hero_subtitle_3: "Fiber Optic Specialist",
+    hero_subtitle_4: "Front-End Web & UI/UX Developer",
+    hero_summary: "Bachelor of Computer Science graduate from Dian Nusantara University with a proven track record in telecommunications infrastructure, fiber optic network maintenance, warehouse asset management, and Front-End Web & UI/UX development. Active leader dedicated to web engineering and Machine Learning.",
+    btn_view_projects: "View Featured Projects",
+    btn_contact_me: "Contact Me",
+    btn_view_cv: "View CV (JPG)",
+
+    // Stats
+    stat_label_1: "WORK EXPERIENCE",
+    stat_label_2: "KEY PROJECTS",
+    stat_label_3: "MAJOR / DEGREE",
+    stat_label_4: "SLA & FIX RATE TARGET",
+
+    // About
+    about_tag: "Professional Profile",
+    about_title_prefix: "About",
+    about_title_suffix: "Me",
+    about_intro_p: "Combination of expertise in Fiber Optic Telecom Infrastructure, Asset & Warehouse Material Management, and Web Programming & UI/UX Design.",
+    about_h3: "Integrating Field Engineering & Software Development",
+    about_p1: "Graduate of SMK Telkom Jakarta (Network Engineering) and Bachelor of Computer Science from Dian Nusantara University. Professional work experience at leading telecommunications companies such as PT. Telkom Akses, PT. PLN Icon Plus, and PT. Nitoza Indonesia Mandiri.",
+    about_p2: "Proven track record in construction, maintenance, and cable management of Fiber Optic networks (ODC & ODP), GPON OLT and Router configuration, as well as asset and material management across 10 warehouse areas. Additionally, actively developing web applications using PHP CodeIgniter 4, UI/UX design, and Machine Learning.",
+    highlight_title_1: "Network & Fiber Optic Infrastructure",
+    highlight_desc_1: "QC & construction of 30 PLN Icon Plus ODC locations & maintenance of 50+ Telkom Akses ODPs.",
+    highlight_title_2: "Web & Software Development",
+    highlight_desc_2: "PHP CodeIgniter 4, HTML5, CSS3, UI/UX Prototyping, and Python.",
+    highlight_title_3: "Warehouse Management",
+    highlight_desc_3: "Management of 10 Telkom Akses material refurbish warehouse areas across East Jakarta.",
+    highlight_title_4: "Leadership",
+    highlight_desc_4: "Vice Chairman of HIMTI Undira, Head of PR and IT Division Karang Taruna, General Chairman Youth Mosque, Head of OSIS Religious Division, and Secretary General of ROHIS.",
+
+    // Skills
     sub_competency: "Competencies & Tools",
     skills_title: "Skills",
-    skills_subtitle: "Comprehensive technical skills, network engineering, software, and soft skills.",
+    skills_subtitle: "Comprehensive list of technical skills, network engineering, software, and soft skills.",
     filter_all: "All Skills",
     filter_web: "Web & Dev",
     filter_network: "Network & Fiber Optics",
     filter_tools: "Software & Tools",
     filter_mgmt: "Management & Soft Skills",
-    contact_title: "Contact",
-    contact_subtitle: "Open for web development discussions, fiber optic network consultation, or career opportunities."
+
+    // Projects
+    projects_tag: "Portfolio Showcase",
+    projects_title_prefix: "Featured",
+    projects_title_suffix: "Projects",
+    projects_subtitle: "A collection of telecom infrastructure projects, enterprise web systems, Telegram Bot, and mobile UI/UX design.",
+    filter_all_proj: "All Projects",
+    filter_web_proj: "Web System",
+    filter_network_proj: "Network & FO",
+    filter_ui_proj: "UI/UX Mobile",
+    filter_bot_proj: "Bot & Automation",
+    btn_detail: "View Project Details",
+
+    // Experience
+    exp_tag: "Professional Career",
+    exp_title_prefix: "Work",
+    exp_title_suffix: "Experience",
+    exp_subtitle: "Technical career journey from Splicer Technician, Fiber Optic QC, to Warehouse Management Staff.",
+
+    // Education
+    edu_tag: "Education & Leadership",
+    edu_title_prefix: "Academic",
+    edu_title_suffix: "Background",
+    edu_h3_1: "Formal Education",
+    edu_h3_2: "Organization & Leadership Experience",
+
+    // Achievements & Pubs
+    ach_tag: "Track Record & Works",
+    ach_title_prefix: "Achievements",
+    ach_title_suffix: "& Journal Publications",
+    ach_subtitle: "Scientific journal publication on community empowerment, competition awards, and BNSP certifications.",
+    pub_header: "Journal Publication & Research",
+    btn_view_doi: "View Journal Article (DOI)",
+    btn_download_pdf: "Download Journal PDF",
+    ach_header: "Certifications & Other Awards",
+
+    // Contact
+    contact_tag: "Get In Touch",
+    contact_title_prefix: "Contact",
+    contact_title_suffix: "Me",
+    contact_subtitle: "Open for web development discussions, fiber optic network consultation, or career opportunities.",
+    contact_info_title: "Contact Information",
+    contact_send_title: "Send Message",
+    label_name: "Full Name",
+    label_email: "Email Address",
+    label_subject: "Message Subject",
+    label_message: "Your Message",
+    btn_send_message: "Send Message Now",
+
+    // Footer
+    footer_desc: "Bachelor of Computer Science graduate from Dian Nusantara University. Specialist Fiber Optic / FTTH Jointer, Telkom Akses Warehouse Management, & Front-End Web Developer.",
+    footer_nav_title: "Quick Links",
+    footer_contact_title: "Direct Contact",
+    footer_stats_title: "Visitor Statistics",
+    footer_system_live: "System Live & Operational"
   }
 };
 
@@ -426,7 +614,7 @@ window.toggleLanguage = function() {
 function applyLanguage(lang) {
   const langLabel = document.getElementById('langLabel');
   if (langLabel) {
-    langLabel.innerHTML = `<i class="fas fa-globe"></i> ${lang.toUpperCase()}`;
+    langLabel.innerHTML = lang === 'id' ? '🇮🇩 ID' : '🇬🇧 EN';
   }
 
   const dict = i18n[lang];

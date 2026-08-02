@@ -75,13 +75,13 @@
 
       <div class="nav-actions" style="display:flex; align-items:center; gap:0.4rem;">
         <!-- Language Switcher -->
-        <button id="langToggleBtn" onclick="toggleLanguage()" class="nav-btn" style="padding:0.4rem 0.75rem; font-size:0.8rem; font-weight:700;" title="Switch Language / Ganti Bahasa">
-          <span id="langLabel"><i class="fas fa-globe"></i> ID</span>
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="nav-btn" style="padding:0.4rem 0.85rem; font-size:0.85rem; font-weight:700;" title="Switch Language / Ganti Bahasa">
+          <span id="langLabel">🇮🇩 ID</span>
         </button>
 
         <!-- Dark / Light Theme Switcher -->
         <button id="themeToggleBtn" onclick="toggleTheme()" class="nav-btn" style="padding:0.4rem 0.85rem; font-size:0.82rem; font-weight:700;" title="Mode Gelap / Terang (Dark / Light Theme)">
-          <i class="fas fa-moon" id="themeIcon" style="color:#34d399;"></i> <span id="themeLabel">Dark</span>
+          <i class="fas fa-moon" id="themeIcon" style="color:#38bdf8;"></i> <span id="themeLabel">Dark</span>
         </button>
 
         <button onclick="openCvModal()" class="nav-btn">
@@ -107,35 +107,34 @@
 
           <div class="badge-status">
             <span class="pulse-dot"></span>
-            <?= esc($profile['status']) ?>
+            <span data-i18n="hero_status"><?= esc($profile['status']) ?></span>
           </div>
 
-          <h1>Hi, Saya <span class="gradient-text"><?= esc($profile['name']) ?></span></h1>
+          <h1><span data-i18n="hero_title_prefix">Hi, Saya</span> <span class="gradient-text"><?= esc($profile['name']) ?></span></h1>
           
           <div class="hero-subtitle">
-            <span>Warehouse Management</span>
-            <span>Network Engineer</span>
-            <span>Fiber Optic Specialist</span>
-            <span>Front-End Web & UI/UX Developer</span>
+            <span data-i18n="hero_subtitle_1">Warehouse Management</span>
+            <span data-i18n="hero_subtitle_2">Network Engineer</span>
+            <span data-i18n="hero_subtitle_3">Fiber Optic Specialist</span>
+            <span data-i18n="hero_subtitle_4">Front-End Web & UI/UX Developer</span>
           </div>
 
-          <p class="hero-description">
+          <p class="hero-description" data-i18n="hero_summary">
             <?= esc($profile['summary']) ?>
           </p>
 
           <div class="hero-actions">
             <a href="#projects" class="btn-primary">
-              <i class="fas fa-rocket"></i> Lihat Proyek Unggulan
+              <i class="fas fa-rocket"></i> <span data-i18n="btn_view_projects">Lihat Proyek Unggulan</span>
             </a>
             <a href="#contact" class="btn-secondary">
-              <i class="fas fa-paper-plane"></i> Hubungi Saya
+              <i class="fas fa-paper-plane"></i> <span data-i18n="btn_contact_me">Hubungi Saya</span>
             </a>
           </div>
 
           <div class="hero-socials">
             <a href="<?= esc($profile['linkedin']) ?>" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="<?= esc($profile['github']) ?>" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="<?= esc($profile['google_sites']) ?>" target="_blank" class="social-icon" title="Google Sites"><i class="fas fa-globe"></i></a>
             <a href="mailto:<?= esc($profile['email']) ?>" class="social-icon" title="Email Direct"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
@@ -165,18 +164,18 @@
   <section id="about" class="section section-alt">
     <div class="container">
       <div class="section-title">
-        <span class="sub-tag">Profil Professional</span>
-        <h2>Tentang <span class="gradient-text">Saya</span></h2>
-        <p>Kombinasi keahlian di bidang Infrastruktur Telekomunikasi Fiber Optic, Manajemen Aset dan Material Gudang, serta Pemrograman Web & UI/UX Design.</p>
+        <span class="sub-tag" data-i18n="about_tag">Profil Professional</span>
+        <h2><span data-i18n="about_title_prefix">Tentang</span> <span class="gradient-text" data-i18n="about_title_suffix">Saya</span></h2>
+        <p data-i18n="about_intro_p">Kombinasi keahlian di bidang Infrastruktur Telekomunikasi Fiber Optic, Manajemen Aset dan Material Gudang, serta Pemrograman Web & UI/UX Design.</p>
       </div>
 
       <div class="about-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch;">
         <div class="about-text">
-          <h3>Integrasi Keahlian Lapangan & Pengembangan Perangkat Lunak</h3>
-          <p>
+          <h3 data-i18n="about_h3">Integrasi Keahlian Lapangan & Pengembangan Perangkat Lunak</h3>
+          <p data-i18n="about_p1">
             Saya adalah lulusan SMK Telkom Jakarta (Teknik Komputer Jaringan) dan lulusan S1 Teknik Informatika di Universitas Dian Nusantara. Memiliki pengalaman kerja profesional di perusahaan telekomunikasi terkemuka seperti PT. Telkom Akses, PT. PLN Icon Plus, dan PT. Nitoza Indonesia Mandiri.
           </p>
-          <p>
+          <p data-i18n="about_p2">
             Memiliki rekam jejak yang teruji dalam pembangunan dan pemeliharaan serta manajemen kabel jaringan kabel Fiber Optic (ODC & ODP), konfigurasi GPON OLT dan Router, serta manajemen aset dan material infrastruktur jaringan pada 10 area warehouse. Di samping itu, saya secara aktif mengembangkan aplikasi web berbasis PHP CodeIgniter 4, desain UI/UX, dan Machine Learning.
           </p>
 
@@ -184,29 +183,29 @@
             <div class="highlight-card">
               <div class="highlight-icon"><i class="fas fa-network-wired"></i></div>
               <div class="highlight-info">
-                <h4>Infrastruktur Jaringan dan Fiber Optic</h4>
-                <p>Pengalaman QC & pembangunan 30 titik ODC PLN Icon Plus & pemeliharaan 50+ ODP Telkom Akses.</p>
+                <h4 data-i18n="highlight_title_1">Infrastruktur Jaringan dan Fiber Optic</h4>
+                <p data-i18n="highlight_desc_1">Pengalaman QC & pembangunan 30 titik ODC PLN Icon Plus & pemeliharaan 50+ ODP Telkom Akses.</p>
               </div>
             </div>
             <div class="highlight-card">
               <div class="highlight-icon"><i class="fas fa-laptop-code"></i></div>
               <div class="highlight-info">
-                <h4>Web & Software Development</h4>
-                <p>PHP CodeIgniter 4, HTML5, CSS3, UI/UX Prototyping, dan Python.</p>
+                <h4 data-i18n="highlight_title_2">Web & Software Development</h4>
+                <p data-i18n="highlight_desc_2">PHP CodeIgniter 4, HTML5, CSS3, UI/UX Prototyping, dan Python.</p>
               </div>
             </div>
             <div class="highlight-card">
               <div class="highlight-icon"><i class="fas fa-warehouse"></i></div>
               <div class="highlight-info">
-                <h4>Manajemen Gudang</h4>
-                <p>Pengelolaan 10 area warehouse refurbish material Telkom Akses se-Jakarta Timur.</p>
+                <h4 data-i18n="highlight_title_3">Manajemen Gudang</h4>
+                <p data-i18n="highlight_desc_3">Pengelolaan 10 area warehouse refurbish material Telkom Akses se-Jakarta Timur.</p>
               </div>
             </div>
             <div class="highlight-card">
               <div class="highlight-icon"><i class="fas fa-users"></i></div>
               <div class="highlight-info">
-                <h4>Kepemimpinan</h4>
-                <p>Wakil Ketua HIMTI Undira, Ketua Divisi Humas dan IT Karang Taruna, Ketua Umum Remaja Musholla, Ketua Divisi Kerohanian OSIS, dan Sekretaris Jendral ROHIS.</p>
+                <h4 data-i18n="highlight_title_4">Kepemimpinan</h4>
+                <p data-i18n="highlight_desc_4">Wakil Ketua HIMTI Undira, Ketua Divisi Humas dan IT Karang Taruna, Ketua Umum Remaja Musholla, Ketua Divisi Kerohanian OSIS, dan Sekretaris Jendral ROHIS.</p>
               </div>
             </div>
           </div>
@@ -402,16 +401,16 @@
   <section id="education" class="section section-alt">
     <div class="container">
       <div class="section-title">
-        <span class="sub-tag">Pendidikan & Organisasi</span>
-        <h2>Latar Belakang <span class="gradient-text">& Kepemimpinan</span></h2>
+        <span class="sub-tag" data-i18n="edu_tag">Pendidikan & Organisasi</span>
+        <h2><span data-i18n="edu_title_prefix">Latar Belakang</span> <span class="gradient-text" data-i18n="edu_title_suffix">& Kepemimpinan</span></h2>
         <p>Riwayat studi formal dan aktivitas organisasi kemahasiswaan serta kepemudaan.</p>
       </div>
 
       <div class="education-org-grid">
         <!-- Formal Education -->
         <div>
-          <h3 style="font-size:1.4rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem;">
-            <i class="fas fa-graduation-cap" style="color:var(--primary-cyan);"></i> Pendidikan Formal
+          <h3 style="font-size:1.4rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem; color:var(--text-main);">
+            <i class="fas fa-graduation-cap" style="color:var(--primary-cyan);"></i> <span data-i18n="edu_h3_1">Pendidikan Formal</span>
           </h3>
           <div class="timeline" style="max-width:100%;">
             <?php foreach ($education as $edu): ?>
@@ -419,7 +418,7 @@
                 <div class="timeline-dot" style="border-color:var(--primary-emerald);"></div>
                 <div class="timeline-content">
                   <div class="timeline-header">
-                    <span class="timeline-company" style="color:#fff;"><?= esc($edu['institution']) ?></span>
+                    <span class="timeline-company" style="color:var(--text-main); font-weight:700;"><?= esc($edu['institution']) ?></span>
                     <span class="timeline-period"><?= esc($edu['period']) ?></span>
                   </div>
                   <h4 style="color:var(--primary-cyan); font-size:1.05rem; margin-bottom:0.3rem;"><?= esc($edu['degree']) ?></h4>
@@ -468,7 +467,7 @@
                     <span class="timeline-company" style="color:var(--primary-indigo);"><?= esc($org['organization']) ?></span>
                     <span class="timeline-period"><?= esc($org['period']) ?></span>
                   </div>
-                  <h4 style="color:#fff; font-size:1rem; margin-bottom:0.5rem;"><?= esc($org['role']) ?></h4>
+                  <h4 style="color:var(--text-main); font-size:1rem; margin-bottom:0.5rem;"><?= esc($org['role']) ?></h4>
                   <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;"><?= esc($org['details']) ?></p>
                 </div>
               </div>
@@ -483,25 +482,25 @@
   <section id="achievements" class="section">
     <div class="container">
       <div class="section-title">
-        <span class="sub-tag">Publikasi, Penghargaan & Lisensi</span>
-        <h2>Prestasi <span class="gradient-text">& Publikasi Jurnal</span></h2>
-        <p>Publikasi jurnal ilmiah pengabdian masyarakat, sertifikasi kompetensi BNSP, dan pelatihan resmi industri.</p>
+        <span class="sub-tag" data-i18n="ach_tag">Rekam Jejak & Karya</span>
+        <h2><span data-i18n="ach_title_prefix">Prestasi</span> <span class="gradient-text" data-i18n="ach_title_suffix">& Publikasi Jurnal</span></h2>
+        <p data-i18n="ach_subtitle">Publikasi jurnal ilmiah pengabdian masyarakat, sertifikasi kompetensi BNSP, dan pelatihan resmi industri.</p>
       </div>
 
       <!-- Featured Scientific Publication Card -->
       <?php if (!empty($publications)): ?>
         <div style="margin-bottom: 2.5rem;">
-          <h3 style="font-size:1.3rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:0.6rem; color:#fff;">
-            <i class="fas fa-book-open" style="color:var(--primary-cyan);"></i> Publikasi Jurnal & Karya Ilmiah
+          <h3 style="font-size:1.3rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:0.6rem; color:var(--text-main);">
+            <i class="fas fa-book-open" style="color:var(--primary-cyan);"></i> <span data-i18n="pub_header">Publikasi Jurnal & Karya Ilmiah</span>
           </h3>
           <?php foreach ($publications as $pub): ?>
-            <div class="highlight-card" style="background: rgba(13, 27, 19, 0.75); border: 1px solid rgba(52, 211, 153, 0.35); padding: 1.5rem; border-radius: var(--radius-lg); flex-direction: column; gap: 1rem;">
+            <div class="publication-card" style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-lg); display:flex; flex-direction: column; gap: 1rem; box-shadow:var(--glass-shadow);">
               <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; width:100%;">
                 <div>
                   <span class="achievement-tag" style="background:rgba(52, 211, 153, 0.15); color:var(--primary-cyan); font-weight:700; padding:0.25rem 0.75rem; border-radius:50px; font-size:0.78rem;">
                     <i class="fas fa-newspaper"></i> <?= esc($pub['type']) ?>
                   </span>
-                  <h4 style="font-size:1.2rem; color:#fff; margin-top:0.75rem; margin-bottom:0.4rem; line-height:1.4;">
+                  <h4 style="font-size:1.2rem; color:var(--text-main); margin-top:0.75rem; margin-bottom:0.4rem; line-height:1.4;">
                     <?= esc($pub['title']) ?>
                   </h4>
                   <p style="color:var(--text-muted); font-size:0.88rem; margin:0; line-height:1.5;">
@@ -513,14 +512,14 @@
                 </span>
               </div>
 
-              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); padding:1rem; border-radius:8px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
-                <p style="margin:0 0 0.5rem 0; color:#e2e8f0;"><strong>Penulis:</strong> <?= esc($pub['authors']) ?> (<?= esc($pub['institution']) ?>)</p>
-                <p style="margin:0 0 0.75rem 0;"><strong style="color:#e2e8f0;">Abstrak:</strong> <?= esc($pub['abstract']) ?></p>
+              <div style="background:rgba(16, 185, 129, 0.05); border:1px solid var(--border-color); padding:1rem; border-radius:8px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
+                <p style="margin:0 0 0.5rem 0; color:var(--text-main);"><strong>Penulis:</strong> <?= esc($pub['authors']) ?> (<?= esc($pub['institution']) ?>)</p>
+                <p style="margin:0 0 0.75rem 0;"><strong style="color:var(--text-main);">Abstrak:</strong> <?= esc($pub['abstract']) ?></p>
                 <?php if (!empty($pub['keywords'])): ?>
-                  <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; border-top:1px dashed rgba(255,255,255,0.1); padding-top:0.65rem; margin-top:0.5rem;">
-                    <strong style="color:#e2e8f0; font-size:0.82rem;"><i class="fas fa-tags" style="color:var(--primary-cyan);"></i> Kata Kunci (Keywords):</strong>
+                  <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; border-top:1px dashed var(--border-color); padding-top:0.65rem; margin-top:0.5rem;">
+                    <strong style="color:var(--text-main); font-size:0.82rem;"><i class="fas fa-tags" style="color:var(--primary-cyan);"></i> Kata Kunci (Keywords):</strong>
                     <?php foreach ($pub['keywords'] as $kw): ?>
-                      <span style="font-size:0.75rem; color:var(--primary-cyan); background:rgba(52, 211, 153, 0.1); border:1px solid rgba(52, 211, 153, 0.25); padding:0.15rem 0.55rem; border-radius:50px; font-weight:600;">
+                      <span style="font-size:0.75rem; color:var(--primary-cyan); background:rgba(52, 211, 153, 0.12); border:1px solid rgba(52, 211, 153, 0.3); padding:0.15rem 0.55rem; border-radius:50px; font-weight:600;">
                         <?= esc($kw) ?>
                       </span>
                     <?php endforeach; ?>
@@ -529,10 +528,10 @@
               </div>
 
               <div style="display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; margin-top:0.25rem;">
-                <a href="<?= esc($pub['url']) ?>" target="_blank" class="nav-btn" style="padding:0.5rem 1.1rem; font-size:0.84rem;">
+                <a href="<?= esc($pub['url']) ?>" target="_blank" class="nav-btn" style="padding:0.5rem 1.1rem; font-size:0.84rem;" data-i18n="btn_view_doi">
                   <i class="fas fa-external-link-alt"></i> Lihat Artikel Jurnal (DOI)
                 </a>
-                <a href="<?= esc($pub['pdf_url']) ?>" target="_blank" class="btn-secondary" style="padding:0.45rem 1rem; font-size:0.84rem;">
+                <a href="<?= esc($pub['pdf_url']) ?>" target="_blank" class="btn-secondary" style="padding:0.45rem 1rem; font-size:0.84rem;" data-i18n="btn_download_pdf">
                   <i class="fas fa-file-pdf" style="color:#ef4444;"></i> Download PDF Jurnal
                 </a>
               </div>
@@ -583,14 +582,14 @@
   <section id="contact" class="section section-alt">
     <div class="container">
       <div class="section-title">
-        <span class="sub-tag">Mari Berkomunikasi</span>
-        <h2>Hubungi <span class="gradient-text">Saya</span></h2>
-        <p>Terbuka untuk diskusi proyek web development, konsultasi jaringan fiber optic, maupun peluang karir.</p>
+        <span class="sub-tag" data-i18n="contact_tag">Mari Berkomunikasi</span>
+        <h2><span data-i18n="contact_title_prefix">Hubungi</span> <span class="gradient-text" data-i18n="contact_title_suffix">Saya</span></h2>
+        <p data-i18n="contact_subtitle">Terbuka untuk diskusi proyek web development, konsultasi jaringan fiber optic, maupun peluang karir.</p>
       </div>
 
       <div class="contact-grid">
         <div class="contact-info-card">
-          <h3 style="font-size:1.5rem; margin-bottom:1.5rem;">Informasi Kontak</h3>
+          <h3 style="font-size:1.5rem; margin-bottom:1.5rem;" data-i18n="contact_info_title">Informasi Kontak</h3>
 
           <div class="contact-item">
             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
@@ -618,34 +617,34 @@
         </div>
 
         <div class="contact-form-card">
-          <h3 style="font-size:1.5rem; margin-bottom:1.5rem;">Kirim Pesan</h3>
+          <h3 style="font-size:1.5rem; margin-bottom:1.5rem;" data-i18n="contact_send_title">Kirim Pesan</h3>
 
           <div id="formResponse" style="display:none; margin-bottom:1.25rem;"></div>
 
           <form id="portfolioContactForm" action="<?= base_url('contact/submit') ?>" method="POST">
             <?= csrf_field() ?>
             <div class="form-group">
-              <label class="form-label" for="name">Nama Lengkap</label>
+              <label class="form-label" for="name" data-i18n="label_name">Nama Lengkap</label>
               <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="email">Alamat Email</label>
+              <label class="form-label" for="email" data-i18n="label_email">Alamat Email</label>
               <input type="email" id="email" name="email" class="form-control" placeholder="nama@email.com" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="subject">Subjek Pesan</label>
+              <label class="form-label" for="subject" data-i18n="label_subject">Subjek Pesan</label>
               <input type="text" id="subject" name="subject" class="form-control" placeholder="Topik diskusi atau tawaran proyek" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="message">Pesan Anda</label>
+              <label class="form-label" for="message" data-i18n="label_message">Pesan Anda</label>
               <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tuliskan rincian pesan atau tawaran kerja..." required></textarea>
             </div>
 
             <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:0.9rem;">
-              <i class="fas fa-paper-plane"></i> Kirim Pesan Sekarang
+              <i class="fas fa-paper-plane"></i> <span data-i18n="btn_send_message">Kirim Pesan Sekarang</span>
             </button>
           </form>
         </div>
@@ -740,7 +739,7 @@
           <a href="#hero" class="logo" style="margin-bottom:1rem; display:inline-flex;">
             <span class="dot"></span> <span>STEVEN ADITYA PRATAMA</span>
           </a>
-          <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:1.25rem;">
+          <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:1.25rem;" data-i18n="footer_desc">
             Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Specialist Jointer Fiber Optik / FTTH, Manajemen Pergudangan Telkom Akses, &amp; Front-End Web Developer.
           </p>
           <div style="display:flex; gap:0.75rem;">
@@ -753,23 +752,23 @@
 
         <!-- Col 2: Navigation Links -->
         <div>
-          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;">
+          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;" data-i18n="footer_nav_title">
             Navigasi Pintar
             <span style="position:absolute; bottom:0; left:0; width:35px; height:2px; background:var(--primary-cyan); border-radius:2px;"></span>
           </h4>
           <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.6rem; font-size:0.88rem;">
-            <li><a href="#hero" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Beranda Utama</a></li>
-            <li><a href="#about" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Tentang Saya</a></li>
-            <li><a href="#skills" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Keahlian &amp; Tools</a></li>
-            <li><a href="#projects" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Proyek Unggulan</a></li>
-            <li><a href="#experience" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> Pengalaman Kerja</a></li>
-            <li><a href="#achievements" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> 33 PDF Sertifikat</a></li>
+            <li><a href="#hero" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> <span data-i18n="nav_home">Beranda</span></a></li>
+            <li><a href="#about" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> <span data-i18n="nav_about">Tentang Saya</span></a></li>
+            <li><a href="#skills" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> <span data-i18n="nav_skills">Keahlian &amp; Skills</span></a></li>
+            <li><a href="#projects" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> <span data-i18n="nav_projects">Proyek Unggulan</span></a></li>
+            <li><a href="#experience" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> <span data-i18n="nav_experience">Pengalaman</span></a></li>
+            <li><a href="#achievements" class="nav-link"><i class="fas fa-chevron-right" style="font-size:0.7rem; color:var(--primary-cyan);"></i> <span data-i18n="nav_achievements">Prestasi</span></a></li>
           </ul>
         </div>
 
         <!-- Col 3: Contact Summary -->
         <div>
-          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;">
+          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;" data-i18n="footer_contact_title">
             Hubungi Langsung
             <span style="position:absolute; bottom:0; left:0; width:35px; height:2px; background:var(--primary-cyan); border-radius:2px;"></span>
           </h4>
@@ -791,22 +790,22 @@
 
         <!-- Col 4: Visitor Analytics -->
         <div>
-          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;">
+          <h4 style="font-size:1.05rem; color:var(--text-main); font-weight:700; margin-bottom:1.2rem; position:relative; padding-bottom:0.5rem;" data-i18n="footer_stats_title">
             Statistik Pengunjung
             <span style="position:absolute; bottom:0; left:0; width:35px; height:2px; background:var(--primary-cyan); border-radius:2px;"></span>
           </h4>
-          <div class="visitor-card" style="padding:0.85rem; border-radius:12px; margin-top:0;">
-            <div class="flag-counter-box" style="margin-bottom:0.6rem; padding:0;">
-              <a href="https://info.flagcounter.com/Glxg" target="_blank" title="Visitor Flag Counter">
-                <img src="https://s11.flagcounter.com/count2/Glxg/bg_0D1B13/txt_ECFDF5/border_10B981/columns_4/maxflags_12/viewers_0/labels_1/pageviews_1/timeline_0/" alt="Flag Counter" border="0" style="max-width:100%;">
+          <div class="visitor-card" style="padding:1rem; border-radius:14px; margin-top:0; width:100%;">
+            <div class="flag-counter-box" style="margin-bottom:0.85rem; padding:0.4rem; background:rgba(0,0,0,0.25); border-radius:10px; border:1px solid var(--border-color); display:flex; justify-content:center; overflow:hidden;">
+              <a href="https://info.flagcounter.com/Glxg" target="_blank" title="Visitor Flag Counter" style="display:block; width:100%; text-align:center;">
+                <img src="https://s11.flagcounter.com/count2/Glxg/bg_0D1B13/txt_ECFDF5/border_10B981/columns_2/maxflags_12/viewers_0/labels_1/pageviews_1/timeline_0/" alt="Flag Counter" border="0" style="width:100%; min-width:180px; max-width:280px; height:auto; display:inline-block; border-radius:6px;">
               </a>
             </div>
-            <div class="visitor-badges" style="gap:0.4rem; font-size:0.75rem;">
-              <div class="visitor-badge-item" style="padding:0.2rem 0.5rem;">
-                <i class="fas fa-eye"></i> <strong id="totalPageViews">-</strong> Views
+            <div class="visitor-badges" style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
+              <div class="visitor-badge-item" style="padding:0.4rem 0.75rem; font-size:0.85rem; font-weight:700; display:flex; align-items:center; gap:0.4rem;">
+                <i class="fas fa-eye" style="color:var(--primary-cyan);"></i> <span><strong id="totalPageViews" style="color:var(--primary-cyan); font-size:0.95rem;">-</strong> Views</span>
               </div>
-              <div class="visitor-badge-item" style="padding:0.2rem 0.5rem;">
-                <i class="fas fa-user-check"></i> <strong id="uniqueVisitors">-</strong> Unique
+              <div class="visitor-badge-item" style="padding:0.4rem 0.75rem; font-size:0.85rem; font-weight:700; display:flex; align-items:center; gap:0.4rem;">
+                <i class="fas fa-user-check" style="color:var(--primary-cyan);"></i> <span><strong id="uniqueVisitors" style="color:var(--primary-cyan); font-size:0.95rem;">-</strong> Unique</span>
               </div>
             </div>
           </div>
@@ -819,7 +818,7 @@
         <p style="margin:0;">&copy; <?= date('Y') ?> <strong><?= esc($profile['name']) ?></strong>. All rights reserved. | CodeIgniter 4 Framework</p>
         <div style="display:flex; align-items:center; gap:0.5rem;">
           <span style="display:inline-flex; align-items:center; gap:0.4rem; color:var(--primary-cyan); font-weight:600;">
-            <i class="fas fa-circle" style="font-size:0.5rem;"></i> System Live &amp; Operational
+            <i class="fas fa-circle" style="font-size:0.5rem;"></i> <span data-i18n="footer_system_live">System Live &amp; Operational</span>
           </span>
         </div>
       </div>
