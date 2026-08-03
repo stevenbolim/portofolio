@@ -924,20 +924,23 @@ window.handleCliKeyDown = function(e) {
 
       /* Easter Egg Secret Codes */
       case 'matrix':
-        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">[EASTER EGG ACTIVATED] Starting Matrix Code Animation Stream...</span>`;
+        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">🟢 [EASTER EGG ACTIVATED] Starting Full-Screen Matrix Stream...</span>`;
         triggerMatrixEffect();
+        setTimeout(() => closeSearchModal(), 400);
         break;
 
       case 'slytherin':
       case 'snake':
-        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">🐍 [SLYTHERIN EMERALD POWER] Serpent Crest Activated! Ambition & Resourcefulness.</span>`;
+        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">🐍 [SLYTHERIN EMERALD POWER] Serpent Crest Activated!</span>`;
         triggerSlytherinPulse();
+        setTimeout(() => closeSearchModal(), 400);
         break;
 
       case 'fiber':
       case 'fo':
-        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">⚡ [FIBER OPTIC HIGH-SPEED PULSE] 100 Gbps Laser Beam Signal Transmitting...</span>`;
+        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">⚡ [FIBER OPTIC PULSE] 100 Gbps Laser Signal Transmitting...</span>`;
         triggerFiberPulseEffect();
+        setTimeout(() => closeSearchModal(), 400);
         break;
 
       case 'cisco':
@@ -951,21 +954,26 @@ window.handleCliKeyDown = function(e) {
             <span style="color:#10b981;">Router# show interfaces GigabitEthernet0/0/0 status -> CONNECTED (1000Mbps Full-Duplex)</span>
           </div>
         `;
+        triggerFiberPulseEffect();
         break;
 
       case 'undira':
       case 'himti':
         respLine.innerHTML = `<span style="color:#f59e0b; font-weight:700;">🎓 [HIMTI UNDIRA ACADEMIC BADGE] Wakil Ketua Himpunan Mahasiswa Teknik Informatika (2024-2025).</span>`;
+        triggerSlytherinPulse();
         break;
 
       case 'bnsp':
       case 'jointer':
         respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">📜 [BNSP VERIFIED CERTIFICATE] Sertifikasi Profesi Nasional Aktivitas Telekomunikasi Dengan Kabel & Jointer.</span>`;
+        triggerFiberPulseEffect();
         break;
 
       case 'sudo':
       case 'root':
         respLine.innerHTML = `<span style="color:#ef4444; font-weight:700;">🔓 [ACCESS GRANTED] Developer Root Privileges Activated! Full Administrative Control Granted.</span>`;
+        triggerMatrixEffect();
+        setTimeout(() => closeSearchModal(), 400);
         break;
 
       default:
@@ -1036,15 +1044,19 @@ window.sendAiChatMessage = function() {
         <br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6281289196924" target="_blank" style="color:#34d399; font-weight:600;">+62 812-8919-6924</a>
         <br>✉️ <strong>Email:</strong> <a href="mailto:stevenadityapratama74@gmail.com" style="color:#34d399; font-weight:600;">stevenadityapratama74@gmail.com</a>
       `;
+    } else if (lower.includes('gimana') || lower.includes('siapa') || lower.includes('orangnya') || lower.includes('kepribadian')) {
+      botDiv.innerHTML = `
+        Steven Aditya Pratama adalah seorang yang <strong>disiplin, berdedikasi tinggi, berjiwa kepemimpinan (Wakil Ketua HIMTI UNDIRA), cepat belajar (fast learner), dan memiliki problem-solving kuat</strong> di bidang Jaringan Fiber Optic maupun Software Development! 🚀
+      `;
     } else {
       botDiv.innerHTML = `
-        Terima kasih atas pertanyannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Ada yang ingin ditanyakan lagi? 😊
+        Terima kasih atas pertanyaannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Silakan tanyakan hal lain atau hubungi langsung via WhatsApp! 😊
       `;
     }
 
     messagesContainer.appendChild(botDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }, 400);
+  }, 350);
 };
 
 /* 3. Matrix Digital Code Easter Egg Animation Engine */
@@ -1091,7 +1103,7 @@ function triggerMatrixEffect() {
 
 function triggerSlytherinPulse() {
   document.body.style.transition = 'box-shadow 0.5s ease';
-  document.body.style.boxShadow = 'inset 0 0 100px #10b981';
+  document.body.style.boxShadow = 'inset 0 0 120px #10b981';
   setTimeout(() => { document.body.style.boxShadow = 'none'; }, 3000);
 }
 
@@ -1102,3 +1114,15 @@ function triggerFiberPulseEffect() {
     setTimeout(() => { card.classList.remove('highlight-pulse'); }, 4000);
   });
 }
+
+/* 4. Scroll Listener for Back to Top Button */
+window.addEventListener('scroll', function() {
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  if (backToTopBtn) {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+});

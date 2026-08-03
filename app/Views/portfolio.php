@@ -58,7 +58,7 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="logo">
-        <span class="dot"></span> <span class="logo-full">STEVEN ADITYA PRATAMA</span><span class="logo-short">STEVEN A. PRATAMA</span>
+        <span class="dot"></span> <span class="logo-full">STEVEN.</span><span class="logo-short">STEVEN.</span>
       </a>
 
       <ul class="nav-links">
@@ -975,12 +975,11 @@
       <div id="terminalBody" class="terminal-body" onclick="document.getElementById('cliInput').focus()">
         <div class="terminal-welcome">
           <pre class="terminal-ascii">
-   _____ _____ _______ _____  ______ _   _ 
-  / ____|_   _|__   __/ ____|/ ____| \ | |
- | (___   | |    | | | |  __| |  __|  \| |
-  \___ \  | |    | | | | |_ | | |_ | . ` |
-  ____) |_| |_   | | | |__| | |__| | |\  |
- |_____/|_____|  |_|  \_____|\_____|_| \_|
+ ____ _____ _____ ____  _____ _   _ 
+/ ___|_   _| ____/ ___|| |_   _| \ | |
+\___ \ | | |  _| \___ \| | | | |  \| |
+ ___) || | | |___ ___) | | | | | |\  |
+|____/ |_| |_____|____/|_| |_| |_| \_|
           </pre>
           <div style="color:#34d399; font-weight:700; margin-bottom:0.4rem;">
             [SYSTEM ONLINE] Steven Aditya Pratama Interactive Terminal
@@ -999,6 +998,11 @@
       </div>
     </div>
   </div>
+
+  <!-- Floating Scroll to Top Button -->
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top-btn" title="Kembali ke Atas">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <!-- Floating AI Steven Assistant Chatbot Widget (Pojok Kanan Bawah) -->
   <div id="aiChatbotWidget" class="ai-chatbot-wrapper">
