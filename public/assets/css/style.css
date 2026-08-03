@@ -2620,3 +2620,110 @@ h1, h2, h3, h4, h5, h6 {
   80% { transform: translate(4px, 3px); filter: hue-rotate(360deg); }
   100% { transform: translate(0, 0); filter: hue-rotate(0deg); }
 }
+
+/* 7. HIMTI UNDIRA Golden Academic Starfield Overlay */
+.himti-gold-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99997;
+  pointer-events: none;
+  display: none;
+}
+
+.himti-gold-overlay.active {
+  display: block;
+}
+
+/* 8. BNSP Holographic National Jointer Seal Stamp Overlay */
+.bnsp-seal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background: rgba(3, 10, 6, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.bnsp-seal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bnsp-seal-card {
+  background: linear-gradient(135deg, rgba(7, 26, 17, 0.98), rgba(13, 44, 29, 0.95));
+  border: 2px solid #10b981;
+  box-shadow: 0 0 50px rgba(16, 185, 129, 0.6), inset 0 0 30px rgba(56, 189, 248, 0.3);
+  padding: 2.5rem 3.5rem;
+  border-radius: 24px;
+  text-align: center;
+  transform: scale(0.7) rotate(-5deg);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bnsp-seal-overlay.active .bnsp-seal-card {
+  transform: scale(1) rotate(0deg);
+}
+
+.bnsp-seal-icon {
+  font-size: 3.5rem;
+  color: #38bdf8;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 25px #38bdf8;
+  animation: sealPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes sealPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.bnsp-seal-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+.bnsp-seal-sub {
+  font-size: 0.92rem;
+  color: #a7f3d0;
+  margin-bottom: 1.2rem;
+}
+
+.bnsp-seal-badge {
+  display: inline-block;
+  background: #10b981;
+  color: #070f0b;
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+/* 9. Code Engine Scanline Pulse for php/ci4 */
+.code-engine-pulse {
+  animation: codeScanPulse 2s ease-in-out 2;
+}
+
+@keyframes codeScanPulse {
+  0% { box-shadow: 0 0 0px #38bdf8; }
+  50% { box-shadow: 0 0 40px #38bdf8, 0 0 15px #10b981; border-color: #38bdf8; }
+  100% { box-shadow: 0 0 0px #38bdf8; }
+}

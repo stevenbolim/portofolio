@@ -958,22 +958,24 @@ window.handleCliKeyDown = function(e) {
             <span style="color:#10b981;">[STATUS] All Controllers, Views & Routes Active (200 OK)</span>
           </div>
         `;
-        triggerFiberPulseEffect();
+        triggerPhpEnginePulseEffect();
         showEasterEggToast('💻 CodeIgniter 4 Dev Engine Status Active');
         break;
 
       case 'undira':
       case 'himti':
-        respLine.innerHTML = `<span style="color:#f59e0b; font-weight:700;">🎓 [EASTER EGG] HIMTI UNDIRA Academic Crest Badge.</span>`;
-        triggerSlytherinPulse();
+        respLine.innerHTML = `<span style="color:#f59e0b; font-weight:700;">🎓 [EASTER EGG] HIMTI UNDIRA Academic Gold Crest Activated!</span>`;
+        triggerHimtiGoldAcademicEffect();
         showEasterEggToast('🎓 Wakil Ketua HIMTI UNDIRA (2024-2025)');
+        setTimeout(() => closeSearchModal(), 400);
         break;
 
       case 'bnsp':
       case 'jointer':
-        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">📜 [EASTER EGG] BNSP Verified National Jointer Certificate.</span>`;
-        triggerRealFiberLaserEffect();
+        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">📜 [EASTER EGG] Holographic BNSP Verified Jointer Seal Stamp!</span>`;
+        triggerBnspCertificateSealEffect();
         showEasterEggToast('📜 BNSP Verified Fiber Optic Jointer');
+        setTimeout(() => closeSearchModal(), 400);
         break;
 
       case 'sudo':
@@ -1230,7 +1232,81 @@ function showEasterEggToast(text) {
   }, 3500);
 }
 
-/* 9. Scroll Listener for Back to Top Button */
+/* 9. HIMTI UNDIRA Golden Academic Starfield Animation Canvas Engine */
+function triggerHimtiGoldAcademicEffect() {
+  const canvas = document.getElementById('himtiCanvas');
+  if (!canvas) return;
+
+  canvas.classList.add('active');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Gold & Amber sparkles rising up
+  const particles = [];
+  for (let i = 0; i < 70; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: canvas.height + (Math.random() * 200),
+      speedY: (Math.random() * 3) + 2,
+      speedX: (Math.random() - 0.5) * 1.5,
+      size: (Math.random() * 4) + 2,
+      color: Math.random() > 0.5 ? '#f59e0b' : '#fbbf24',
+      alpha: Math.random()
+    });
+  }
+
+  // Golden screen edge border glow
+  document.body.style.transition = 'box-shadow 0.6s ease';
+  document.body.style.boxShadow = 'inset 0 0 140px #f59e0b';
+  setTimeout(() => { document.body.style.boxShadow = 'none'; }, 3500);
+
+  let frameCount = 0;
+  const himtiInterval = setInterval(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+      p.y -= p.speedY;
+      p.x += p.speedX;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = p.color;
+      ctx.fill();
+    });
+
+    frameCount++;
+    if (frameCount > 120) {
+      clearInterval(himtiInterval);
+      canvas.classList.remove('active');
+    }
+  }, 30);
+}
+
+/* 10. BNSP Holographic National Jointer Shield Stamp Overlay Engine */
+function triggerBnspCertificateSealEffect() {
+  const sealOverlay = document.getElementById('bnspSealOverlay');
+  if (!sealOverlay) return;
+
+  sealOverlay.classList.add('active');
+  setTimeout(() => {
+    sealOverlay.classList.remove('active');
+  }, 3200);
+}
+
+/* 11. CodeIgniter 4 Engine Pulse for php/ci4 */
+function triggerPhpEnginePulseEffect() {
+  const cards = document.querySelectorAll('.tilt-card, .project-card, .skill-card, .hero-card');
+  cards.forEach(card => {
+    card.classList.add('code-engine-pulse');
+    setTimeout(() => { card.classList.remove('code-engine-pulse'); }, 4000);
+  });
+}
+
+/* 12. Scroll Listener for Back to Top Button */
 window.addEventListener('scroll', function() {
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (backToTopBtn) {

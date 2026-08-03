@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
   <!-- Custom Glassmorphism Stylesheet -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=2.8') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=2.9') ?>">
 </head>
 <body>
 
@@ -954,9 +954,20 @@
     });
   </script>
 
-  <!-- Matrix & Fiber Optic Laser Animation Overlay Canvases -->
+  <!-- Matrix, Fiber Laser & HIMTI Gold Animation Overlay Canvases -->
   <canvas id="matrixCanvas" class="matrix-canvas-overlay"></canvas>
   <canvas id="fiberLaserCanvas" class="fiber-laser-overlay"></canvas>
+  <canvas id="himtiCanvas" class="himti-gold-overlay"></canvas>
+
+  <!-- BNSP Holographic Verified Shield Seal Stamp Overlay -->
+  <div id="bnspSealOverlay" class="bnsp-seal-overlay">
+    <div class="bnsp-seal-card">
+      <div class="bnsp-seal-icon"><i class="fas fa-certificate"></i></div>
+      <div class="bnsp-seal-title">BNSP VERIFIED JOINTER</div>
+      <div class="bnsp-seal-sub">Sertifikasi Profesi Nasional Telekomunikasi Kabel</div>
+      <div class="bnsp-seal-badge">LICENSED & VERIFIED</div>
+    </div>
+  </div>
 
   <!-- Easter Egg Hologram Toast Notification -->
   <div id="easterEggToast" class="easter-egg-toast"></div>
@@ -1055,6 +1066,6 @@
     </button>
   </div>
 
-  <script src="<?= base_url('assets/js/main.js?v=2.8') ?>"></script>
+  <script src="<?= base_url('assets/js/main.js?v=2.9') ?>"></script>
 </body>
 </html>
