@@ -280,7 +280,7 @@
       <div class="skills-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:1.25rem;">
         <?php foreach ($skills as $catKey => $catData): ?>
           <?php foreach ($catData['items'] as $item): ?>
-            <div class="skill-card tilt-card" data-category="<?= $catKey ?>" style="position:relative; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; padding:1.2rem; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:space-between; gap:0.75rem;">
+            <div class="skill-card" data-category="<?= $catKey ?>" style="position:relative; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; padding:1.2rem; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:space-between; gap:0.75rem;">
               <div style="display:flex; align-items:center; gap:0.85rem;">
                 <div style="width:44px; height:44px; border-radius:10px; background:rgba(16,185,129,0.1); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                   <?php if (!empty($item['devicon'])): ?>
@@ -398,24 +398,9 @@
         <p>Rekam jejak kontribusi di PT. Telkom Akses, PT. PLN ICON+, dan PT. Nitoza Indonesia Mandiri.</p>
       </div>
 
-      <!-- Interactive Experience Category Filter Bar -->
-      <div class="timeline-filter-bar">
-        <button class="timeline-filter-btn active" onclick="filterExperience('all')">Semua Karir</button>
-        <button class="timeline-filter-btn" onclick="filterExperience('network')">Jaringan & FO</button>
-        <button class="timeline-filter-btn" onclick="filterExperience('warehouse')">Pergudangan & Logistic</button>
-        <button class="timeline-filter-btn" onclick="filterExperience('web')">Web & System IT</button>
-      </div>
-
       <div class="timeline">
-        <?php foreach ($experiences as $exp): 
-          $expCat = 'network';
-          if (strpos(strtolower($exp['role']), 'warehouse') !== false || strpos(strtolower($exp['company']), 'nitoza') !== false) {
-            $expCat = 'warehouse';
-          } elseif (strpos(strtolower($exp['role']), 'web') !== false || strpos(strtolower($exp['role']), 'developer') !== false) {
-            $expCat = 'web';
-          }
-        ?>
-          <div class="timeline-item" data-exp-cat="<?= $expCat ?>">
+        <?php foreach ($experiences as $exp): ?>
+          <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
