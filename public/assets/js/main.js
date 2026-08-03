@@ -1028,86 +1028,34 @@ window.sendAiChatMessage = async function() {
   messagesContainer.appendChild(typingDiv);
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-  const apiKey = atob('QVEuQWI4Uk42SVNxZWJINnhZbUhYLTJzdUpIcWszN0R4VklWZ2JoRHFkQjZweU1MdDNNZw==');
-  const systemInstruction = `Anda adalah AI Assistant & Virtual Persona resmi dari Steven Aditya Pratama. Tugas Anda adalah memberikan jawaban yang ramah, profesional, cerdas, dan membantu kepada pengunjung portofolio Steven.
-Informasi Resmi Steven Aditya Pratama:
-- Nama: Steven Aditya Pratama
-- Pendidikan: SMK Telkom Jakarta (Teknik Komputer Jaringan) & S1 Teknik Informatika di Universitas Dian Nusantara (UNDIRA).
-- Pengalaman Kerja:
-  1. PT. Telkom Akses: Staff Warehouse Refurbish & Pemeliharaan ODP Fiber Optic 50+ titik.
-  2. PT. PLN Icon Plus: QC & Supervisi Pembangunan 30 titik ODC Banten-Jabodetabek.
-  3. PT. Nitoza Indonesia Mandiri: Warehouse Asset & Material Management 10 area gudang.
-- Kepemimpinan: Wakil Ketua HIMTI UNDIRA (2024-2025).
-- Prestasi: Juara 3 Indonesian Chatbot Championship Challenge (STevenIC3).
-- Sertifikasi: BNSP Sertifikasi Profesi Nasional Telekomunikasi Dengan Kabel & Jointer, Cisco Networking Academy (Python Essentials 1 & 2, Computer Hardware Basics, Networking Basics), Oracle Database SQL & DB Design.
-- Keahlian Teknis: Splicing Cable Fiber Optic, OTDR/OPM, GPON OLT, Cisco Routers, PHP CodeIgniter 4, JavaScript, Python, MySQL, UI/UX Design, Stock Opname & Manajemen Gudang.
-- Kontak Resmi: WhatsApp 085810007432, Email stevenaditya55@gmail.com, LinkedIn linkedin.com/in/steven-aditya.
-
-Berikan jawaban dengan nada ramah, bersemangat, dan ringkas namun informatif (gunakan format bold/bullet point jika membantu).`;
-
-  const payload = {
-    system_instruction: {
-      parts: [{ text: systemInstruction }]
-    },
-    contents: [
-      {
-        role: 'user',
-        parts: [{ text: text }]
-      }
-    ],
-    generationConfig: {
-      temperature: 0.7,
-      maxOutputTokens: 600
-    }
-  };
-
   let replyText = null;
 
   try {
-    // 1. Direct Client-Side Call to Google Gemini API (Works on Vercel, Static Host & Local)
-    const primaryUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
-    let res = await fetch(primaryUrl, {
+    // 1. Call Vercel Serverless Function /api/chat (Server-to-Server Gemini Call)
+    const baseUrl = window.location.origin;
+    let res = await fetch(`${baseUrl}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({ message: text })
     });
 
     if (!res.ok) {
-      // 2. Retry with failover model
-      const retryUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${apiKey}`;
-      res = await fetch(retryUrl, {
+      // 2. Fallback to PHP backend /chat/ai
+      res = await fetch(`${baseUrl}/chat/ai`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ message: text })
       });
     }
 
     if (res.ok) {
       const data = await res.json();
-      replyText = data?.candidates?.[0]?.content?.parts?.[0]?.text || null;
+      if (data.status === 'success' && data.reply) {
+        replyText = data.reply;
+      }
     }
   } catch (e) {
-    console.warn('Gemini direct API fetch error:', e);
-  }
-
-  // 3. Try Backend /chat/ai if direct call didn't yield response
-  if (!replyText) {
-    try {
-      const baseUrl = window.location.origin;
-      const resBackend = await fetch(`${baseUrl}/chat/ai`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text })
-      });
-      if (resBackend.ok) {
-        const dataBackend = await resBackend.json();
-        if (dataBackend.status === 'success' && dataBackend.reply) {
-          replyText = dataBackend.reply;
-        }
-      }
-    } catch (e) {
-      // Static host like Vercel will fail backend fetch gracefully
-    }
+    console.warn('AI Chat endpoint fetch error:', e);
   }
 
   typingDiv.remove();
