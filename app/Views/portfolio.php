@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
   <!-- Custom Glassmorphism Stylesheet -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=2.9') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=3.0') ?>">
 </head>
 <body>
 
@@ -58,7 +58,10 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="logo">
-        <span class="dot"></span> <span class="logo-full">STEVEN ADITYA PRATAMA</span><span class="logo-short">STEVEN A. PRATAMA</span>
+        <span class="dot"></span> 
+        <span class="logo-full">STEVEN ADITYA PRATAMA</span>
+        <span class="logo-short">STEVEN A. PRATAMA</span>
+        <span class="logo-mini">STEVEN</span>
       </a>
 
       <ul class="nav-links">
@@ -73,26 +76,26 @@
         <li class="mobile-cv-item"><a href="javascript:void(0)" onclick="openCvModal()" class="nav-link" style="color:var(--primary-cyan); font-weight:700;"><i class="fas fa-file-image"></i> Lihat CV (JPG)</a></li>
       </ul>
 
-      <div class="nav-actions" style="display:flex; align-items:center; gap:0.5rem;">
+      <div class="nav-actions">
         <!-- Quick Search Ctrl+K Button -->
-        <button id="searchOpenBtn" onclick="openSearchModal()" class="nav-btn-toggle" title="Quick Search (Ctrl + K)" style="padding:0.45rem 0.75rem;">
+        <button id="searchOpenBtn" onclick="openSearchModal()" class="nav-btn-toggle" title="Quick Search (Ctrl + K)">
           <i class="fas fa-search" style="color:var(--primary-cyan); font-size:0.85rem;"></i>
-          <span style="font-family:var(--font-code); font-size:0.72rem; opacity:0.8; background:rgba(52, 211, 153, 0.18); padding:0.1rem 0.35rem; border-radius:4px;">Ctrl K</span>
+          <span class="search-kbd-text" style="font-family:var(--font-code); font-size:0.72rem; opacity:0.8; background:rgba(52, 211, 153, 0.18); padding:0.1rem 0.35rem; border-radius:4px;">Ctrl K</span>
         </button>
 
         <!-- Language Switcher -->
         <button id="langToggleBtn" onclick="toggleLanguage()" class="nav-btn-toggle" title="Switch Language / Ganti Bahasa">
-          <span id="langLabel" style="display:inline-flex; align-items:center; gap:0.35rem;">
-            <img src="https://flagcdn.com/w20/id.png" alt="ID Flag" style="width:18px; height:12px; border-radius:2px; object-fit:cover; display:inline-block;"> ID
+          <span id="langLabel" style="display:inline-flex; align-items:center; gap:0.3rem;">
+            <img src="https://flagcdn.com/w20/id.png" alt="ID Flag" style="width:18px; height:12px; border-radius:2px; object-fit:cover; display:inline-block;"> <span class="lang-text">ID</span>
           </span>
         </button>
 
         <!-- Dark / Light Theme Switcher -->
         <button id="themeToggleBtn" onclick="toggleTheme()" class="nav-btn-toggle" title="Mode Gelap / Terang (Dark / Light Theme)">
-          <i class="fas fa-moon" id="themeIcon" style="color:#38bdf8; font-size:0.9rem;"></i> <span id="themeLabel">Dark</span>
+          <i class="fas fa-moon" id="themeIcon" style="color:#38bdf8; font-size:0.9rem;"></i> <span id="themeLabel" class="theme-label-text">Dark</span>
         </button>
 
-        <button onclick="openCvModal()" class="nav-btn">
+        <button onclick="openCvModal()" class="nav-btn btn-nav-cv">
           <i class="fas fa-file-image"></i> CV JPG
         </button>
 
@@ -1066,6 +1069,6 @@
     </button>
   </div>
 
-  <script src="<?= base_url('assets/js/main.js?v=2.9') ?>"></script>
+  <script src="<?= base_url('assets/js/main.js?v=3.0') ?>"></script>
 </body>
 </html>

@@ -38,30 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinksContainer = document.querySelector('.nav-links');
 
   if (mobileToggle && navLinksContainer) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinksContainer.classList.toggle('active');
-      if (navLinksContainer.classList.contains('active')) {
-        navLinksContainer.style.display = 'flex';
-        navLinksContainer.style.flexDirection = 'column';
-        navLinksContainer.style.position = 'absolute';
-        navLinksContainer.style.top = '100%';
-        navLinksContainer.style.left = '0';
-        navLinksContainer.style.right = '0';
-        navLinksContainer.style.background = '#090d16';
-        navLinksContainer.style.padding = '1.5rem';
-        navLinksContainer.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
-      } else {
-        navLinksContainer.style.display = '';
-      }
+      mobileToggle.classList.toggle('active');
     });
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (navLinksContainer.classList.contains('active')) {
-          navLinksContainer.classList.remove('active');
-          navLinksContainer.style.display = '';
-        }
+        navLinksContainer.classList.remove('active');
+        if (mobileToggle) mobileToggle.classList.remove('active');
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinksContainer.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navLinksContainer.classList.remove('active');
+        if (mobileToggle) mobileToggle.classList.remove('active');
+      }
     });
   }
 
