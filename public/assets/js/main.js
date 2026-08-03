@@ -859,12 +859,12 @@ window.handleCliKeyDown = function(e) {
         respLine.innerHTML = `
           <strong>Perintah Tersedia:</strong><br>
           • <span style="color:#34d399;">whoami</span> : Profil singkat Steven Aditya Pratama<br>
-          • <span style="color:#34d399;">skills</span> : Daftar keahlian teknis (Fiber Optic, CodeIgniter 4, Cisco, Python)<br>
+          • <span style="color:#34d399;">skills</span> : Daftar keahlian teknis (Fiber Optic, CodeIgniter 4, Python, MySQL)<br>
           • <span style="color:#34d399;">projects</span> : Proyek ODC Icon Plus, ODP Telkom, Bot Telegram QC<br>
-          • <span style="color:#34d399;">certif</span> : Daftar sertifikasi resmi BNSP & Cisco<br>
-          • <span style="color:#34d399;">contact</span> : Email & Link WhatsApp Steven<br>
+          • <span style="color:#34d399;">certif</span> : Daftar sertifikasi resmi BNSP & Cisco Academy<br>
+          • <span style="color:#34d399;">contact</span> : Email & Link WhatsApp Resmi Steven<br>
           • <span style="color:#34d399;">clear</span> : Bersihkan layar terminal<br>
-          • <span style="color:#f59e0b;">Kode Rahasia:</span> <span style="color:#10b981;">matrix</span>, <span style="color:#10b981;">slytherin</span>, <span style="color:#10b981;">fiber</span>, <span style="color:#10b981;">cisco</span>, <span style="color:#10b981;">himti</span>, <span style="color:#10b981;">bnsp</span>, <span style="color:#10b981;">sudo</span>
+          • <span style="color:#f59e0b;">Kode Rahasia:</span> <span style="color:#10b981;">matrix</span>, <span style="color:#10b981;">slytherin</span>, <span style="color:#10b981;">fiber</span>, <span style="color:#10b981;">php</span>, <span style="color:#10b981;">himti</span>, <span style="color:#10b981;">bnsp</span>, <span style="color:#10b981;">sudo</span>
         `;
         break;
 
@@ -873,14 +873,14 @@ window.handleCliKeyDown = function(e) {
           <strong>Steven Aditya Pratama (S.Kom Candidate)</strong><br>
           Lulusan SMK Telkom Jakarta (TKJ) & S1 Teknik Informatika UNDIRA.<br>
           Pengalaman: PT. Telkom Akses (Warehouse & FO Maintenance), PT. PLN Icon Plus (ODC Network Engineer), PT. Nitoza Indonesia Mandiri (UI/UX).<br>
-          Keahlian Utama: Fiber Optic Splicing (BNSP), Cisco Router, PHP CodeIgniter 4, Machine Learning.
+          Keahlian Utama: Jointer Fiber Optik (BNSP), CodeIgniter 4, Python, MySQL, UI/UX.
         `;
         break;
 
       case 'skills':
         respLine.innerHTML = `
           <strong>Keahlian Teknis & Tools:</strong><br>
-          [Jaringan & FO] : OTDR, OPM, Splicer, GPON OLT, Cisco ASR 920, BNSP Jointer<br>
+          [Jaringan & FO] : OTDR, OPM, Fusion Splicer, GPON OLT, BNSP Jointer<br>
           [Web & Dev] : PHP CodeIgniter 4, HTML5, CSS3, JavaScript, Python, MySQL<br>
           [Tools & Soft] : VS Code, MS Excel Advanced (Pivot/QC), Leadership, Critical Thinking
         `;
@@ -912,9 +912,9 @@ window.handleCliKeyDown = function(e) {
       case 'contact':
         respLine.innerHTML = `
           <strong>Kontak Langsung Steven:</strong><br>
-          • Email: <a href="mailto:stevenadityapratama74@gmail.com" style="color:#34d399;">stevenadityapratama74@gmail.com</a><br>
-          • WhatsApp: <a href="https://wa.me/6281289196924" target="_blank" style="color:#34d399;">+62 812-8919-6924</a><br>
-          • LinkedIn: <a href="https://linkedin.com/in/stevenadityapratama" target="_blank" style="color:#34d399;">linkedin.com/in/stevenadityapratama</a>
+          • Email: <a href="mailto:stevenaditya55@gmail.com" style="color:#34d399;">stevenaditya55@gmail.com</a><br>
+          • WhatsApp: <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399;">+62 858-1000-7432</a><br>
+          • LinkedIn: <a href="https://www.linkedin.com/in/steven-aditya" target="_blank" style="color:#34d399;">linkedin.com/in/steven-aditya</a>
         `;
         break;
 
@@ -924,55 +924,63 @@ window.handleCliKeyDown = function(e) {
 
       /* Easter Egg Secret Codes */
       case 'matrix':
-        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">🟢 [EASTER EGG ACTIVATED] Starting Full-Screen Matrix Stream...</span>`;
+        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">🟢 [EASTER EGG] Starting Full-Screen Matrix Stream...</span>`;
         triggerMatrixEffect();
+        showEasterEggToast('🟢 Matrix Digital Stream Activated');
         setTimeout(() => closeSearchModal(), 400);
         break;
 
       case 'slytherin':
       case 'snake':
-        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">🐍 [SLYTHERIN EMERALD POWER] Serpent Crest Activated!</span>`;
+        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">🐍 [EASTER EGG] Slytherin Emerald Power Aura Activated!</span>`;
         triggerSlytherinPulse();
+        showEasterEggToast('🐍 Slytherin Emerald Serpent Aura');
         setTimeout(() => closeSearchModal(), 400);
         break;
 
       case 'fiber':
       case 'fo':
-        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">⚡ [FIBER OPTIC PULSE] 100 Gbps Laser Signal Transmitting...</span>`;
-        triggerFiberPulseEffect();
+        respLine.innerHTML = `<span style="color:#38bdf8; font-weight:700;">⚡ [EASTER EGG] 100 Gbps High-Speed Horizontal Laser Beam Shot!</span>`;
+        triggerRealFiberLaserEffect();
+        showEasterEggToast('⚡ High-Speed Fiber Optic Laser Beam Shot');
         setTimeout(() => closeSearchModal(), 400);
         break;
 
-      case 'cisco':
-      case 'router':
+      case 'php':
+      case 'ci4':
+      case 'web':
         respLine.innerHTML = `
-          <div style="font-family:monospace; color:#34d399; font-size:0.78rem;">
-            Cisco IOS Software, ASR920 Software (PPC_LINUX_IOSD-UNIVERSALK9-M), Version 15.6(2)S4<br>
-            Technical Support: http://www.cisco.com/techsupport<br>
-            System Bootstrap, Version 15.6(2)rS, RELEASE SOFTWARE (fc1)<br>
-            cisco ASR-920-24SZ-IM (PPC_LINUX_IOSD) processor with 3670016K/524288K bytes of memory.<br>
-            <span style="color:#10b981;">Router# show interfaces GigabitEthernet0/0/0 status -> CONNECTED (1000Mbps Full-Duplex)</span>
+          <div style="font-family:monospace; color:#34d399; font-size:0.8rem; line-height:1.5;">
+            <strong>[SYSTEM ENGINE INFO]</strong><br>
+            PHP Engine   : PHP 8.2.12 (CodeIgniter 4.5.1 Framework Engine)<br>
+            Architecture : MVC (Model-View-Controller) & Glassmorphism UI<br>
+            Environment  : Production (Vercel Serverless)<br>
+            <span style="color:#10b981;">[STATUS] All Controllers, Views & Routes Active (200 OK)</span>
           </div>
         `;
         triggerFiberPulseEffect();
+        showEasterEggToast('💻 CodeIgniter 4 Dev Engine Status Active');
         break;
 
       case 'undira':
       case 'himti':
-        respLine.innerHTML = `<span style="color:#f59e0b; font-weight:700;">🎓 [HIMTI UNDIRA ACADEMIC BADGE] Wakil Ketua Himpunan Mahasiswa Teknik Informatika (2024-2025).</span>`;
+        respLine.innerHTML = `<span style="color:#f59e0b; font-weight:700;">🎓 [EASTER EGG] HIMTI UNDIRA Academic Crest Badge.</span>`;
         triggerSlytherinPulse();
+        showEasterEggToast('🎓 Wakil Ketua HIMTI UNDIRA (2024-2025)');
         break;
 
       case 'bnsp':
       case 'jointer':
-        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">📜 [BNSP VERIFIED CERTIFICATE] Sertifikasi Profesi Nasional Aktivitas Telekomunikasi Dengan Kabel & Jointer.</span>`;
-        triggerFiberPulseEffect();
+        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">📜 [EASTER EGG] BNSP Verified National Jointer Certificate.</span>`;
+        triggerRealFiberLaserEffect();
+        showEasterEggToast('📜 BNSP Verified Fiber Optic Jointer');
         break;
 
       case 'sudo':
       case 'root':
-        respLine.innerHTML = `<span style="color:#ef4444; font-weight:700;">🔓 [ACCESS GRANTED] Developer Root Privileges Activated! Full Administrative Control Granted.</span>`;
-        triggerMatrixEffect();
+        respLine.innerHTML = `<span style="color:#ef4444; font-weight:700;">🔓 [EASTER EGG] Developer Root Privileges Activated!</span>`;
+        triggerCyberGlitchEffect();
+        showEasterEggToast('🔓 Root Developer Privileges Active');
         setTimeout(() => closeSearchModal(), 400);
         break;
 
@@ -1041,8 +1049,9 @@ window.sendAiChatMessage = function() {
     } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email')) {
       botDiv.innerHTML = `
         Anda dapat menghubungi Steven langsung via:
-        <br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6281289196924" target="_blank" style="color:#34d399; font-weight:600;">+62 812-8919-6924</a>
-        <br>✉️ <strong>Email:</strong> <a href="mailto:stevenadityapratama74@gmail.com" style="color:#34d399; font-weight:600;">stevenadityapratama74@gmail.com</a>
+        <br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a>
+        <br>✉️ <strong>Email:</strong> <a href="mailto:stevenaditya55@gmail.com" style="color:#34d399; font-weight:600;">stevenaditya55@gmail.com</a>
+        <br>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/steven-aditya" target="_blank" style="color:#34d399; font-weight:600;">linkedin.com/in/steven-aditya</a>
       `;
     } else if (lower.includes('gimana') || lower.includes('siapa') || lower.includes('orangnya') || lower.includes('kepribadian')) {
       botDiv.innerHTML = `
@@ -1059,7 +1068,93 @@ window.sendAiChatMessage = function() {
   }, 350);
 };
 
-/* 3. Matrix Digital Code Easter Egg Animation Engine */
+/* 3. Real High-Speed Fiber Optic Laser Beam Shot Canvas Engine */
+function triggerRealFiberLaserEffect() {
+  const canvas = document.getElementById('fiberLaserCanvas');
+  if (!canvas) return;
+
+  canvas.classList.add('active');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Create 6 laser beam pulses at different vertical positions
+  const lasers = [
+    { y: canvas.height * 0.2, speed: 38, x: -300, len: 260, color: '#38bdf8' },
+    { y: canvas.height * 0.38, speed: 45, x: -500, len: 320, color: '#00ffcc' },
+    { y: canvas.height * 0.55, speed: 42, x: -200, len: 280, color: '#10b981' },
+    { y: canvas.height * 0.72, speed: 36, x: -400, len: 300, color: '#38bdf8' },
+    { y: canvas.height * 0.86, speed: 48, x: -600, len: 350, color: '#34d399' }
+  ];
+
+  // Fiber spark particles
+  const sparks = [];
+  for (let i = 0; i < 40; i++) {
+    sparks.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() * 10) + 15,
+      size: Math.random() * 2 + 1,
+      color: Math.random() > 0.5 ? '#00ffcc' : '#38bdf8'
+    });
+  }
+
+  let frameCount = 0;
+  const laserInterval = setInterval(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Render Laser Beams
+    lasers.forEach(laser => {
+      laser.x += laser.speed;
+
+      // Draw glowing gradient laser trail
+      const grad = ctx.createLinearGradient(laser.x - laser.len, laser.y, laser.x, laser.y);
+      grad.addColorStop(0, 'rgba(0, 255, 204, 0)');
+      grad.addColorStop(0.7, laser.color);
+      grad.addColorStop(1, '#ffffff');
+
+      ctx.beginPath();
+      ctx.moveTo(laser.x - laser.len, laser.y);
+      ctx.lineTo(laser.x, laser.y);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 4;
+      ctx.shadowBlur = 18;
+      ctx.shadowColor = laser.color;
+      ctx.stroke();
+
+      // Glowing Laser Head
+      ctx.beginPath();
+      ctx.arc(laser.x, laser.y, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowBlur = 25;
+      ctx.shadowColor = laser.color;
+      ctx.fill();
+    });
+
+    // Render Spark Particles
+    sparks.forEach(sp => {
+      sp.x += sp.vx;
+      if (sp.x > canvas.width) sp.x = -50;
+
+      ctx.beginPath();
+      ctx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2);
+      ctx.fillStyle = sp.color;
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = sp.color;
+      ctx.fill();
+    });
+
+    frameCount++;
+    // Stop laser effect after ~3.5 seconds
+    if (frameCount > 110) {
+      clearInterval(laserInterval);
+      canvas.classList.remove('active');
+    }
+  }, 30);
+}
+
+/* 4. Matrix Code Stream Engine */
 function triggerMatrixEffect() {
   const canvas = document.getElementById('matrixCanvas');
   if (!canvas) return;
@@ -1070,7 +1165,7 @@ function triggerMatrixEffect() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const chars = '01STEVEN10ADITYA10PRATAMA10TELKOM10ICONPLUS10CISC010';
+  const chars = '01STEVEN10ADITYA10PRATAMA10TELKOM10ICONPLUS10';
   const fontSize = 14;
   const columns = canvas.width / fontSize;
   const drops = Array(Math.floor(columns)).fill(1);
@@ -1094,19 +1189,21 @@ function triggerMatrixEffect() {
     }
 
     frameCount++;
-    if (frameCount > 250) { // Stop matrix effect after ~8 seconds
+    if (frameCount > 250) {
       clearInterval(matrixInterval);
       canvas.classList.remove('active');
     }
   }, 33);
 }
 
+/* 5. Slytherin Emerald Aura Pulse */
 function triggerSlytherinPulse() {
   document.body.style.transition = 'box-shadow 0.5s ease';
-  document.body.style.boxShadow = 'inset 0 0 120px #10b981';
-  setTimeout(() => { document.body.style.boxShadow = 'none'; }, 3000);
+  document.body.style.boxShadow = 'inset 0 0 140px #10b981';
+  setTimeout(() => { document.body.style.boxShadow = 'none'; }, 3200);
 }
 
+/* 6. Fiber Card Pulse Highlight */
 function triggerFiberPulseEffect() {
   const cards = document.querySelectorAll('.tilt-card, .project-card, .skill-card, .hero-card');
   cards.forEach(card => {
@@ -1115,7 +1212,25 @@ function triggerFiberPulseEffect() {
   });
 }
 
-/* 4. Scroll Listener for Back to Top Button */
+/* 7. Cyber Glitch Shake Screen */
+function triggerCyberGlitchEffect() {
+  document.body.classList.add('cyber-glitch-shake');
+  setTimeout(() => { document.body.classList.remove('cyber-glitch-shake'); }, 1200);
+}
+
+/* 8. Easter Egg Hologram Toast Notification */
+function showEasterEggToast(text) {
+  const toast = document.getElementById('easterEggToast');
+  if (!toast) return;
+
+  toast.innerHTML = `<i class="fas fa-sparkles" style="color:#38bdf8;"></i> ${text}`;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3500);
+}
+
+/* 9. Scroll Listener for Back to Top Button */
 window.addEventListener('scroll', function() {
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (backToTopBtn) {

@@ -58,7 +58,7 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="logo">
-        <span class="dot"></span> <span class="logo-full">STEVEN.</span><span class="logo-short">STEVEN.</span>
+        <span class="dot"></span> <span class="logo-full">STEVEN ADITYA PRATAMA</span><span class="logo-short">STEVEN A. PRATAMA</span>
       </a>
 
       <ul class="nav-links">
@@ -954,8 +954,12 @@
     });
   </script>
 
-  <!-- Matrix Code Overlay Canvas for Easter Egg -->
+  <!-- Matrix & Fiber Optic Laser Animation Overlay Canvases -->
   <canvas id="matrixCanvas" class="matrix-canvas-overlay"></canvas>
+  <canvas id="fiberLaserCanvas" class="fiber-laser-overlay"></canvas>
+
+  <!-- Easter Egg Hologram Toast Notification -->
+  <div id="easterEggToast" class="easter-egg-toast"></div>
 
   <!-- Interactive Terminal CLI Modal (Ctrl + K / Terminal Mode) -->
   <div id="searchModal" class="search-modal-overlay" onclick="if(event.target === this) closeSearchModal()">
@@ -967,7 +971,7 @@
           <span class="dot-green" title="Maximize"></span>
         </div>
         <div class="terminal-title">
-          <i class="fas fa-terminal" style="color:#34d399; margin-right:0.4rem;"></i> Steven CLI v2.5 — Cisco & Network Terminal
+          <i class="fas fa-terminal" style="color:#34d399; margin-right:0.4rem;"></i> Steven CLI v2.5 — Network & Dev Terminal
         </div>
         <span class="search-kbd-badge" onclick="closeSearchModal()" style="cursor:pointer;">ESC</span>
       </div>
@@ -985,7 +989,7 @@
             [SYSTEM ONLINE] Steven Aditya Pratama Interactive Terminal
           </div>
           <div style="color:var(--text-muted); font-size:0.82rem; margin-bottom:0.75rem;">
-            Ketik <span style="color:#10b981; font-weight:600;">help</span> untuk daftar perintah standar, atau ketik kode rahasia (<span style="color:#34d399;">matrix</span>, <span style="color:#34d399;">slytherin</span>, <span style="color:#34d399;">fiber</span>, <span style="color:#34d399;">cisco</span>, <span style="color:#34d399;">himti</span>, <span style="color:#34d399;">bnsp</span>, <span style="color:#34d399;">sudo</span>).
+            Ketik <span style="color:#10b981; font-weight:600;">help</span> untuk daftar perintah standar, atau ketik kode rahasia (<span style="color:#34d399;">matrix</span>, <span style="color:#34d399;">slytherin</span>, <span style="color:#34d399;">fiber</span>, <span style="color:#34d399;">php</span>, <span style="color:#34d399;">himti</span>, <span style="color:#34d399;">bnsp</span>, <span style="color:#34d399;">sudo</span>).
           </div>
         </div>
 
