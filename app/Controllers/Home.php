@@ -338,7 +338,8 @@ class Home extends BaseController
                     'title'    => 'Juara 3 - Indonesian Chatbot Championship Challenge',
                     'issuer'   => 'Terra AI',
                     'type'     => 'Kompetisi Chatbot',
-                    'icon'     => 'fa-trophy'
+                    'icon'     => 'fa-trophy',
+                    'pdf_file' => 'StevenIC3.pdf'
                 ],
                 [
                     'year'     => '2018',
