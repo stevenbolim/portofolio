@@ -1049,11 +1049,11 @@ window.sendAiChatMessage = async function() {
     } else {
       // Intelligent Rule-based Fallback
       const lower = text.toLowerCase();
-      if (lower.includes('pengalaman') || lower.includes('kerja') || lower.includes('telkom') || lower.includes('icon')) {
+      if (lower.includes('pengalaman') || lower.includes('kerja') || lower.includes('telkom') || lower.includes('icon') || lower.includes('nitoza')) {
         botDiv.innerHTML = `Steven memiliki rekam jejak profesional di <strong>PT. Telkom Akses</strong> (Warehouse Refurbish Staff & FO Maintenance) dan <strong>PT. PLN Icon Plus</strong> (Supervisi & QC 30 Titik ODC Banten-Jabodetabek). Memiliki keahlian lengkap di bidang operasional jaringan maupun manajemen gudang! 🏢`;
-      } else if (lower.includes('sertifikat') || lower.includes('bnsp') || lower.includes('cisco') || lower.includes('jointer')) {
+      } else if (lower.includes('sertifikat') || lower.includes('setifikat') || lower.includes('sertipikat') || lower.includes('sertifikasi') || lower.includes('bnsp') || lower.includes('cisco') || lower.includes('jointer') || lower.includes('oracle')) {
         botDiv.innerHTML = `Steven memegang <strong>Sertifikasi Profesi BNSP Jointer & Telekomunikasi Kabel</strong>, serta sertifikasi internasional Cisco Networking Academy (<em>Networking Devices, Python Essentials 1 & 2, Computer Hardware Basics</em>) dan Oracle Database! 📜`;
-      } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email')) {
+      } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email') || lower.includes('hubungi')) {
         botDiv.innerHTML = `Anda dapat menghubungi Steven langsung via:<br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a><br>✉️ <strong>Email:</strong> <a href="mailto:stevenaditya55@gmail.com" style="color:#34d399; font-weight:600;">stevenaditya55@gmail.com</a>`;
       } else {
         botDiv.innerHTML = data.reply || `Terima kasih atas pertanyaannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Silakan hubungi via WhatsApp di 085810007432! 😊`;
