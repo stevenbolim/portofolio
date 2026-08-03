@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
   <!-- Custom Glassmorphism Stylesheet -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=2.7') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=2.8') ?>">
 </head>
 <body>
 
@@ -979,11 +979,11 @@
       <div id="terminalBody" class="terminal-body" onclick="document.getElementById('cliInput').focus()">
         <div class="terminal-welcome">
           <pre class="terminal-ascii">
-  ____ _____ _____ __   __ _____ _   _ 
- / ___|_   _| ____|\ \ / / ____| \ | |
- \___ \ | | |  _|   \ V /|  _| |  \| |
-  ___) || | | |___   | | | |___| |\  |
- |____/ |_| |_____|  |_| |_____|_| \_|
+ ____  _____ _____ __   __ _____ _   _ 
+/ ___||_   _| ____|\ \ / / ____| \ | |
+\___ \  | | |  _|   \ V /|  _| |  \| |
+ ___) | | | | |___   \ / | |___| |\  |
+|____/  |_| |_____|   V  |_____|_| \_|
           </pre>
           <div style="color:#34d399; font-weight:700; margin-bottom:0.4rem;">
             [SYSTEM ONLINE] Steven Aditya Pratama Interactive Terminal
@@ -1055,6 +1055,6 @@
     </button>
   </div>
 
-  <script src="<?= base_url('assets/js/main.js?v=2.7') ?>"></script>
+  <script src="<?= base_url('assets/js/main.js?v=2.8') ?>"></script>
 </body>
 </html>
