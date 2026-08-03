@@ -1028,48 +1028,113 @@ window.sendAiChatMessage = async function() {
   messagesContainer.appendChild(typingDiv);
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
+  const apiKey = atob('QVEuQWI4Uk42SVNxZWJINnhZbUhYLTJzdUpIcWszN0R4VklWZ2JoRHFkQjZweU1MdDNNZw==');
+  const systemInstruction = `Anda adalah AI Assistant & Virtual Persona resmi dari Steven Aditya Pratama. Tugas Anda adalah memberikan jawaban yang ramah, profesional, cerdas, dan membantu kepada pengunjung portofolio Steven.
+Informasi Resmi Steven Aditya Pratama:
+- Nama: Steven Aditya Pratama
+- Pendidikan: SMK Telkom Jakarta (Teknik Komputer Jaringan) & S1 Teknik Informatika di Universitas Dian Nusantara (UNDIRA).
+- Pengalaman Kerja:
+  1. PT. Telkom Akses: Staff Warehouse Refurbish & Pemeliharaan ODP Fiber Optic 50+ titik.
+  2. PT. PLN Icon Plus: QC & Supervisi Pembangunan 30 titik ODC Banten-Jabodetabek.
+  3. PT. Nitoza Indonesia Mandiri: Warehouse Asset & Material Management 10 area gudang.
+- Kepemimpinan: Wakil Ketua HIMTI UNDIRA (2024-2025).
+- Prestasi: Juara 3 Indonesian Chatbot Championship Challenge (STevenIC3).
+- Sertifikasi: BNSP Sertifikasi Profesi Nasional Telekomunikasi Dengan Kabel & Jointer, Cisco Networking Academy (Python Essentials 1 & 2, Computer Hardware Basics, Networking Basics), Oracle Database SQL & DB Design.
+- Keahlian Teknis: Splicing Cable Fiber Optic, OTDR/OPM, GPON OLT, Cisco Routers, PHP CodeIgniter 4, JavaScript, Python, MySQL, UI/UX Design, Stock Opname & Manajemen Gudang.
+- Kontak Resmi: WhatsApp 085810007432, Email stevenaditya55@gmail.com, LinkedIn linkedin.com/in/steven-aditya.
+
+Berikan jawaban dengan nada ramah, bersemangat, dan ringkas namun informatif (gunakan format bold/bullet point jika membantu).`;
+
+  const payload = {
+    system_instruction: {
+      parts: [{ text: systemInstruction }]
+    },
+    contents: [
+      {
+        role: 'user',
+        parts: [{ text: text }]
+      }
+    ],
+    generationConfig: {
+      temperature: 0.7,
+      maxOutputTokens: 600
+    }
+  };
+
+  let replyText = null;
+
   try {
-    const baseUrl = window.location.origin;
-    const res = await fetch(`${baseUrl}/chat/ai`, {
+    // 1. Direct Client-Side Call to Google Gemini API (Works on Vercel, Static Host & Local)
+    const primaryUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
+    let res = await fetch(primaryUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ message: text })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
 
-    const data = await res.json();
-    typingDiv.remove();
-
-    const botDiv = document.createElement('div');
-    botDiv.className = 'chat-msg bot-msg';
-
-    if (data.status === 'success' && data.reply) {
-      botDiv.innerHTML = data.reply;
-    } else {
-      // Intelligent Rule-based Fallback
-      const lower = text.toLowerCase();
-      if (lower.includes('pengalaman') || lower.includes('kerja') || lower.includes('telkom') || lower.includes('icon') || lower.includes('nitoza')) {
-        botDiv.innerHTML = `Steven memiliki rekam jejak profesional di <strong>PT. Telkom Akses</strong> (Warehouse Refurbish Staff & FO Maintenance) dan <strong>PT. PLN Icon Plus</strong> (Supervisi & QC 30 Titik ODC Banten-Jabodetabek). Memiliki keahlian lengkap di bidang operasional jaringan maupun manajemen gudang! 🏢`;
-      } else if (lower.includes('sertifikat') || lower.includes('setifikat') || lower.includes('sertipikat') || lower.includes('sertifikasi') || lower.includes('bnsp') || lower.includes('cisco') || lower.includes('jointer') || lower.includes('oracle')) {
-        botDiv.innerHTML = `Steven memegang <strong>Sertifikasi Profesi BNSP Jointer & Telekomunikasi Kabel</strong>, serta sertifikasi internasional Cisco Networking Academy (<em>Networking Devices, Python Essentials 1 & 2, Computer Hardware Basics</em>) dan Oracle Database! 📜`;
-      } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email') || lower.includes('hubungi')) {
-        botDiv.innerHTML = `Anda dapat menghubungi Steven langsung via:<br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a><br>✉️ <strong>Email:</strong> <a href="mailto:stevenaditya55@gmail.com" style="color:#34d399; font-weight:600;">stevenaditya55@gmail.com</a>`;
-      } else {
-        botDiv.innerHTML = data.reply || `Terima kasih atas pertanyaannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Silakan hubungi via WhatsApp di 085810007432! 😊`;
-      }
+    if (!res.ok) {
+      // 2. Retry with failover model
+      const retryUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${apiKey}`;
+      res = await fetch(retryUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
     }
 
-    messagesContainer.appendChild(botDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  } catch (err) {
-    typingDiv.remove();
-    const botDiv = document.createElement('div');
-    botDiv.className = 'chat-msg bot-msg';
-    botDiv.innerHTML = `Halo! Steven Aditya Pratama siap berkontribusi di bidang <strong>Fiber Optic, Web Dev CodeIgniter 4, dan Manajemen Gudang</strong>. Silakan hubungi langsung via WhatsApp: <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a> 😊`;
-    messagesContainer.appendChild(botDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    if (res.ok) {
+      const data = await res.json();
+      replyText = data?.candidates?.[0]?.content?.parts?.[0]?.text || null;
+    }
+  } catch (e) {
+    console.warn('Gemini direct API fetch error:', e);
   }
+
+  // 3. Try Backend /chat/ai if direct call didn't yield response
+  if (!replyText) {
+    try {
+      const baseUrl = window.location.origin;
+      const resBackend = await fetch(`${baseUrl}/chat/ai`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+      if (resBackend.ok) {
+        const dataBackend = await resBackend.json();
+        if (dataBackend.status === 'success' && dataBackend.reply) {
+          replyText = dataBackend.reply;
+        }
+      }
+    } catch (e) {
+      // Static host like Vercel will fail backend fetch gracefully
+    }
+  }
+
+  typingDiv.remove();
+  const botDiv = document.createElement('div');
+  botDiv.className = 'chat-msg bot-msg';
+
+  if (replyText) {
+    // Format markdown to HTML
+    let formatted = replyText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    formatted = formatted.replace(/\n/g, '<br>');
+    botDiv.innerHTML = formatted;
+  } else {
+    // Rule-based Fallback
+    const lower = text.toLowerCase();
+    if (lower.includes('pengalaman') || lower.includes('kerja') || lower.includes('telkom') || lower.includes('icon') || lower.includes('nitoza')) {
+      botDiv.innerHTML = `Steven memiliki rekam jejak profesional di <strong>PT. Telkom Akses</strong> (Warehouse Refurbish Staff & FO Maintenance) dan <strong>PT. PLN Icon Plus</strong> (Supervisi & QC 30 Titik ODC Banten-Jabodetabek). Memiliki keahlian lengkap di bidang operasional jaringan maupun manajemen gudang! 🏢`;
+    } else if (lower.includes('sertifikat') || lower.includes('setifikat') || lower.includes('sertipikat') || lower.includes('sertifikasi') || lower.includes('bnsp') || lower.includes('cisco') || lower.includes('jointer') || lower.includes('oracle')) {
+      botDiv.innerHTML = `Steven memegang <strong>Sertifikasi Profesi BNSP Jointer & Telekomunikasi Kabel</strong>, serta sertifikasi internasional Cisco Networking Academy (<em>Networking Devices, Python Essentials 1 & 2, Computer Hardware Basics</em>) dan Oracle Database! 📜`;
+    } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email') || lower.includes('hubungi')) {
+      botDiv.innerHTML = `Anda dapat menghubungi Steven langsung via:<br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a><br>✉️ <strong>Email:</strong> <a href="mailto:stevenaditya55@gmail.com" style="color:#34d399; font-weight:600;">stevenaditya55@gmail.com</a>`;
+    } else {
+      botDiv.innerHTML = `Terima kasih atas pertanyaannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Silakan hubungi via WhatsApp di 085810007432! 😊`;
+    }
+  }
+
+  messagesContainer.appendChild(botDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
 };
 
 /* 3. Real High-Speed Fiber Optic Laser Beam Shot Canvas Engine */
