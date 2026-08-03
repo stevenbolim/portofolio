@@ -74,6 +74,12 @@
       </ul>
 
       <div class="nav-actions" style="display:flex; align-items:center; gap:0.5rem;">
+        <!-- Quick Search Ctrl+K Button -->
+        <button id="searchOpenBtn" onclick="openSearchModal()" class="nav-btn-toggle" title="Quick Search (Ctrl + K)" style="padding:0.45rem 0.75rem;">
+          <i class="fas fa-search" style="color:var(--primary-cyan); font-size:0.85rem;"></i>
+          <span style="font-family:var(--font-code); font-size:0.72rem; opacity:0.8; background:rgba(52, 211, 153, 0.18); padding:0.1rem 0.35rem; border-radius:4px;">Ctrl K</span>
+        </button>
+
         <!-- Language Switcher -->
         <button id="langToggleBtn" onclick="toggleLanguage()" class="nav-btn-toggle" title="Switch Language / Ganti Bahasa">
           <span id="langLabel" style="display:inline-flex; align-items:center; gap:0.35rem;">
@@ -274,7 +280,7 @@
       <div class="skills-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:1.25rem;">
         <?php foreach ($skills as $catKey => $catData): ?>
           <?php foreach ($catData['items'] as $item): ?>
-            <div class="skill-card" data-category="<?= $catKey ?>" style="position:relative; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; padding:1.2rem; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:space-between; gap:0.75rem;">
+            <div class="skill-card tilt-card" data-category="<?= $catKey ?>" style="position:relative; background:var(--bg-card); border:1px solid var(--border-color); border-radius:14px; padding:1.2rem; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:space-between; gap:0.75rem;">
               <div style="display:flex; align-items:center; gap:0.85rem;">
                 <div style="width:44px; height:44px; border-radius:10px; background:rgba(16,185,129,0.1); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                   <?php if (!empty($item['devicon'])): ?>
@@ -315,9 +321,26 @@
         <p>Detail pelaksanaan proyek infrastruktur jaringan, sistem AI & bot notifikasi QC, prototipe aplikasi mobile, serta manajemen aset dan material pergudangan.</p>
       </div>
 
-      <div class="projects-grid">
-        <?php foreach ($featured_projects as $proj): ?>
-          <div class="project-card">
+      <!-- Interactive Carousel Toolbar & Drag Control -->
+      <div class="carousel-toolbar">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <button id="viewGridBtn" onclick="setProjectsView('grid')" class="nav-btn-toggle" title="Tampilan Grid Standard" style="padding:0.35rem 0.75rem; font-size:0.78rem;">
+            <i class="fas fa-th-large"></i> Grid
+          </button>
+          <button id="viewCarouselBtn" onclick="setProjectsView('carousel')" class="nav-btn-toggle" title="Tampilan Carousel Geser (Swipe)" style="padding:0.35rem 0.75rem; font-size:0.78rem;">
+            <i class="fas fa-sliders-h"></i> Carousel Geser (Swipe)
+          </button>
+        </div>
+        <div id="carouselNavBtns" style="display:flex; align-items:center; gap:0.4rem;">
+          <button onclick="slideProjects('left')" class="carousel-nav-btn" title="Geser Kiri"><i class="fas fa-chevron-left"></i></button>
+          <button onclick="slideProjects('right')" class="carousel-nav-btn" title="Geser Kanan"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <div class="projects-grid-wrapper">
+        <div id="projectsContainer" class="projects-grid">
+          <?php foreach ($featured_projects as $proj): ?>
+            <div class="project-card tilt-card" data-project-id="<?= $proj['id'] ?>">
             <div class="project-img-wrapper" onclick="openProjectModal('<?= $proj['id'] ?>')" style="cursor:pointer;">
               <img src="<?= $proj['image'] ?>" alt="<?= esc($proj['title']) ?>" class="project-img">
               <span class="project-tag"><?= esc($proj['tag']) ?></span>
@@ -360,7 +383,7 @@
               </button>
             </div>
           </div>
-        <?php endforeach; ?>
+        </div>
       </div>
     </div>
   </section>
@@ -374,9 +397,24 @@
         <p>Rekam jejak kontribusi di PT. Telkom Akses, PT. PLN ICON+, dan PT. Nitoza Indonesia Mandiri.</p>
       </div>
 
+      <!-- Interactive Experience Category Filter Bar -->
+      <div class="timeline-filter-bar">
+        <button class="timeline-filter-btn active" onclick="filterExperience('all')">Semua Karir</button>
+        <button class="timeline-filter-btn" onclick="filterExperience('network')">Jaringan & FO</button>
+        <button class="timeline-filter-btn" onclick="filterExperience('warehouse')">Pergudangan & Logistic</button>
+        <button class="timeline-filter-btn" onclick="filterExperience('web')">Web & System IT</button>
+      </div>
+
       <div class="timeline">
-        <?php foreach ($experiences as $exp): ?>
-          <div class="timeline-item">
+        <?php foreach ($experiences as $exp): 
+          $expCat = 'network';
+          if (strpos(strtolower($exp['role']), 'warehouse') !== false || strpos(strtolower($exp['company']), 'nitoza') !== false) {
+            $expCat = 'warehouse';
+          } elseif (strpos(strtolower($exp['role']), 'web') !== false || strpos(strtolower($exp['role']), 'developer') !== false) {
+            $expCat = 'web';
+          }
+        ?>
+          <div class="timeline-item" data-exp-cat="<?= $expCat ?>">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
@@ -930,10 +968,21 @@
     });
   </script>
 
-  <!-- Back To Top Floating Button -->
-  <button id="backToTopBtn" class="back-to-top-btn" aria-label="Kembali ke Atas" title="Kembali ke Atas">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  <!-- Quick Search Command Palette Modal (Ctrl + K) -->
+  <div id="searchModal" class="search-modal-overlay" onclick="if(event.target === this) closeSearchModal()">
+    <div class="search-modal-card">
+      <div class="search-header">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Cari skill, proyek, atau pengalaman... (misal: GPON, CodeIgniter, Jointer, Telkom)" oninput="filterSearchResults()">
+        <span class="search-kbd-badge">ESC</span>
+      </div>
+      <div id="searchResults" class="search-results-list">
+        <div style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.88rem;">
+          Tulis kata kunci untuk mencari seluruh isi portofolio Steven Aditya Pratama...
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="<?= base_url('assets/js/main.js') ?>"></script>
 </body>

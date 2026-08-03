@@ -630,3 +630,199 @@ function applyLanguage(lang) {
     }
   });
 }
+
+/* ==========================================
+   INTERACTIVE FEATURES JAVASCRIPT LOGIC
+   ========================================== */
+
+document.addEventListener('DOMContentLoaded', function() {
+  init3DTilt();
+  initDragCarousel();
+  initCommandPalette();
+});
+
+/* 1. 3D Parallax Tilt Effect for Cards */
+function init3DTilt() {
+  const cards = document.querySelectorAll('.tilt-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', function() {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+/* 2. Drag & Touch Carousel Logic */
+function initDragCarousel() {
+  const container = document.getElementById('projectsContainer');
+  if (!container) return;
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  container.addEventListener('mousedown', (e) => {
+    if (!container.classList.contains('carousel-view')) return;
+    isDown = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+  });
+
+  container.addEventListener('mouseleave', () => { isDown = false; });
+  container.addEventListener('mouseup', () => { isDown = false; });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isDown || !container.classList.contains('carousel-view')) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 2;
+    container.scrollLeft = scrollLeft - walk;
+  });
+}
+
+window.setProjectsView = function(view) {
+  const container = document.getElementById('projectsContainer');
+  const viewGridBtn = document.getElementById('viewGridBtn');
+  const viewCarouselBtn = document.getElementById('viewCarouselBtn');
+
+  if (!container) return;
+
+  if (view === 'carousel') {
+    container.classList.add('carousel-view');
+    viewCarouselBtn.classList.add('active');
+    if (viewGridBtn) viewGridBtn.classList.remove('active');
+  } else {
+    container.classList.remove('carousel-view');
+    viewGridBtn.classList.add('active');
+    if (viewCarouselBtn) viewCarouselBtn.classList.remove('active');
+  }
+};
+
+window.slideProjects = function(direction) {
+  const container = document.getElementById('projectsContainer');
+  if (!container) return;
+
+  if (!container.classList.contains('carousel-view')) {
+    setProjectsView('carousel');
+  }
+
+  const scrollAmount = 350;
+  if (direction === 'left') {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  } else {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  }
+};
+
+/* 3. Quick Search Command Palette Modal (Ctrl + K) */
+function initCommandPalette() {
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      openSearchModal();
+    }
+    if (e.key === 'Escape') {
+      closeSearchModal();
+    }
+  });
+}
+
+window.openSearchModal = function() {
+  const modal = document.getElementById('searchModal');
+  const input = document.getElementById('searchInput');
+  if (modal) {
+    modal.classList.add('active');
+    setTimeout(() => { if (input) input.focus(); }, 150);
+  }
+};
+
+window.closeSearchModal = function() {
+  const modal = document.getElementById('searchModal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+};
+
+window.filterSearchResults = function() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const resultsContainer = document.getElementById('searchResults');
+  if (!resultsContainer) return;
+
+  if (!query) {
+    resultsContainer.innerHTML = `
+      <div style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.88rem;">
+        Tulis kata kunci untuk mencari seluruh isi portofolio Steven Aditya Pratama...
+      </div>`;
+    return;
+  }
+
+  const searchData = [
+    { title: "Machine Learning & AI Classification", cat: "Skill", target: "#skills" },
+    { title: "CodeIgniter 4 PHP Framework", cat: "Skill", target: "#skills" },
+    { title: "Fiber Optic & Splicing (Jointer BNSP)", cat: "Skill / Sertifikasi", target: "#skills" },
+    { title: "ODC PLN Icon Plus 30 Titik", cat: "Proyek", target: "#projects" },
+    { title: "ODP Telkom Akses 50+ Titik", cat: "Proyek / Pengalaman", target: "#experience" },
+    { title: "Refurbish Material Warehouse Management", cat: "Proyek / Karir", target: "#experience" },
+    { title: "Telegram Bot API Notifikasi QC", cat: "Proyek Showcase", target: "#projects" },
+    { title: "Cisco & GPON Networking", cat: "Skill Jaringan", target: "#skills" },
+    { title: "Python Data Processing & Automation", cat: "Skill Dev", target: "#skills" },
+    { title: "Jurnal PKM Pengabdian Masyarakat Karang Taruna", cat: "Publikasi Jurnal", target: "#publications" },
+    { title: "Pendidikan S1 Teknik Informatika (UNDIRA)", cat: "Pendidikan", target: "#education" },
+    { title: "Organisasi Wakil Ketua HIMTI UNDIRA", cat: "Organisasi", target: "#education" }
+  ];
+
+  const matches = searchData.filter(item => 
+    item.title.toLowerCase().includes(query) || item.cat.toLowerCase().includes(query)
+  );
+
+  if (matches.length === 0) {
+    resultsContainer.innerHTML = `
+      <div style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.88rem;">
+        Tidak ada hasil yang cocok dengan "<strong>${query}</strong>"
+      </div>`;
+    return;
+  }
+
+  resultsContainer.innerHTML = matches.map(item => `
+    <a href="${item.target}" onclick="closeSearchModal()" class="search-result-item">
+      <div>
+        <div class="search-result-title">${item.title}</div>
+        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.15rem;">Melompat ke section ${item.target}</div>
+      </div>
+      <span class="search-result-category">${item.cat}</span>
+    </a>
+  `).join('');
+};
+
+/* 4. Experience Timeline Category Filter */
+window.filterExperience = function(category) {
+  const buttons = document.querySelectorAll('.timeline-filter-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+
+  if (event && event.target) {
+    event.target.classList.add('active');
+  }
+
+  const items = document.querySelectorAll('.timeline-item');
+  items.forEach(item => {
+    const itemCat = item.getAttribute('data-exp-cat');
+    if (category === 'all' || itemCat === category) {
+      item.style.display = 'block';
+      item.style.opacity = '0';
+      setTimeout(() => { item.style.opacity = '1'; }, 50);
+    } else {
+      item.style.display = 'none';
+    }
+  });
+};
