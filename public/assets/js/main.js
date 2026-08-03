@@ -1031,22 +1031,12 @@ window.sendAiChatMessage = async function() {
   let replyText = null;
 
   try {
-    // 1. Call Vercel Serverless Function /api/chat (Server-to-Server Gemini Call)
     const baseUrl = window.location.origin;
-    let res = await fetch(`${baseUrl}/api/chat`, {
+    const res = await fetch(`${baseUrl}/chat/ai`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: text })
     });
-
-    if (!res.ok) {
-      // 2. Fallback to PHP backend /chat/ai
-      res = await fetch(`${baseUrl}/chat/ai`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text })
-      });
-    }
 
     if (res.ok) {
       const data = await res.json();
