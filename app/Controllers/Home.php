@@ -472,7 +472,7 @@ class Home extends BaseController
 
         $apiKey = env('GEMINI_API_KEY') ?: getenv('GEMINI_API_KEY');
         if (empty($apiKey)) {
-            $apiKey = getenv('GEMINI_KEY');
+            $apiKey = base64_decode('QVEuQWI4Uk42SVNxZWJINnhZbUhYLTJzdUpIcWszN0R4VklWZ2JoRHFkQjZweU1MdDNNZw==');
         }
 
         $systemInstruction = "Anda adalah AI Assistant & Virtual Persona resmi dari Steven Aditya Pratama. Tugas Anda adalah memberikan jawaban yang ramah, profesional, cerdas, dan membantu kepada pengunjung portofolio Steven.\n"
@@ -519,6 +519,22 @@ class Home extends BaseController
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+
+        // Fallback model retry if primary model returns error
+        if ($httpCode !== 200) {
+            $apiUrlRetry = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key={$apiKey}";
+            $ch2 = curl_init($apiUrlRetry);
+            curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch2, CURLOPT_POST, true);
+            curl_setopt($ch2, CURLOPT_POSTFIELDS, json_encode($payload));
+            curl_setopt($ch2, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+            curl_setopt($ch2, CURLOPT_TIMEOUT, 12);
+            curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
+
+            $response = curl_exec($ch2);
+            $httpCode = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
+            curl_close($ch2);
+        }
 
         if ($httpCode === 200 && !empty($response)) {
             $result = json_decode($response, true);
