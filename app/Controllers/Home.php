@@ -73,7 +73,7 @@ class Home extends BaseController
                     ]
                 ],
                 'management' => [
-                    'category' => 'Manajemen Gudang & Soft Skills',
+                    'category' => 'Management & Soft Skills',
                     'icon'     => 'fa-users-gear',
                     'items'    => [
                         ['name' => 'Manajemen Aset & Material Gudang', 'fa' => 'fa-boxes-stacked', 'color' => '#f97316', 'level' => 'Experienced'],
@@ -382,14 +382,22 @@ class Home extends BaseController
                 ],
                 [
                     'year'     => '2023',
-                    'title'    => 'Python Essentials 1 & 2',
+                    'title'    => 'Python Essentials 1',
                     'issuer'   => 'Cisco Networking Academy',
                     'type'     => 'Kursus Pemrograman',
                     'icon'     => 'fa-laptop-code',
                     'pdf_file' => 'StevenPE1.pdf'
                 ],
                 [
-                    'year'     => '2024',
+                    'year'     => '2023',
+                    'title'    => 'Python Essentials 2',
+                    'issuer'   => 'Cisco Networking Academy',
+                    'type'     => 'Kursus Pemrograman',
+                    'icon'     => 'fa-laptop-code',
+                    'pdf_file' => 'StevenPE2.pdf'
+                ],
+                [
+                    'year'     => '2025',
                     'title'    => 'Computer Hardware Basics',
                     'issuer'   => 'Cisco Networking Academy',
                     'type'     => 'Kursus Hardware Komputer',
@@ -405,7 +413,7 @@ class Home extends BaseController
                     'pdf_file' => 'StevenNetworkingBasics.pdf.pdf'
                 ],
                 [
-                    'year'     => '2024',
+                    'year'     => '2023',
                     'title'    => 'Database Programming with SQL',
                     'issuer'   => 'Oracle Academy',
                     'type'     => 'Kursus Database',
@@ -413,7 +421,7 @@ class Home extends BaseController
                     'pdf_file' => 'StevenDBSQL.pdf'
                 ],
                 [
-                    'year'     => '2024',
+                    'year'     => '2023',
                     'title'    => 'Database Design',
                     'issuer'   => 'Oracle Academy',
                     'type'     => 'Kursus Database',

@@ -826,3 +826,279 @@ window.filterExperience = function(category) {
     }
   });
 };
+
+/* ==========================================
+   CLI TERMINAL & AI STEVEN CHATBOT LOGIC
+   ========================================== */
+
+/* 1. Interactive Terminal CLI (steven@web-portofolio:~$) */
+window.handleCliKeyDown = function(e) {
+  if (e.key === 'Enter') {
+    const inputEl = document.getElementById('cliInput');
+    const outputContainer = document.getElementById('cliOutput');
+    const command = inputEl.value.trim().toLowerCase();
+    inputEl.value = '';
+
+    if (!command) return;
+
+    // Create command echo
+    const block = document.createElement('div');
+    block.className = 'cli-output-block';
+
+    const echoLine = document.createElement('div');
+    echoLine.className = 'cli-command-echo';
+    echoLine.innerHTML = `<span style="color:#10b981;">steven@web-portofolio:~$</span> ${command}`;
+    block.appendChild(echoLine);
+
+    const respLine = document.createElement('div');
+    respLine.className = 'cli-response-text';
+
+    // Process command
+    switch (command) {
+      case 'help':
+        respLine.innerHTML = `
+          <strong>Perintah Tersedia:</strong><br>
+          • <span style="color:#34d399;">whoami</span> : Profil singkat Steven Aditya Pratama<br>
+          • <span style="color:#34d399;">skills</span> : Daftar keahlian teknis (Fiber Optic, CodeIgniter 4, Cisco, Python)<br>
+          • <span style="color:#34d399;">projects</span> : Proyek ODC Icon Plus, ODP Telkom, Bot Telegram QC<br>
+          • <span style="color:#34d399;">certif</span> : Daftar sertifikasi resmi BNSP & Cisco<br>
+          • <span style="color:#34d399;">contact</span> : Email & Link WhatsApp Steven<br>
+          • <span style="color:#34d399;">clear</span> : Bersihkan layar terminal<br>
+          • <span style="color:#f59e0b;">Kode Rahasia:</span> <span style="color:#10b981;">matrix</span>, <span style="color:#10b981;">slytherin</span>, <span style="color:#10b981;">fiber</span>, <span style="color:#10b981;">cisco</span>, <span style="color:#10b981;">himti</span>, <span style="color:#10b981;">bnsp</span>, <span style="color:#10b981;">sudo</span>
+        `;
+        break;
+
+      case 'whoami':
+        respLine.innerHTML = `
+          <strong>Steven Aditya Pratama (S.Kom Candidate)</strong><br>
+          Lulusan SMK Telkom Jakarta (TKJ) & S1 Teknik Informatika UNDIRA.<br>
+          Pengalaman: PT. Telkom Akses (Warehouse & FO Maintenance), PT. PLN Icon Plus (ODC Network Engineer), PT. Nitoza Indonesia Mandiri (UI/UX).<br>
+          Keahlian Utama: Fiber Optic Splicing (BNSP), Cisco Router, PHP CodeIgniter 4, Machine Learning.
+        `;
+        break;
+
+      case 'skills':
+        respLine.innerHTML = `
+          <strong>Keahlian Teknis & Tools:</strong><br>
+          [Jaringan & FO] : OTDR, OPM, Splicer, GPON OLT, Cisco ASR 920, BNSP Jointer<br>
+          [Web & Dev] : PHP CodeIgniter 4, HTML5, CSS3, JavaScript, Python, MySQL<br>
+          [Tools & Soft] : VS Code, MS Excel Advanced (Pivot/QC), Leadership, Critical Thinking
+        `;
+        break;
+
+      case 'projects':
+        respLine.innerHTML = `
+          <strong>Rekam Jejak Proyek Utama:</strong><br>
+          1. ODC PLN Icon Plus 30 Titik (Banten - Jabodetabek)<br>
+          2. ODP Telkom Akses 50+ Titik (Assurance & Maintenance Rawamangun)<br>
+          3. Telegram Bot API Ticket & QC Material Gudang Telkom Akses<br>
+          4. Chatbot Compy (Asisten Pembelajaran Komputer UNDIRA)<br>
+          5. Prototipe Mobile App PASS (PT. Nitoza Indonesia Mandiri)
+        `;
+        break;
+
+      case 'certif':
+        respLine.innerHTML = `
+          <strong>Sertifikasi Resmi:</strong><br>
+          • BNSP Sertifikasi Telekomunikasi Dengan Kabel (2023)<br>
+          • BNSP Sertifikasi Telekomunikasi Jointer (2022)<br>
+          • Cisco Networking Device and Initial Configuration (2025)<br>
+          • Cisco Python Essentials 1 & 2 (2023)<br>
+          • Cisco Computer Hardware Basics (2025)<br>
+          • Oracle Database Programming with SQL & Design (2023)
+        `;
+        break;
+
+      case 'contact':
+        respLine.innerHTML = `
+          <strong>Kontak Langsung Steven:</strong><br>
+          • Email: <a href="mailto:stevenadityapratama74@gmail.com" style="color:#34d399;">stevenadityapratama74@gmail.com</a><br>
+          • WhatsApp: <a href="https://wa.me/6281289196924" target="_blank" style="color:#34d399;">+62 812-8919-6924</a><br>
+          • LinkedIn: <a href="https://linkedin.com/in/stevenadityapratama" target="_blank" style="color:#34d399;">linkedin.com/in/stevenadityapratama</a>
+        `;
+        break;
+
+      case 'clear':
+        outputContainer.innerHTML = '';
+        return;
+
+      /* Easter Egg Secret Codes */
+      case 'matrix':
+        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">[EASTER EGG ACTIVATED] Starting Matrix Code Animation Stream...</span>`;
+        triggerMatrixEffect();
+        break;
+
+      case 'slytherin':
+      case 'snake':
+        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">🐍 [SLYTHERIN EMERALD POWER] Serpent Crest Activated! Ambition & Resourcefulness.</span>`;
+        triggerSlytherinPulse();
+        break;
+
+      case 'fiber':
+      case 'fo':
+        respLine.innerHTML = `<span style="color:#34d399; font-weight:700;">⚡ [FIBER OPTIC HIGH-SPEED PULSE] 100 Gbps Laser Beam Signal Transmitting...</span>`;
+        triggerFiberPulseEffect();
+        break;
+
+      case 'cisco':
+      case 'router':
+        respLine.innerHTML = `
+          <div style="font-family:monospace; color:#34d399; font-size:0.78rem;">
+            Cisco IOS Software, ASR920 Software (PPC_LINUX_IOSD-UNIVERSALK9-M), Version 15.6(2)S4<br>
+            Technical Support: http://www.cisco.com/techsupport<br>
+            System Bootstrap, Version 15.6(2)rS, RELEASE SOFTWARE (fc1)<br>
+            cisco ASR-920-24SZ-IM (PPC_LINUX_IOSD) processor with 3670016K/524288K bytes of memory.<br>
+            <span style="color:#10b981;">Router# show interfaces GigabitEthernet0/0/0 status -> CONNECTED (1000Mbps Full-Duplex)</span>
+          </div>
+        `;
+        break;
+
+      case 'undira':
+      case 'himti':
+        respLine.innerHTML = `<span style="color:#f59e0b; font-weight:700;">🎓 [HIMTI UNDIRA ACADEMIC BADGE] Wakil Ketua Himpunan Mahasiswa Teknik Informatika (2024-2025).</span>`;
+        break;
+
+      case 'bnsp':
+      case 'jointer':
+        respLine.innerHTML = `<span style="color:#10b981; font-weight:700;">📜 [BNSP VERIFIED CERTIFICATE] Sertifikasi Profesi Nasional Aktivitas Telekomunikasi Dengan Kabel & Jointer.</span>`;
+        break;
+
+      case 'sudo':
+      case 'root':
+        respLine.innerHTML = `<span style="color:#ef4444; font-weight:700;">🔓 [ACCESS GRANTED] Developer Root Privileges Activated! Full Administrative Control Granted.</span>`;
+        break;
+
+      default:
+        respLine.innerHTML = `Perintah "<strong>${command}</strong>" tidak dikenali. Ketik <span style="color:#34d399;">help</span> untuk melihat daftar perintah.`;
+        break;
+    }
+
+    block.appendChild(respLine);
+    outputContainer.appendChild(block);
+    outputContainer.scrollTop = outputContainer.scrollHeight;
+  }
+};
+
+/* 2. Floating AI Steven Assistant Chatbot Logic */
+window.toggleAiChatbot = function() {
+  const windowEl = document.getElementById('aiChatWindow');
+  if (windowEl) {
+    windowEl.classList.toggle('active');
+  }
+};
+
+window.sendQuickAiQuery = function(queryText) {
+  const inputEl = document.getElementById('aiChatInput');
+  if (inputEl) {
+    inputEl.value = queryText;
+    sendAiChatMessage();
+  }
+};
+
+window.sendAiChatMessage = function() {
+  const inputEl = document.getElementById('aiChatInput');
+  const messagesContainer = document.getElementById('aiChatMessages');
+  const text = inputEl.value.trim();
+  if (!text) return;
+
+  // Render User Message
+  const userDiv = document.createElement('div');
+  userDiv.className = 'chat-msg user-msg';
+  userDiv.textContent = text;
+  messagesContainer.appendChild(userDiv);
+  inputEl.value = '';
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+  // Bot Response Logic
+  setTimeout(() => {
+    const botDiv = document.createElement('div');
+    botDiv.className = 'chat-msg bot-msg';
+
+    const lower = text.toLowerCase();
+    if (lower.includes('pengalaman') || lower.includes('kerja') || lower.includes('telkom') || lower.includes('icon')) {
+      botDiv.innerHTML = `
+        Steven memiliki rekam jejak profesional di <strong>PT. Telkom Akses</strong> (Warehouse Refurbish Staff & FO Maintenance) dan <strong>PT. PLN Icon Plus</strong> (Supervisi & QC 30 Titik ODC Banten-Jabodetabek). Memiliki keahlian lengkap di bidang operasional jaringan maupun manajemen gudang! 🏢
+      `;
+    } else if (lower.includes('sertifikat') || lower.includes('bnsp') || lower.includes('cisco') || lower.includes('jointer')) {
+      botDiv.innerHTML = `
+        Steven memegang <strong>Sertifikasi Profesi BNSP Jointer & Telekomunikasi Kabel</strong>, serta sertifikasi internasional Cisco Networking Academy (<em>Networking Devices, Python Essentials 1 & 2, Computer Hardware Basics</em>) dan Oracle Database! 📜
+      `;
+    } else if (lower.includes('keahlian') || lower.includes('skill') || lower.includes('fiber') || lower.includes('web')) {
+      botDiv.innerHTML = `
+        Keahlian utama Steven mencakup: 
+        <br>⚡ <strong>Infrastruktur Jaringan:</strong> Fiber Optic Splicing, OTDR/OPM, GPON OLT, Cisco Router.
+        <br>💻 <strong>Web Dev:</strong> PHP CodeIgniter 4, JavaScript, Python, MySQL.
+        <br>📦 <strong>Gudang:</strong> Manajemen Aset & Material, Stock Opname, MS Excel Advanced.
+      `;
+    } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email')) {
+      botDiv.innerHTML = `
+        Anda dapat menghubungi Steven langsung via:
+        <br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6281289196924" target="_blank" style="color:#34d399; font-weight:600;">+62 812-8919-6924</a>
+        <br>✉️ <strong>Email:</strong> <a href="mailto:stevenadityapratama74@gmail.com" style="color:#34d399; font-weight:600;">stevenadityapratama74@gmail.com</a>
+      `;
+    } else {
+      botDiv.innerHTML = `
+        Terima kasih atas pertanyannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Ada yang ingin ditanyakan lagi? 😊
+      `;
+    }
+
+    messagesContainer.appendChild(botDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }, 400);
+};
+
+/* 3. Matrix Digital Code Easter Egg Animation Engine */
+function triggerMatrixEffect() {
+  const canvas = document.getElementById('matrixCanvas');
+  if (!canvas) return;
+
+  canvas.classList.add('active');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const chars = '01STEVEN10ADITYA10PRATAMA10TELKOM10ICONPLUS10CISC010';
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  let frameCount = 0;
+  const matrixInterval = setInterval(() => {
+    ctx.fillStyle = 'rgba(7, 15, 11, 0.08)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#10b981';
+    ctx.font = `${fontSize}px monospace`;
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars.charAt(Math.floor(Math.random() * chars.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+
+    frameCount++;
+    if (frameCount > 250) { // Stop matrix effect after ~8 seconds
+      clearInterval(matrixInterval);
+      canvas.classList.remove('active');
+    }
+  }, 33);
+}
+
+function triggerSlytherinPulse() {
+  document.body.style.transition = 'box-shadow 0.5s ease';
+  document.body.style.boxShadow = 'inset 0 0 100px #10b981';
+  setTimeout(() => { document.body.style.boxShadow = 'none'; }, 3000);
+}
+
+function triggerFiberPulseEffect() {
+  const cards = document.querySelectorAll('.tilt-card, .project-card, .skill-card, .hero-card');
+  cards.forEach(card => {
+    card.classList.add('highlight-pulse');
+    setTimeout(() => { card.classList.remove('highlight-pulse'); }, 4000);
+  });
+}

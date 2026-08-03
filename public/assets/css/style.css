@@ -2189,3 +2189,324 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   box-shadow: 0 4px 15px rgba(52, 211, 153, 0.3);
 }
+
+/* ==========================================
+   INTERACTIVE TERMINAL CLI & AI CHATBOT STYLES
+   ========================================== */
+
+/* 1. Terminal CLI Modal */
+.terminal-modal-card {
+  width: 100%;
+  max-width: 780px;
+  background: #030a06;
+  border: 1px solid #10b981;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.25), 0 0 25px rgba(0, 0, 0, 0.9);
+  font-family: var(--font-code);
+}
+
+.terminal-header {
+  background: #06150d;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.terminal-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.terminal-title {
+  font-size: 0.8rem;
+  color: #a7f3d0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.terminal-body {
+  padding: 1.25rem;
+  height: 420px;
+  overflow-y: auto;
+  color: #e2e8f0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.terminal-ascii {
+  color: #10b981;
+  font-size: 0.62rem;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.cli-output-block {
+  margin-bottom: 0.85rem;
+}
+
+.cli-command-echo {
+  color: #34d399;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.cli-response-text {
+  color: #cbd5e1;
+  padding-left: 0.5rem;
+  border-left: 2px solid rgba(16, 185, 129, 0.4);
+}
+
+.cli-input-line {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.cli-prompt {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.cli-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  caret-color: #34d399;
+}
+
+/* 2. Floating AI Steven Assistant Chatbot Widget */
+.ai-chatbot-wrapper {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+}
+
+.ai-chat-toggle-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: #ffffff;
+  border: 2px solid #34d399;
+  font-size: 1.45rem;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-chat-toggle-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6);
+}
+
+.ai-pulse-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #34d399;
+  border-radius: 50%;
+  animation: pulseRing 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.ai-chat-window {
+  position: absolute;
+  bottom: 72px;
+  right: 0;
+  width: 360px;
+  height: 480px;
+  background: rgba(7, 20, 14, 0.96);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(16, 185, 129, 0.25);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: chatFadeIn 0.3s ease forwards;
+}
+
+.ai-chat-window.active {
+  display: flex;
+}
+
+@keyframes chatFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.ai-chat-header {
+  background: rgba(6, 21, 13, 0.95);
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-avatar-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-chat-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+.ai-chat-close-btn:hover { color: #ef4444; }
+
+.ai-chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 0.65rem 0.95rem;
+  border-radius: 14px;
+}
+
+.bot-msg {
+  align-self: flex-start;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #e2e8f0;
+  border-top-left-radius: 4px;
+}
+
+.user-msg {
+  align-self: flex-end;
+  background: #059669;
+  color: #ffffff;
+  border-top-right-radius: 4px;
+}
+
+.ai-chat-chips {
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  border-top: 1px solid rgba(16, 185, 129, 0.15);
+  white-space: nowrap;
+}
+
+.ai-chat-chips::-webkit-scrollbar { display: none; }
+
+.ai-chat-chips button {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  font-size: 0.72rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ai-chat-chips button:hover {
+  background: #10b981;
+  color: #070f0b;
+}
+
+.ai-chat-input-area {
+  padding: 0.75rem 0.85rem;
+  background: rgba(6, 21, 13, 0.9);
+  border-top: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ai-chat-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.ai-chat-input:focus { border-color: #10b981; }
+
+.ai-chat-send-btn {
+  background: #10b981;
+  border: none;
+  color: #070f0b;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Matrix Digital Code Canvas Overlay */
+.matrix-canvas-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  pointer-events: none;
+  display: none;
+  opacity: 0.9;
+}
+
+.matrix-canvas-overlay.active {
+  display: block;
+}

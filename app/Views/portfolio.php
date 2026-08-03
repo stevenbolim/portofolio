@@ -273,7 +273,7 @@
           <i class="fas fa-toolbox"></i> <span data-i18n="filter_tools">Software & Tools</span>
         </button>
         <button class="filter-btn" data-filter="management">
-          <i class="fas fa-users-gear"></i> <span data-i18n="filter_mgmt">Manajemen & Soft Skills</span>
+          <i class="fas fa-users-gear"></i> <span data-i18n="filter_mgmt">Management & Soft Skills</span>
         </button>
       </div>
 
@@ -954,20 +954,97 @@
     });
   </script>
 
-  <!-- Quick Search Command Palette Modal (Ctrl + K) -->
+  <!-- Matrix Code Overlay Canvas for Easter Egg -->
+  <canvas id="matrixCanvas" class="matrix-canvas-overlay"></canvas>
+
+  <!-- Interactive Terminal CLI Modal (Ctrl + K / Terminal Mode) -->
   <div id="searchModal" class="search-modal-overlay" onclick="if(event.target === this) closeSearchModal()">
-    <div class="search-modal-card">
-      <div class="search-header">
-        <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" class="search-input" placeholder="Cari skill, proyek, atau pengalaman... (misal: GPON, CodeIgniter, Jointer, Telkom)" oninput="filterSearchResults()">
-        <span class="search-kbd-badge">ESC</span>
+    <div class="terminal-modal-card">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot-red" onclick="closeSearchModal()" title="Close Terminal"></span>
+          <span class="dot-yellow" title="Minimize"></span>
+          <span class="dot-green" title="Maximize"></span>
+        </div>
+        <div class="terminal-title">
+          <i class="fas fa-terminal" style="color:#34d399; margin-right:0.4rem;"></i> Steven CLI v2.5 — Cisco & Network Terminal
+        </div>
+        <span class="search-kbd-badge" onclick="closeSearchModal()" style="cursor:pointer;">ESC</span>
       </div>
-      <div id="searchResults" class="search-results-list">
-        <div style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.88rem;">
-          Tulis kata kunci untuk mencari seluruh isi portofolio Steven Aditya Pratama...
+
+      <div id="terminalBody" class="terminal-body" onclick="document.getElementById('cliInput').focus()">
+        <div class="terminal-welcome">
+          <pre class="terminal-ascii">
+   _____ _____ _______ _____  ______ _   _ 
+  / ____|_   _|__   __/ ____|/ ____| \ | |
+ | (___   | |    | | | |  __| |  __|  \| |
+  \___ \  | |    | | | | |_ | | |_ | . ` |
+  ____) |_| |_   | | | |__| | |__| | |\  |
+ |_____/|_____|  |_|  \_____|\_____|_| \_|
+          </pre>
+          <div style="color:#34d399; font-weight:700; margin-bottom:0.4rem;">
+            [SYSTEM ONLINE] Steven Aditya Pratama Interactive Terminal
+          </div>
+          <div style="color:var(--text-muted); font-size:0.82rem; margin-bottom:0.75rem;">
+            Ketik <span style="color:#10b981; font-weight:600;">help</span> untuk daftar perintah standar, atau ketik kode rahasia (<span style="color:#34d399;">matrix</span>, <span style="color:#34d399;">slytherin</span>, <span style="color:#34d399;">fiber</span>, <span style="color:#34d399;">cisco</span>, <span style="color:#34d399;">himti</span>, <span style="color:#34d399;">bnsp</span>, <span style="color:#34d399;">sudo</span>).
+          </div>
+        </div>
+
+        <div id="cliOutput" class="cli-output"></div>
+
+        <div class="cli-input-line">
+          <span class="cli-prompt">steven@web-portofolio:~$</span>
+          <input type="text" id="cliInput" class="cli-input" autofocus autocomplete="off" spellcheck="false" placeholder="Ketik perintah (contoh: help, skills, matrix)..." onkeydown="handleCliKeyDown(event)">
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Floating AI Steven Assistant Chatbot Widget (Pojok Kanan Bawah) -->
+  <div id="aiChatbotWidget" class="ai-chatbot-wrapper">
+    <!-- Chatbot Dialog Window -->
+    <div id="aiChatWindow" class="ai-chat-window">
+      <div class="ai-chat-header">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <div class="ai-avatar-badge">
+            <i class="fas fa-robot" style="color:#10b981; font-size:1.1rem;"></i>
+          </div>
+          <div>
+            <div style="font-weight:700; font-size:0.92rem; color:#ffffff;">AI Steven Assistant</div>
+            <div style="font-size:0.72rem; color:#34d399; display:flex; align-items:center; gap:0.3rem;">
+              <span style="width:6px; height:6px; background:#10b981; border-radius:50%; display:inline-block;"></span> Online & Ready
+            </div>
+          </div>
+        </div>
+        <button onclick="toggleAiChatbot()" class="ai-chat-close-btn" title="Tutup Chat"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div id="aiChatMessages" class="ai-chat-messages">
+        <div class="chat-msg bot-msg">
+          Halo! 👋 Saya <strong>AI Steven Assistant</strong> (Kloning Digital Steven Aditya Pratama). 
+          Ada yang ingin Anda ketahui tentang pengalaman Fiber Optic, CodeIgniter 4, Sertifikasi BNSP, atau proyek yang dikerjakan Steven?
+        </div>
+      </div>
+
+      <!-- Quick Action Query Chips -->
+      <div class="ai-chat-chips">
+        <button onclick="sendQuickAiQuery('Pengalaman Telkom Akses & PLN Icon Plus')">🏢 Pengalaman Kerja</button>
+        <button onclick="sendQuickAiQuery('Sertifikasi Jointer & Cisco')">📜 Sertifikasi BNSP</button>
+        <button onclick="sendQuickAiQuery('Keahlian Fiber Optic & Web')">⚡ Keahlian Utama</button>
+        <button onclick="sendQuickAiQuery('Kontak & Nomor WhatsApp Steven')">📲 Kontak Direct</button>
+      </div>
+
+      <div class="ai-chat-input-area">
+        <input type="text" id="aiChatInput" class="ai-chat-input" placeholder="Tanyakan sesuatu tentang Steven..." onkeydown="if(event.key==='Enter') sendAiChatMessage()">
+        <button onclick="sendAiChatMessage()" class="ai-chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <!-- Floating Toggle Button -->
+    <button id="aiChatToggleBtn" onclick="toggleAiChatbot()" class="ai-chat-toggle-btn" title="Tanya AI Steven Assistant">
+      <i class="fas fa-robot"></i>
+      <span class="ai-pulse-ring"></span>
+    </button>
   </div>
 
   <script src="<?= base_url('assets/js/main.js') ?>"></script>
