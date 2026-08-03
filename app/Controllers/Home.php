@@ -457,4 +457,89 @@ class Home extends BaseController
             'message' => 'Terima kasih! Pesan Anda telah berhasil dikirim ke Steven Aditya Pratama.'
         ]);
     }
+
+    public function chatAi()
+    {
+        $json = $this->request->getJSON(true);
+        $userMessage = trim($json['message'] ?? '');
+
+        if (empty($userMessage)) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'reply'  => 'Mohon masukkan pertanyaan Anda.'
+            ]);
+        }
+
+        $apiKey = env('GEMINI_API_KEY') ?: getenv('GEMINI_API_KEY');
+        if (empty($apiKey)) {
+            $apiKey = getenv('GEMINI_KEY');
+        }
+
+        $systemInstruction = "Anda adalah AI Assistant & Virtual Persona resmi dari Steven Aditya Pratama. Tugas Anda adalah memberikan jawaban yang ramah, profesional, cerdas, dan membantu kepada pengunjung portofolio Steven.\n"
+            . "Informasi Resmi Steven Aditya Pratama:\n"
+            . "- Nama: Steven Aditya Pratama\n"
+            . "- Pendidikan: SMK Telkom Jakarta (Teknik Komputer Jaringan) & S1 Teknik Informatika di Universitas Dian Nusantara (UNDIRA).\n"
+            . "- Pengalaman Kerja:\n"
+            . "  1. PT. Telkom Akses: Staff Warehouse Refurbish & Pemeliharaan ODP Fiber Optic 50+ titik.\n"
+            . "  2. PT. PLN Icon Plus: QC & Supervisi Pembangunan 30 titik ODC Banten-Jabodetabek.\n"
+            . "  3. PT. Nitoza Indonesia Mandiri: Warehouse Asset & Material Management 10 area gudang.\n"
+            . "- Kepemimpinan: Wakil Ketua HIMTI UNDIRA (2024-2025).\n"
+            . "- Prestasi: Juara 3 Indonesian Chatbot Championship Challenge (STevenIC3).\n"
+            . "- Sertifikasi: BNSP Sertifikasi Profesi Nasional Telekomunikasi Dengan Kabel & Jointer, Cisco Networking Academy (Python Essentials 1 & 2, Computer Hardware Basics, Networking Basics), Oracle Database SQL & DB Design.\n"
+            . "- Keahlian Teknis: Splicing Cable Fiber Optic, OTDR/OPM, GPON OLT, Cisco Routers, PHP CodeIgniter 4, JavaScript, Python, MySQL, UI/UX Design, Stock Opname & Manajemen Gudang.\n"
+            . "- Kontak Resmi: WhatsApp 085810007432, Email stevenaditya55@gmail.com, LinkedIn linkedin.com/in/steven-aditya.\n\n"
+            . "Berikan jawaban dengan nada ramah, bersemangat, dan ringkas namun informatif (gunakan format bold/bullet point jika membantu).";
+
+        $payload = [
+            'system_instruction' => [
+                'parts' => [['text' => $systemInstruction]]
+            ],
+            'contents' => [
+                [
+                    'role' => 'user',
+                    'parts' => [['text' => $userMessage]]
+                ]
+            ],
+            'generationConfig' => [
+                'temperature'     => 0.7,
+                'maxOutputTokens' => 600
+            ]
+        ];
+
+        $apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={$apiKey}";
+
+        $ch = curl_init($apiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 12);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode === 200 && !empty($response)) {
+            $result = json_decode($response, true);
+            $rawReply = $result['candidates'][0]['content']['parts'][0]['text'] ?? null;
+
+            if ($rawReply) {
+                // Convert Markdown to clean HTML tags
+                $formattedReply = preg_replace('/\*\*(.*?)\*\*/s', '<strong>$1</strong>', $rawReply);
+                $formattedReply = nl2br($formattedReply);
+
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'reply'  => $formattedReply
+                ]);
+            }
+        }
+
+        // Fallback response if API limit reached or network error
+        return $this->response->setJSON([
+            'status'  => 'fallback',
+            'reply'   => 'Halo! Steven Aditya Pratama memiliki keahlian di bidang Infrastruktur Fiber Optic, Web Dev CodeIgniter 4, dan Manajemen Gudang. Silakan hubungi langsung via WhatsApp di <strong>085810007432</strong> atau Email <strong>stevenaditya55@gmail.com</strong>.'
+        ]);
+    }
 }

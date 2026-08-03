@@ -1007,7 +1007,7 @@ window.sendQuickAiQuery = function(queryText) {
   }
 };
 
-window.sendAiChatMessage = function() {
+window.sendAiChatMessage = async function() {
   const inputEl = document.getElementById('aiChatInput');
   const messagesContainer = document.getElementById('aiChatMessages');
   const text = inputEl.value.trim();
@@ -1021,47 +1021,55 @@ window.sendAiChatMessage = function() {
   inputEl.value = '';
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-  // Bot Response Logic
-  setTimeout(() => {
+  // Render Typing Indicator
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'chat-msg bot-msg typing-msg';
+  typingDiv.innerHTML = `<i class="fas fa-circle-notch fa-spin" style="color:#34d399; margin-right:0.4rem;"></i> <em>Steven AI sedang berpikir...</em>`;
+  messagesContainer.appendChild(typingDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+  try {
+    const baseUrl = window.location.origin;
+    const res = await fetch(`${baseUrl}/chat/ai`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: text })
+    });
+
+    const data = await res.json();
+    typingDiv.remove();
+
     const botDiv = document.createElement('div');
     botDiv.className = 'chat-msg bot-msg';
 
-    const lower = text.toLowerCase();
-    if (lower.includes('pengalaman') || lower.includes('kerja') || lower.includes('telkom') || lower.includes('icon')) {
-      botDiv.innerHTML = `
-        Steven memiliki rekam jejak profesional di <strong>PT. Telkom Akses</strong> (Warehouse Refurbish Staff & FO Maintenance) dan <strong>PT. PLN Icon Plus</strong> (Supervisi & QC 30 Titik ODC Banten-Jabodetabek). Memiliki keahlian lengkap di bidang operasional jaringan maupun manajemen gudang! 🏢
-      `;
-    } else if (lower.includes('sertifikat') || lower.includes('bnsp') || lower.includes('cisco') || lower.includes('jointer')) {
-      botDiv.innerHTML = `
-        Steven memegang <strong>Sertifikasi Profesi BNSP Jointer & Telekomunikasi Kabel</strong>, serta sertifikasi internasional Cisco Networking Academy (<em>Networking Devices, Python Essentials 1 & 2, Computer Hardware Basics</em>) dan Oracle Database! 📜
-      `;
-    } else if (lower.includes('keahlian') || lower.includes('skill') || lower.includes('fiber') || lower.includes('web')) {
-      botDiv.innerHTML = `
-        Keahlian utama Steven mencakup: 
-        <br>⚡ <strong>Infrastruktur Jaringan:</strong> Fiber Optic Splicing, OTDR/OPM, GPON OLT, Cisco Router.
-        <br>💻 <strong>Web Dev:</strong> PHP CodeIgniter 4, JavaScript, Python, MySQL.
-        <br>📦 <strong>Gudang:</strong> Manajemen Aset & Material, Stock Opname, MS Excel Advanced.
-      `;
-    } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email')) {
-      botDiv.innerHTML = `
-        Anda dapat menghubungi Steven langsung via:
-        <br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a>
-        <br>✉️ <strong>Email:</strong> <a href="mailto:stevenaditya55@gmail.com" style="color:#34d399; font-weight:600;">stevenaditya55@gmail.com</a>
-        <br>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/steven-aditya" target="_blank" style="color:#34d399; font-weight:600;">linkedin.com/in/steven-aditya</a>
-      `;
-    } else if (lower.includes('gimana') || lower.includes('siapa') || lower.includes('orangnya') || lower.includes('kepribadian')) {
-      botDiv.innerHTML = `
-        Steven Aditya Pratama adalah seorang yang <strong>disiplin, berdedikasi tinggi, berjiwa kepemimpinan (Wakil Ketua HIMTI UNDIRA), cepat belajar (fast learner), dan memiliki problem-solving kuat</strong> di bidang Jaringan Fiber Optic maupun Software Development! 🚀
-      `;
+    if (data.status === 'success' && data.reply) {
+      botDiv.innerHTML = data.reply;
     } else {
-      botDiv.innerHTML = `
-        Terima kasih atas pertanyaannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Silakan tanyakan hal lain atau hubungi langsung via WhatsApp! 😊
-      `;
+      // Intelligent Rule-based Fallback
+      const lower = text.toLowerCase();
+      if (lower.includes('pengalaman') || lower.includes('kerja') || lower.includes('telkom') || lower.includes('icon')) {
+        botDiv.innerHTML = `Steven memiliki rekam jejak profesional di <strong>PT. Telkom Akses</strong> (Warehouse Refurbish Staff & FO Maintenance) dan <strong>PT. PLN Icon Plus</strong> (Supervisi & QC 30 Titik ODC Banten-Jabodetabek). Memiliki keahlian lengkap di bidang operasional jaringan maupun manajemen gudang! 🏢`;
+      } else if (lower.includes('sertifikat') || lower.includes('bnsp') || lower.includes('cisco') || lower.includes('jointer')) {
+        botDiv.innerHTML = `Steven memegang <strong>Sertifikasi Profesi BNSP Jointer & Telekomunikasi Kabel</strong>, serta sertifikasi internasional Cisco Networking Academy (<em>Networking Devices, Python Essentials 1 & 2, Computer Hardware Basics</em>) dan Oracle Database! 📜`;
+      } else if (lower.includes('kontak') || lower.includes('wa') || lower.includes('whatsapp') || lower.includes('email')) {
+        botDiv.innerHTML = `Anda dapat menghubungi Steven langsung via:<br>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a><br>✉️ <strong>Email:</strong> <a href="mailto:stevenaditya55@gmail.com" style="color:#34d399; font-weight:600;">stevenaditya55@gmail.com</a>`;
+      } else {
+        botDiv.innerHTML = data.reply || `Terima kasih atas pertanyaannya! Steven Aditya Pratama siap berkontribusi sebagai <strong>Network Engineer, Web Developer (CodeIgniter 4), maupun Admin Pergudangan & Aset</strong>. Silakan hubungi via WhatsApp di 085810007432! 😊`;
+      }
     }
 
     messagesContainer.appendChild(botDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }, 350);
+  } catch (err) {
+    typingDiv.remove();
+    const botDiv = document.createElement('div');
+    botDiv.className = 'chat-msg bot-msg';
+    botDiv.innerHTML = `Halo! Steven Aditya Pratama siap berkontribusi di bidang <strong>Fiber Optic, Web Dev CodeIgniter 4, dan Manajemen Gudang</strong>. Silakan hubungi langsung via WhatsApp: <a href="https://wa.me/6285810007432" target="_blank" style="color:#34d399; font-weight:600;">085810007432</a> 😊`;
+    messagesContainer.appendChild(botDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
 };
 
 /* 3. Real High-Speed Fiber Optic Laser Beam Shot Canvas Engine */
