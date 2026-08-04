@@ -250,7 +250,7 @@ class Home extends BaseController
                 [
                     'institution' => 'Universitas Dian Nusantara',
                     'location'    => 'Jakarta',
-                    'period'      => 'Sep 2022 - Jul 2026',
+                    'period'      => 'Sep 2022 - Ags / Sep 2026',
                     'degree'      => 'S1 Teknik Informatika — Calon Lulusan (Expected Graduation: Aug - Sep 2026)',
                     'score'       => 'Sidang Skripsi Agustus 2026',
                     'details'     => [
