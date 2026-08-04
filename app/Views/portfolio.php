@@ -766,7 +766,7 @@
             <span class="dot"></span> <span>STEVEN ADITYA PRATAMA</span>
           </a>
           <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:1.25rem;" data-i18n="footer_desc">
-            Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Specialist Jointer Fiber Optik / FTTH, Manajemen Pergudangan Telkom Akses, &amp; Front-End Web Developer.
+            Calon Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Specialist Jointer Fiber Optik / FTTH, Manajemen Pergudangan Telkom Akses, &amp; Front-End Web Developer.
           </p>
           <div style="display:flex; gap:0.75rem;">
             <a href="https://www.linkedin.com/in/steven-aditya" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -1069,6 +1069,6 @@
     </button>
   </div>
 
-  <script src="<?= base_url('assets/js/main.js?v=3.7') ?>"></script>
+  <script src="<?= base_url('assets/js/main.js?v=3.8') ?>"></script>
 </body>
 </html>
