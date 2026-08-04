@@ -478,7 +478,7 @@ class Home extends BaseController
         $systemInstruction = "Anda adalah AI Assistant & Virtual Persona resmi dari Steven Aditya Pratama. Tugas Anda adalah memberikan jawaban yang ramah, profesional, cerdas, dan membantu kepada pengunjung portofolio Steven.\n"
             . "Informasi Resmi Steven Aditya Pratama:\n"
             . "- Nama: Steven Aditya Pratama\n"
-            . "- Pendidikan: SMK Telkom Jakarta (Teknik Komputer Jaringan) & S1 Teknik Informatika di Universitas Dian Nusantara (UNDIRA).\n"
+            . "- Pendidikan: SMK Telkom Jakarta (Teknik Komputer Jaringan) & Calon Lulusan S1 Teknik Informatika di Universitas Dian Nusantara (UNDIRA) — Sidang Skripsi Agustus 2026 (Expected Graduation: Agustus - September 2026).\n"
             . "- Pengalaman Kerja:\n"
             . "  1. PT. Telkom Akses: Staff Warehouse Refurbish & Pemeliharaan ODP Fiber Optic 50+ titik.\n"
             . "  2. PT. PLN Icon Plus: QC & Supervisi Pembangunan 30 titik ODC Banten-Jabodetabek.\n"
