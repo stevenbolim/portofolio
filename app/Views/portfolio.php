@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Steven Aditya Pratama - S1 Teknik Informatika, Jointer Fiber Optik / FTTH, Pergudangan & Front-End Web Developer</title>
-  <meta name="description" content="Portofolio Resmi Steven Aditya Pratama - Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Keahlian: Jointer Fiber Optik / FTTH, Manajemen Pergudangan, Network Engineer, & Front-End Web Developer (PHP CodeIgniter 4 / UI/UX).">
+  <meta name="description" content="Portofolio Resmi Steven Aditya Pratama - Calon Lulusan S1 Teknik Informatika Universitas Dian Nusantara (Sidang Skripsi Agustus 2026 / Expected Graduation: Agustus - September 2026). Keahlian: Jointer Fiber Optik / FTTH, Manajemen Pergudangan, Network Engineer, & Front-End Web Developer (PHP CodeIgniter 4 / UI/UX).">
   <meta name="keywords" content="Steven Aditya Pratama, Jointer Fiber Optik, FTTH, Pergudangan, S1 Teknik Informatika, Universitas Dian Nusantara, Web Developer, Front-End Developer, Telkom Akses, Icon Plus">
   <meta name="author" content="Steven Aditya Pratama">
   <meta name="robots" content="index, follow">
@@ -156,7 +156,7 @@
           </div>
 
           <h3><?= esc($profile['nickname']) ?> Aditya Pratama</h3>
-          <p class="role-title">S1 Teknik Informatika | Universitas Dian Nusantara</p>
+          <p class="role-title">Calon Lulusan S1 Teknik Informatika | Universitas Dian Nusantara</p>
 
           <div class="quick-stats-grid">
             <?php foreach ($stats as $st): ?>
@@ -184,7 +184,7 @@
         <div class="about-text">
           <h3 data-i18n="about_h3">Integrasi Keahlian Lapangan & Pengembangan Perangkat Lunak</h3>
           <p data-i18n="about_p1">
-            Saya adalah lulusan SMK Telkom Jakarta (Teknik Komputer Jaringan) dan lulusan S1 Teknik Informatika di Universitas Dian Nusantara. Memiliki pengalaman kerja profesional di perusahaan telekomunikasi terkemuka seperti PT. Telkom Akses, PT. PLN Icon Plus, dan PT. Nitoza Indonesia Mandiri.
+            Saya adalah alumni SMK Telkom Jakarta (Teknik Komputer Jaringan) dan Calon Lulusan S1 Teknik Informatika di Universitas Dian Nusantara (Sidang Skripsi Agustus 2026 / Expected Graduation: Agustus - September 2026). Memiliki pengalaman kerja profesional di perusahaan telekomunikasi terkemuka seperti PT. Telkom Akses, PT. PLN Icon Plus, dan PT. Nitoza Indonesia Mandiri.
           </p>
           <p data-i18n="about_p2">
             Memiliki rekam jejak yang teruji dalam pembangunan dan pemeliharaan serta manajemen kabel jaringan kabel Fiber Optic (ODC & ODP), konfigurasi GPON OLT dan Router, serta manajemen aset dan material infrastruktur jaringan pada 10 area warehouse. Di samping itu, saya secara aktif mengembangkan aplikasi web berbasis PHP CodeIgniter 4, desain UI/UX, dan Machine Learning.
@@ -1069,6 +1069,6 @@
     </button>
   </div>
 
-  <script src="<?= base_url('assets/js/main.js?v=3.6') ?>"></script>
+  <script src="<?= base_url('assets/js/main.js?v=3.7') ?>"></script>
 </body>
 </html>

@@ -17,14 +17,14 @@ class Home extends BaseController
                 'github'       => 'https://github.com/stevenbolim',
                 'google_sites' => 'https://sites.google.com/mahasiswa.undira.ac.id/stevenadityapratama/home',
                 'address'      => 'Asrama Brimob Cipinang Atas, Cipinang, Pulogadung, Jakarta Timur, 13240',
-                'summary'      => 'Lulusan S1 Teknik Informatika dari Universitas Dian Nusantara dengan rekam jejak teruji dalam infrastruktur telekomunikasi, pemeliharaan jaringan serat optik (fiber optic), manajemen aset dan material pergudangan, serta pengembangan Front-End Web dan UI/UX. Pemimpin yang aktif, bekerja keras, serta berdedikasi dalam bidang rekayasa web dan Machine Learning.',
+                'summary'      => 'Calon Lulusan S1 Teknik Informatika dari Universitas Dian Nusantara (Sidang Skripsi Agustus 2026 / Expected Graduation: Agustus - September 2026) dengan rekam jejak teruji dalam infrastruktur telekomunikasi, pemeliharaan jaringan serat optik (fiber optic), manajemen aset dan material pergudangan, serta pengembangan Front-End Web dan UI/UX. Pemimpin yang aktif, bekerja keras, serta berdedikasi dalam bidang rekayasa web dan Machine Learning.',
                 'status'       => 'Terbuka untuk Peluang Kerja & Proyek Jointer Fiber Optik / FTTH, Pergudangan, & Web Development'
             ],
 
             'stats' => [
                 ['label' => 'Pengalaman Kerja', 'value' => '5+ Tahun'],
                 ['label' => 'Proyek Utama', 'value' => '30+ ODC / 10 Gudang'],
-                ['label' => 'Program Studi', 'value' => 'S1 Teknik Informatika'],
+                ['label' => 'Program Studi', 'value' => 'S1 Teknik Informatika (Calon Lulusan 2026)'],
                 ['label' => 'Target SLA & Fix Rate', 'value' => '95% - 100%']
             ],
 
@@ -251,8 +251,8 @@ class Home extends BaseController
                     'institution' => 'Universitas Dian Nusantara',
                     'location'    => 'Jakarta',
                     'period'      => 'Sep 2022 - Jul 2026',
-                    'degree'      => 'S1 Teknik Informatika (S.Kom)',
-                    'score'       => 'Program Studi Teknik Informatika',
+                    'degree'      => 'S1 Teknik Informatika — Calon Lulusan (Expected Graduation: Aug - Sep 2026)',
+                    'score'       => 'Sidang Skripsi Agustus 2026',
                     'details'     => [
                         'Wakil Ketua Himpunan Mahasiswa Teknik Informatika (HIMTI)',
                         'Asisten Laboratorium & Instruktur Jaringan pada Program Kegiatan Prodi Teknik Informatika',
