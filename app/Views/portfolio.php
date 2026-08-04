@@ -1069,6 +1069,6 @@
     </button>
   </div>
 
-  <script src="<?= base_url('assets/js/main.js?v=3.8') ?>"></script>
+  <script src="<?= base_url('assets/js/main.js?v=3.9') ?>"></script>
 </body>
 </html>

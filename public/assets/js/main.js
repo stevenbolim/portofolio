@@ -392,7 +392,7 @@ const i18n = {
     hero_subtitle_2: "Network Engineer",
     hero_subtitle_3: "Fiber Optic Specialist",
     hero_subtitle_4: "Front-End Web & UI/UX Developer",
-    hero_summary: "Lulusan S1 Teknik Informatika dari Universitas Dian Nusantara dengan rekam jejak teruji dalam infrastruktur telekomunikasi, pemeliharaan jaringan serat optik (fiber optic), manajemen aset dan material pergudangan, serta pengembangan Front-End Web dan UI/UX. Pemimpin yang aktif, bekerja keras, serta berdedikasi dalam bidang rekayasa web dan Machine Learning.",
+    hero_summary: "Calon Lulusan S1 Teknik Informatika dari Universitas Dian Nusantara (Sidang Skripsi Agustus 2026 / Expected Graduation: Agustus - September 2026) dengan rekam jejak teruji dalam infrastruktur telekomunikasi, pemeliharaan jaringan serat optik (fiber optic), manajemen aset dan material pergudangan, serta pengembangan Front-End Web dan UI/UX. Pemimpin yang aktif, bekerja keras, serta berdedikasi dalam bidang rekayasa web dan Machine Learning.",
     btn_view_projects: "Lihat Proyek Unggulan",
     btn_contact_me: "Hubungi Saya",
     btn_view_cv: "Lihat CV (JPG)",
@@ -409,7 +409,7 @@ const i18n = {
     about_title_suffix: "Saya",
     about_intro_p: "Kombinasi keahlian di bidang Infrastruktur Telekomunikasi Fiber Optic, Manajemen Aset dan Material Gudang, serta Pemrograman Web & UI/UX Design.",
     about_h3: "Integrasi Keahlian Lapangan & Pengembangan Perangkat Lunak",
-    about_p1: "Saya adalah lulusan SMK Telkom Jakarta (Teknik Komputer Jaringan) dan lulusan S1 Teknik Informatika di Universitas Dian Nusantara. Memiliki pengalaman kerja profesional di perusahaan telekomunikasi terkemuka seperti PT. Telkom Akses, PT. PLN Icon Plus, dan PT. Nitoza Indonesia Mandiri.",
+    about_p1: "Saya adalah alumni SMK Telkom Jakarta (Teknik Komputer Jaringan) dan Calon Lulusan S1 Teknik Informatika di Universitas Dian Nusantara (Sidang Skripsi Agustus 2026 / Expected Graduation: Agustus - September 2026). Memiliki pengalaman kerja profesional di perusahaan telekomunikasi terkemuka seperti PT. Telkom Akses, PT. PLN Icon Plus, dan PT. Nitoza Indonesia Mandiri.",
     about_p2: "Memiliki rekam jejak yang teruji dalam pembangunan dan pemeliharaan serta manajemen kabel jaringan kabel Fiber Optic (ODC & ODP), konfigurasi GPON OLT dan Router, serta manajemen aset dan material infrastruktur jaringan pada 10 area warehouse. Di samping itu, saya secara aktif mengembangkan aplikasi web berbasis PHP CodeIgniter 4, desain UI/UX, dan Machine Learning.",
     highlight_title_1: "Infrastruktur Jaringan dan Fiber Optic",
     highlight_desc_1: "Pengalaman QC & pembangunan 30 titik ODC PLN Icon Plus & pemeliharaan 50+ ODP Telkom Akses.",
@@ -479,7 +479,7 @@ const i18n = {
     btn_send_message: "Kirim Pesan Sekarang",
 
     // Footer
-    footer_desc: "Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Specialist Jointer Fiber Optik / FTTH, Manajemen Pergudangan Telkom Akses, & Front-End Web Developer.",
+    footer_desc: "Calon Lulusan S1 Teknik Informatika Universitas Dian Nusantara. Specialist Jointer Fiber Optik / FTTH, Manajemen Pergudangan Telkom Akses, & Front-End Web Developer.",
     footer_nav_title: "Navigasi Pintar",
     footer_contact_title: "Hubungi Langsung",
     footer_stats_title: "Statistik Pengunjung",
@@ -503,7 +503,7 @@ const i18n = {
     hero_subtitle_2: "Network Engineer",
     hero_subtitle_3: "Fiber Optic Specialist",
     hero_subtitle_4: "Front-End Web & UI/UX Developer",
-    hero_summary: "Bachelor of Computer Science graduate from Dian Nusantara University with a proven track record in telecommunications infrastructure, fiber optic network maintenance, warehouse asset management, and Front-End Web & UI/UX development. Active leader dedicated to web engineering and Machine Learning.",
+    hero_summary: "Final-Year Informatics Engineering Student & Prospective Graduate (August - September 2026) from Dian Nusantara University with a proven track record in telecommunications infrastructure, fiber optic network maintenance, warehouse asset management, and Front-End Web & UI/UX development. Active leader dedicated to web engineering and Machine Learning.",
     btn_view_projects: "View Featured Projects",
     btn_contact_me: "Contact Me",
     btn_view_cv: "View CV (JPG)",
@@ -520,7 +520,7 @@ const i18n = {
     about_title_suffix: "Me",
     about_intro_p: "Combination of expertise in Fiber Optic Telecom Infrastructure, Asset & Warehouse Material Management, and Web Programming & UI/UX Design.",
     about_h3: "Integrating Field Engineering & Software Development",
-    about_p1: "Graduate of SMK Telkom Jakarta (Network Engineering) and Bachelor of Computer Science from Dian Nusantara University. Professional work experience at leading telecommunications companies such as PT. Telkom Akses, PT. PLN Icon Plus, and PT. Nitoza Indonesia Mandiri.",
+    about_p1: "Alumni of SMK Telkom Jakarta (Network Engineering) and Prospective Graduate in S1 Informatics Engineering at Dian Nusantara University (Thesis Defense August 2026 / Expected Graduation: August - September 2026). Professional work experience at leading telecommunications companies such as PT. Telkom Akses, PT. PLN Icon Plus, and PT. Nitoza Indonesia Mandiri.",
     about_p2: "Proven track record in construction, maintenance, and cable management of Fiber Optic networks (ODC & ODP), GPON OLT and Router configuration, as well as asset and material management across 10 warehouse areas. Additionally, actively developing web applications using PHP CodeIgniter 4, UI/UX design, and Machine Learning.",
     highlight_title_1: "Network & Fiber Optic Infrastructure",
     highlight_desc_1: "QC & construction of 30 PLN Icon Plus ODC locations & maintenance of 50+ Telkom Akses ODPs.",
@@ -590,7 +590,7 @@ const i18n = {
     btn_send_message: "Send Message Now",
 
     // Footer
-    footer_desc: "Bachelor of Computer Science graduate from Dian Nusantara University. Specialist Fiber Optic / FTTH Jointer, Telkom Akses Warehouse Management, & Front-End Web Developer.",
+    footer_desc: "Prospective Graduate in Informatics Engineering (Aug - Sep 2026) from Dian Nusantara University. Specialist Fiber Optic / FTTH Jointer, Telkom Akses Warehouse Management, & Front-End Web Developer.",
     footer_nav_title: "Quick Links",
     footer_contact_title: "Direct Contact",
     footer_stats_title: "Visitor Statistics",
