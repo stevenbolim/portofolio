@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Steven Aditya Pratama - S1 Teknik Informatika, Jointer Fiber Optik / FTTH, Pergudangan & Front-End Web Developer</title>
-  <meta name="description" content="Portofolio Resmi Steven Aditya Pratama - Calon Lulusan S1 Teknik Informatika Universitas Dian Nusantara (Sidang Skripsi Agustus 2026 / Expected Graduation: Agustus - September 2026). Keahlian: Jointer Fiber Optik / FTTH, Manajemen Pergudangan, Network Engineer, & Front-End Web Developer (PHP CodeIgniter 4 / UI/UX).">
+  <title>Steven Aditya Pratama | Portofolio</title>
+  <meta name="title" content="Steven Aditya Pratama | Portofolio">
+  <meta name="description" content="Portofolio Steven Aditya Pratama, Calon Lulusan S1 Teknik Informatika UNDIRA. Spesialis Jointer Fiber Optik, Pergudangan, & Front-End Web Developer.">
   <meta name="keywords" content="Steven Aditya Pratama, Jointer Fiber Optik, FTTH, Pergudangan, S1 Teknik Informatika, Universitas Dian Nusantara, Web Developer, Front-End Developer, Telkom Akses, Icon Plus">
   <meta name="author" content="Steven Aditya Pratama">
   <meta name="robots" content="index, follow">
@@ -14,9 +15,20 @@
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stevenadityapratama.vercel.app/">
-  <meta property="og:title" content="Steven Aditya Pratama - Portofolio Profesional & Keahlian">
-  <meta property="og:description" content="S1 Teknik Informatika | Jointer Fiber Optik / FTTH | Pergudangan | Front-End Web Developer.">
-  <meta property="og:image" content="<?= base_url('assets/img/steven_profile.jpg') ?>">
+  <meta property="og:site_name" content="Portofolio Steven Aditya Pratama">
+  <meta property="og:title" content="Steven Aditya Pratama | Portofolio">
+  <meta property="og:description" content="Portofolio Steven Aditya Pratama, Calon Lulusan S1 Teknik Informatika UNDIRA. Spesialis Jointer Fiber Optik, Pergudangan, & Front-End Web Developer.">
+  <meta property="og:image" content="<?= base_url('assets/img/og-cover.png') ?>">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+
+  <!-- Twitter / X Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://stevenadityapratama.vercel.app/">
+  <meta name="twitter:title" content="Steven Aditya Pratama | Portofolio">
+  <meta name="twitter:description" content="Portofolio Steven Aditya Pratama, Calon Lulusan S1 Teknik Informatika UNDIRA. Spesialis Jointer Fiber Optik, Pergudangan, & Front-End Web Developer.">
+  <meta name="twitter:image" content="<?= base_url('assets/img/og-cover.png') ?>">
 
   <!-- Schema.org JSON-LD Structured Data for Google Indexing -->
   <script type="application/ld+json">
