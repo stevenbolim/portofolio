@@ -1324,3 +1324,38 @@ window.addEventListener('scroll', function() {
     }
   }
 });
+
+/* ==========================================================================
+   13. High-Performance IntersectionObserver Scroll Reveal Engine
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  const revealTargets = document.querySelectorAll(
+    '.section-title, .about-intro-box, .about-highlight-card, .skill-card, .project-card, .timeline-item, .achievement-card, .publication-card, .contact-info-card, .contact-form-card, .stat-card, .hero-card, .section'
+  );
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.08
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active');
+      }
+    });
+  }, observerOptions);
+
+  revealTargets.forEach((el, idx) => {
+    if (!el.classList.contains('reveal-left') && 
+        !el.classList.contains('reveal-right') && 
+        !el.classList.contains('reveal-scale')) {
+      el.classList.add('reveal-init');
+    }
+
+    const delayIndex = (idx % 4) + 1;
+    el.classList.add(`reveal-delay-${delayIndex}`);
+    revealObserver.observe(el);
+  });
+});

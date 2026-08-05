@@ -62,7 +62,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
   <!-- Custom Glassmorphism Stylesheet -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=3.0') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=3.1') ?>">
 </head>
 <body>
 
@@ -1081,6 +1081,6 @@
     </button>
   </div>
 
-  <script src="<?= base_url('assets/js/main.js?v=4.1') ?>"></script>
+  <script src="<?= base_url('assets/js/main.js?v=4.2') ?>"></script>
 </body>
 </html>
